@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/bradley/Cisco/HackIT/hl3/app'
 let g:netrw_dirhist_2='/Users/bradley/Cisco/HackIT/hl3/app/assets/javascripts/topProjects'
 let g:netrw_dirhist_3='/Users/bradley/Cisco/HackIT/hl3/app/assets/javascripts'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/Users/bradley/.vim/bundle/.git'
 let g:netrw_dirhist_5='/Users/bradley/My Site/app/controllers'
 let g:netrw_dirhist_6='/Users/bradley/Cisco/HackIT/hl3'
 let g:netrw_dirhist_7='/Users/bradley/.git'
+let g:netrw_dirhist_8='/Users/bradley/My Site'
