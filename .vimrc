@@ -7,7 +7,14 @@ filetype plugin indent on
 " My config
 syntax on
 setlocal number
-set mouse=a
+if has("mouse")
+  set mouse=a
+  set mousehide
+  if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+  endif"
+endif
 set expandtab
 set tabstop=2
 set shiftwidth=2
