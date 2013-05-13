@@ -1,4 +1,8 @@
-source /Users/bradley/.rvm/scripts/rvm
+OS=`uname`
+
+if [ "{$OS}" == "Darwin" ]; then
+  source /Users/bradley/.rvm/scripts/rvm
+fi
 
 EDITOR=vim
 
@@ -14,4 +18,15 @@ alias pi='ssh pi@24.23.164.236'
 
 alias gc='python ~/Programming/Git-Journal/Git-Journal.py -r'
 
-search () { /usr/bin/find . -name "*$@*" ; }
+### Functions
+
+# Search current directory recursively for filenames containing $@
+search () {
+  /usr/bin/find . -name "*$@*"
+}
+
+# cd clears the terminal every use
+cd () {
+  builtin cd "$@"
+  clear
+}
