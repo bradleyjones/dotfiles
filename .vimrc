@@ -25,6 +25,7 @@ set si "Smart indent
 set wrap "Wrap lines
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<
+set backspace=indent,eol,start
 
 " Ruby gem file syntax
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
