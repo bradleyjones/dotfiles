@@ -2,7 +2,8 @@
 
 DIR=`pwd`
 
-ln -s $DIR/.bashrc ~
-ln -s $DIR/.tmux.conf ~
-ln -s $DIR/.vim ~
-ln -s $DIR/.vimrc ~
+ln -s $DIR/bashrc ~/.bashrc
+ln -s $DIR/tmux.conf ~/.tmux.conf
+ln -s $DIR/vim ~/.vim
+ln -s $DIR/vimrc ~/.vimrc
+ln -s $DIR/gitconfig ~/.gitconfig
