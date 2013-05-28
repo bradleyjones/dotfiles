@@ -1,4 +1,5 @@
 OS=`uname`
+EDITOR=vim
 
 if [ "$OS" == "Darwin" ]; then
   source /Users/bradley/.rvm/scripts/rvm
