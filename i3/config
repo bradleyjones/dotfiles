@@ -98,7 +98,7 @@ set $three 3: editing
 set $four 4: testing
 set $five 5
 set $six 6
-set $seven 7
+set $seven 7: email
 set $eight 8: hangouts
 set $nine 9: spotify
 set $ten 10: system
@@ -179,6 +179,10 @@ bindsym --release $mod+a exec --no-startup-id xdotool key --clearmodifiers ctrl+
 
 # Assign apps workspaces
 assign [class="Spotify"] $nine
+assign [class="Chromium-browser" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $eight
+
+# Float apps
+for_window [class="Chromium-browser" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating enable
 
 # powersaving
 exec gksudo /home/bradley/powersave
