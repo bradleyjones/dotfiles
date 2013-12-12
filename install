@@ -8,3 +8,7 @@ ln -s $DIR/vim ~/.vim
 ln -s $DIR/vimrc ~/.vimrc
 ln -s $DIR/gitconfig ~/.gitconfig
 ln -s $DIR/i3 ~/.i3
+ln -s $DIR/Xresources ~/.Xresources
+
+#load Xresources
+xrdb ~/.Xresources

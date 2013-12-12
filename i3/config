@@ -13,13 +13,13 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font -misc-fixed-medium-r-normal--10-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
-font pango:Ubuntu 11
+# font pango:Ubuntu 11
 
 # Border style for new windows
 new_window 1pixel
@@ -179,19 +179,20 @@ bindsym --release $mod+a exec --no-startup-id xdotool key --clearmodifiers ctrl+
 
 # Assign apps workspaces
 assign [class="Spotify"] $nine
-assign [class="Chromium-browser" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $eight
+assign [class="Chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $eight
 
 # Float apps
-for_window [class="Chromium-browser" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating enable
+for_window [class="Chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating enable
 
 # powersaving
-exec gksudo /home/bradley/powersave
+# exec gksudo /home/bradley/powersave
 
 # Startup apps
-exec xbacklight -set 50
+exec xcompmgr -fF & # Starts composition manager for window transparency
+exec xbacklight -set 70
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id nm-applet
-exec --no-startup-id gnome-settings-daemon
+# exec --no-startup-id wicd-client -t # nm-applet
+# exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id dropbox start
 
 # Start i3bar to display a workspace bar (plus the system information i3status
