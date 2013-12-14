@@ -1,9 +1,15 @@
 URxvt.iso14755: false
-URxvt.perl-ext-common:  default,clipboard
+URxvt.perl-ext-common:  default,clipboard,font-size
 
 ! Copy and Paste
 URxvt.keysym.C-C:   perl:clipboard:copy
 URxvt.keysym.C-V:   perl:clipboard:paste
+
+! Change font size
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
 
 ! Transparent
 URxvt*transparent: false
@@ -80,14 +86,10 @@ URxvt*foreground: #909090
 ! The colour of the border around the text area and between the scrollbar and the text.
 ! URxvt*borderColor: colour
 
-! The font
-
-
 ! Select the fonts to be used. This is a comma separated list of font names that are checked
 ! URxvt*font: fontlist
 
 ! URxvt*boldFont: fontlist
-
 !
 ! URxvt*italicFont: fontlist
 

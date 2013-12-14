@@ -1,0 +1,8 @@
+# Images
+image/jpeg; gpicview %s
+image/jpg; gpicview %s
+image/png; gpicview %s
+image/gif; gpicview %s
+
+# PDFs
+application/pdf; evince %s

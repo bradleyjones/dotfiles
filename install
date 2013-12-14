@@ -9,6 +9,12 @@ ln -s $DIR/vimrc ~/.vimrc
 ln -s $DIR/gitconfig ~/.gitconfig
 ln -s $DIR/i3 ~/.i3
 ln -s $DIR/Xresources ~/.Xresources
+ln -s $DIR/conkyrc ~/.conkyrc
+ln -s $DIR/mail/msmtprc ~/.msmtprc
+ln -s $DIR/mail/muttrc ~/.muttrc
+ln -s $DIR/mail/offlineimaprc ~/.offlineimaprc
+ln -s $DIR/mail/mailcap ~/.mutt/mailcap
+ln -s $DIR/mail/getpasswords.py ~/.mutt/getpasswords.py
 
 #load Xresources
 xrdb ~/.Xresources

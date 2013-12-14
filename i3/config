@@ -164,8 +164,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Tab workspace back_and_forth
 
 # backlight
-bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 2
+bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 2
 
 # volume controls
 bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -- '-5%'
@@ -176,6 +176,7 @@ bindsym XF86AudioMute exec /usr/bin/pactl set-sink-volume 0 0
 bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
 bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 bindsym --release $mod+a exec --no-startup-id xdotool key --clearmodifiers ctrl+a
+bindsym --release $mod+s exec --no-startup-id xdotool key --clearmodifiers ctrl+s
 
 # Assign apps workspaces
 assign [class="Spotify"] $nine
@@ -198,7 +199,7 @@ exec --no-startup-id dropbox start
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command i3status
+	status_command conky -c ~/.conkyrc
 	position top
 	colors {
 		background #3C3B37
