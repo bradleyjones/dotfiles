@@ -22,11 +22,33 @@ set beep_new             # bell on new mails
 set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
 
+# Colors ---------------------------------------------
+color normal default default
+color status green default              # color of interface
+color index brightcyan default ~N       # color new messages
+color index brightred default ~D        # color messages marked for deletion
+color header yellow default "^from:"     # color from field in header
+color header yellow default "^to:"       # color to field in header
+color header yellow default "^cc:"       # color cc field in header
+color header cyan default "^date:"     # color date field in header
+color header cyan default "^subject:"  # color subject field in header
+color attachment red default         # color attachements
+color tilde default default           # make the bottom of the message look like rest of page
+# URLs
+color body brightgreen default "(https|http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+color body brightyellow default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
 # Sidebar Patch --------------------------------------
 set sidebar_delim   = '  │'
 set sidebar_visible = yes
 set sidebar_width   = 24
-color sidebar_new color221 color233
+color sidebar_new yellow default
+# b toggles sidebar visibility
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro pager b '<enter-command>toggle sidebar_visible<enter>'
+
+# Remap bounce-message function to "B"
+bind index B bounce-message
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
