@@ -1,0 +1,23 @@
+# ------------ CaffeinatedBrad -----------------------
+set spoolfile = "+bj59/INBOX"
+
+# Mailboxes to show in the sidebar.
+mailboxes +bj59/INBOX \
+          +bj59/Assessments \
+          +bj59/Cisco \
+          +bj59/Drafts \
+          +bj59/Job\ applications \
+          +bj59/Keep \
+          +bj59/Placement \
+          +bj59/Sent\ Messages \
+          +bj59/Software\ engineering \
+
+# Other special folders.
+set mbox      = "+bj59/INBOX"
+set postponed = "+bj59/Drafts"
+
+# Send mail via msmtp
+set from     = "bj59@kent.ac.uk"
+set sendmail = "/usr/bin/msmtp -a bj59"
+set sendmail_wait = 0
+unset record

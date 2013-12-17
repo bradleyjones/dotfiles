@@ -96,8 +96,8 @@ set $one 1: browser
 set $two 2: servers
 set $three 3: editing
 set $four 4: testing
-set $five 5
-set $six 6
+set $five 5: testing
+set $six 6: irc
 set $seven 7: email
 set $eight 8: hangouts
 set $nine 9: spotify
@@ -190,7 +190,7 @@ for_window [class="Chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] fl
 
 # Startup apps
 exec xcompmgr -fF & # Starts composition manager for window transparency
-exec xbacklight -set 70
+exec xbacklight -set 50
 exec --no-startup-id nitrogen --restore
 # exec --no-startup-id wicd-client -t # nm-applet
 # exec --no-startup-id gnome-settings-daemon

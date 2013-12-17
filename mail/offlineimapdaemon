@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Check connection status
+if ! ping -c1 www.google.com > /dev/null 2>&1; then 
+    # Ping could be firewalled ...
+    # '-O -' will redirect the actual html to stdout and thus to /dev/null
+    if ! wget -O - www.google.com > /dev/null 2>&1; then
+        # Both tests failed. We are probably offline 
+        # (or google is offline, i.e. the end has come)
+        exit 1;
+    fi
+fi
+
+# check if offlineimap is running:
+pid=$(pgrep -f "/usr/bin/offlineimap")
+if [[ ${pid} -gt 0 ]] ; then
+    echo "Offlineimap is running with pid ${pid}"
+    exit 1
+fi
+
+# check email
+quicksync="offlineimap -o -qf INBOX -u quiet"
+longsync="offlineimap -o -u quiet"
+
+curtime=$(date +%s)
+if [ -e ~/.offlineimap_lastlongsynctime ] ; then 
+    # Last sync file exists
+    lastlongsync=$(<~/.offlineimap_lastlongsynctime) >/dev/null # The unix time of the last long sync
+    timediff=$(( curtime - lastlongsync ))
+    if [[ ${timediff} -gt ${longsyncdiff} ]]; then
+        echo ${curtime} > ~/.offlineimap_lastlongsynctime
+        exec ${longsync}
+    else
+        exec ${quicksync}
+    fi
+else
+    # Do the long sync
+    echo ${curtime} > ~/.offlineimap_lastlongsynctime
+    exec ${longsync}
+fi

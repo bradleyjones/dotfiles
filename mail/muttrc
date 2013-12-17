@@ -25,7 +25,7 @@ set thorough_search      # strip headers and eval mimes before searching
 # Colors ---------------------------------------------
 color normal default default
 color status green default              # color of interface
-color index brightcyan default ~N       # color new messages
+color index brightyellow default ~N       # color new messages
 color index brightred default ~D        # color messages marked for deletion
 color header yellow default "^from:"     # color from field in header
 color header yellow default "^to:"       # color to field in header
@@ -34,6 +34,8 @@ color header cyan default "^date:"     # color date field in header
 color header cyan default "^subject:"  # color subject field in header
 color attachment red default         # color attachements
 color tilde default default           # make the bottom of the message look like rest of page
+color tree red default
+color indicator brightgreen black
 # URLs
 color body brightgreen default "(https|http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
 color body brightyellow default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
@@ -65,7 +67,7 @@ hdr_order from: to: cc: date: subject:  # and in this order
 # Index View Options ---------------------------------
 
 set date_format = "%m/%d"
-set index_format = "[%Z]  %D  %-20.20F  %s"
+set index_format = "%4C [%Z] %D %-20.20n %M %s"
 set sort = threads                         # like gmail
 set sort_aux = reverse-last-date-received  # like gmail
 set uncollapse_jump                        # don't collapse on an unread message
@@ -127,6 +129,13 @@ bind attach <return> view-mailcap
 # Open URLs in email
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
+# auto view html emails
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# auto view jpgs as ascii
+auto_view image/jpg
+auto_view image/jpeg
 
 
 
@@ -158,20 +167,13 @@ bind compose p postpone-message
 
 # Account Settings -----------------------------------
 
-# ------------ CaffeinatedBrad -----------------------
 # Default inbox.
-set spoolfile = "+caffeinatedbrad/INBOX"
+source ~/.mutt/accounts/jones.bradley
 
-# Mailboxes to show in the sidebar.
-mailboxes +caffeinatedbrad/INBOX \
-          +caffeinatedbrad/archive \
-          +caffeinatedbrad/sent \
-          +caffeinatedbrad/drafts \
-# Other special folders.
-set mbox      = "+caffeinatedbrad/archive"
-set postponed = "+caffeinatedbrad/drafts"
-# Send mail via msmtp
-set from     = "caffeinatedbrad@gmail.com"
-set sendmail = "/usr/bin/msmtp -a caffeinatedbrad"
-set sendmail_wait = 0
-unset record
+folder-hook jones.bradley/* 'source ~/.mutt/accounts/jones.bradley'
+folder-hook caffeinatedbrad/* 'source ~/.mutt/accounts/caffeinatedbrad'
+folder-hook bj59/* 'source ~/.mutt/accounts/bj59'
+
+macro index,pager <f1> '<sync-mailbox><enter-command>source ~/.mutt/accounts/jones.bradley<enter><change-folder>!<enter>'
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/caffeinatedbrad<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/bj59<enter><change-folder>!<enter>'

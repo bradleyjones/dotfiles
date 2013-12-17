@@ -1,19 +1,25 @@
 [general]
-ui = TTY.TTYUI
-accounts = CaffeinatedBrad
+# keep quiet for cronjob
+ui = quiet
+# ui for debugging and feedback
+# ui = TTYUI
+accounts = CaffeinatedBrad, jones.bradley, bj59
 pythonfile = ~/.mutt/getpasswords.py
 fsync = False
-
-[Account CaffeinatedBrad]
-localrepository = CaffeinatedBrad-Local
-remoterepository = CaffeinatedBrad-Remote
-status_backend = sqlite
 
 # You can have offlineimap continue running indefinately, automatically
 # syncing your mail periodically. If you want that, specify how
 # frequently to do that (in minutes) here. You can also specify
 # fractional minutes (ie, 3.25).
-#autorefresh = 3.25
+autorefresh = 3.25
+quick = 10
+
+
+
+[Account CaffeinatedBrad]
+localrepository = CaffeinatedBrad-Local
+remoterepository = CaffeinatedBrad-Remote
+status_backend = sqlite
 
 [Repository CaffeinatedBrad-Local]
 type = Maildir
@@ -38,9 +44,72 @@ nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
                             '[Gmail]/All Mail':  'archive',
                             }.get(folder, folder)
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
-                                             'Nagios',
-                                             'Django',
-                                             'Flask',
                                              '[Gmail]/Important',
                                              '[Gmail]/Spam',
                                              ]
+keepalive = 60
+holdconnectionopen = yes
+
+
+[Account jones.bradley]
+localrepository = jones.bradley-Local
+remoterepository = jones.bradley-Remote
+status_backend = sqlite
+
+[Repository jones.bradley-Local]
+type = Maildir
+localfolders = ~/.mail/jones.bradley
+
+[Repository jones.bradley-Remote]
+type = IMAP
+ssl = yes
+remotehost = imap.mail.me.com
+remoteuser = jones.bradley@me.com
+remotepasseval = get_password(account="jones.bradley@me.com")
+keepalive = 60
+holdconnectionopen = yes
+
+[Account bj59]
+localrepository = bj59-Local
+remoterepository = bj59-Remote
+status_backend = sqlite
+
+[Repository bj59-Local]
+type = Maildir
+localfolders = ~/.mail/bj59
+
+[Repository bj59-Remote]
+maxconnections = 1
+type = IMAP
+ssl = yes
+remotehost = pod51036.outlook.com
+remoteuser = bj59@kent.ac.uk
+remotepasseval = get_password(account="bj59@kent.ac.uk")
+folderfilter = lambda folder: folder not in ['Calendar',
+                                             'Contacts',
+                                             'Notes',
+                                             'Journal',
+                                             'Tasks',
+                                             'Deleted Items',
+                                             'Deleted Messages',
+                                             'Outbox',
+                                             'Sent Items',
+                                             ]
+keepalive = 60
+holdconnectionopen = yes
+
+#[Account bradjone]
+#localrepository = bradjone-Local
+#remoterepository = bradjone-Remote
+#status_backend = sqlite
+
+#[Repository bradjone-Local]
+#type = Maildir
+#localfolders = ~/.mail/bradjone
+
+#[Repository bradjone-Remote]
+#type = IMAP
+#ssl = yes
+#remotehost = mobilemail.cisco.com
+#remoteuser = bradjone@cisco.com
+#remotepasseval = get_password(account="bradjone@cisco.com")

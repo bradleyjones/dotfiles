@@ -57,9 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='┌─[\e[0;31m\u\e[m]-[\e[0;34m\w\e[m]\e[0;35m$( git_branch )\e[m\n└─╼ '
+    PS1='┌─[\e[0;31m\u\e[m]-[\e[0;32m\w\e[m]\e[0;35m$( git_branch )\e[m\n└─╼ '
 else
-    PS1='┌─[\e[0;31m\u\e[m]-[\e[0;34m\w\e[m]\e[0;35m$( git_branch )\e[m\n└─╼ '
+    PS1='┌─[\e[0;31m\u\e[m]-[\e[0;32m\w\e[m]\e[0;35m$( git_branch )\e[m\n└─╼ '
 fi
 unset color_prompt force_color_prompt
 

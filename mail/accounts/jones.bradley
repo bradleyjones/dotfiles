@@ -1,0 +1,30 @@
+# ------------ CaffeinatedBrad -----------------------
+set spoolfile = "+jones.bradley/INBOX"
+
+# Mailboxes to show in the sidebar.
+mailboxes +jones.bradley/INBOX \
+          +jones.bradley/Accounts \
+          +jones.bradley/Banking \
+          +jones.bradley/Cisco \
+          +jones.bradley/Connections \
+          +jones.bradley/Cycling \
+          +jones.bradley/Drafts \
+          +jones.bradley/Family \
+          +jones.bradley/Friends \
+          +jones.bradley/Mobile \
+          +jones.bradley/Orders \
+          +jones.bradley/Payroll \
+          +jones.bradley/Rewards\ Programs \
+          +jones.bradley/Sent\ Messages \
+          +jones.bradley/Travel \
+          +jones.bradley/Uni \
+
+# Other special folders.
+set mbox      = "+jones.bradley/Archive"
+set postponed = "+jones.bradley/Drafts"
+
+# Send mail via msmtp
+set from     = "jones.bradley@me.com"
+set sendmail = "/usr/bin/msmtp -a jones.bradley"
+set sendmail_wait = 0
+unset record
