@@ -68,7 +68,10 @@ function git_branch {
 }
 
 function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+  if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]]
+  then
+    echo "*"
+  fi
 }
 
 # If this is an xterm set the title to user@host:dir
