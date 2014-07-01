@@ -13,17 +13,18 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--10-120-75-75-C-70-iso10646-1
+#font -misc-fixed-medium-r-normal--10-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
 # font pango:Ubuntu 11
+font pango:Terminus 8
 
 # Border style for new windows
 new_window 1pixel
-hide_edge_borders both
+#hide_edge_borders both
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -42,10 +43,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -54,10 +55,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -66,7 +67,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Shift+V split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -100,7 +101,7 @@ set $five 5: testing
 set $six 6: irc
 set $seven 7: email
 set $eight 8: hangouts
-set $nine 9: spotify
+set $nine 9: media
 set $ten 10: system
 
 # switch to workspace and setup workspace names
@@ -142,10 +143,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -184,6 +185,7 @@ assign [class="Chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $eight
 
 # Float apps
 for_window [class="Chromium" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating enable
+for_window [class="Wicd-client.py"] floating enable
 
 # powersaving
 # exec gksudo /home/bradley/powersave
@@ -199,7 +201,7 @@ exec --no-startup-id dropbox start
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command conky -c ~/.conkyrc
+	status_command echo '{"version":1}'; echo '['; echo '[],'; conky -c ~/.conkyrc
 	position top
 	colors {
 		background #3C3B37

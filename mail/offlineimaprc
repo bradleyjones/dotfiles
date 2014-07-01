@@ -3,7 +3,7 @@
 ui = quiet
 # ui for debugging and feedback
 # ui = TTYUI
-accounts = CaffeinatedBrad, jones.bradley, bj59
+accounts = CaffeinatedBrad, jones.bradley, bj59, bradjone
 pythonfile = ~/.mutt/getpasswords.py
 fsync = False
 
@@ -98,18 +98,21 @@ folderfilter = lambda folder: folder not in ['Calendar',
 keepalive = 60
 holdconnectionopen = yes
 
-#[Account bradjone]
-#localrepository = bradjone-Local
-#remoterepository = bradjone-Remote
-#status_backend = sqlite
+[Account bradjone]
+localrepository = bradjone-Local
+remoterepository = bradjone-Remote
+status_backend = sqlite
 
-#[Repository bradjone-Local]
-#type = Maildir
-#localfolders = ~/.mail/bradjone
+[Repository bradjone-Local]
+type = Maildir
+localfolders = ~/.mail/bradjone
 
-#[Repository bradjone-Remote]
-#type = IMAP
-#ssl = yes
-#remotehost = mobilemail.cisco.com
-#remoteuser = bradjone@cisco.com
-#remotepasseval = get_password(account="bradjone@cisco.com")
+[Repository bradjone-Remote]
+type = IMAP
+ssl = yes
+remotehost = mail.cisco.com
+remoteuser = bradjone@cisco.com
+remotepasseval = get_password(account="bradjone@cisco.com")
+folderfilter = lambda folder: folder not in ['Calendar',
+                                             'Contacts',
+                                             ]

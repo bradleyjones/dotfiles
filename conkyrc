@@ -43,30 +43,30 @@ override_utf8_locale no
 ## set to 1 to disable averaging
 cpu_avg_samples 2
 
-## Sensors examples
-# Top Process: ${top name 1}
-# Root: {fs_used /}/${fs_size /} /home ${fs_free /home} /${fs_size /home}
-# Load: ${loadavg 1} ${loadavg 2} ${loadavg 3} 
-# Load: $loadavg
-# Swap: ${swap}/${swapmax} (${swapperc}%)
-# Processes: ${running_processes} / ${processes}
-# CPU: $cpu% 
-# HDD: $diskio_read :Read $diskio_write :Write
-# Temp: Core0: ${exec sensors | awk '/Core 0/ {print $3}'} Core1: ${exec sensors | awk '/Core 1/ {print $3}'}
-# Freq: ${freq cpu0}Mhz
-# Uptime: $uptime
-# Kernel:$kernel on $machine
-# Name: $nodename - $sysname
-# Battery: ${battery_percent BAT0}%
-
+#
+#
 ## Stuff after 'TEXT' will be formatted on screen
 TEXT
-/home ${fs_free /home} | # Free space on /home
-/ ${fs_free /} | # Free space on /
-eth0 ${if_up eth0}${addr eth0}${endif} | # Ethernet status
-wlan0 ${if_up wlan0}${addr wlan0}${endif} | # Wireless status
-ram ${memperc}% | #RAM Usage
-brightness ${exec xbacklight | awk '{print int($1)}'}% | # brightness
-battery ${battery_percent BAT0}% | # Battery Usage
-${time %a %d.%m.%y} ${time %H:%M} | # Time and Date
-#♪ ${exec pactl list sinks | awk '/Volume: 0:/ {print substr($3, 1, index($3, "%") - 1)}'}%
+# JSON for i3bar
+#
+  [{ "full_text" : "${exec /$HOME/.vpncheck}" ,
+         "color" : "\#ff0000" },
+   { "full_text" : " ✉ ${exec /$HOME/.newmail} " ,
+         "color" : ${if_match ${exec /$HOME/.newmail}>0}"\#ff0000"${else}"\#ffffff"${endif} },
+   { "full_text" : "RAM ${memperc}%" ,
+         "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
+   { "full_text" : "/ ${fs_free /} /home ${fs_free /home}" ,
+         "color" : "\#ffffff" },
+   { "full_text" : "${if_up eth0}eth0 ${addr eth0}${endif}" ,
+         "color" : "\#49DB04" },
+   { "full_text" : "${if_up wlan0}wlan0 ${addr wlan0}${endif}" ,
+         "color" : "\#49DB04" },
+   { "full_text" : "☼ ${exec xbacklight | awk '{print int($1)}'}%" ,
+         "color" : "\#ffffff" },
+   { "full_text" : "${exec /$HOME/.mutecheck}" ,
+         "color" : "\#ffffff" },
+   { "full_text" : "ϟ ${battery_percent BAT0}%" ,
+         "color" : ${if_match ${battery_percent BAT0}>20}"\#ffffff"${else}"\#ff0000"${endif} },
+   { "full_text" : "${time %a %d} ${time %H:%M}" ,
+         "color" : "\#ffffff" }
+  ],
