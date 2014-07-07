@@ -118,6 +118,8 @@ color_terminals=
 
 rxvt-unicode-256color=
 
+screen-256color=
+
 [Panels]
 simple_swap=false
 show_mini_info=true
