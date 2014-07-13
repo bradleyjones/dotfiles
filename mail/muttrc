@@ -168,6 +168,17 @@ bind compose p postpone-message
 # Account Settings -----------------------------------
 
 # Default inbox.
+#mailboxes ="-------- Me -------"
+source ~/.mutt/accounts/jones.bradley
+mailboxes =" "
+mailboxes ="  "
+source ~/.mutt/accounts/caffeinatedbrad
+mailboxes ="   "
+mailboxes ="    "
+source ~/.mutt/accounts/bj59
+mailboxes ="     "
+mailboxes ="      "
+source ~/.mutt/accounts/bradjone
 source ~/.mutt/accounts/jones.bradley
 
 folder-hook jones.bradley/* 'source ~/.mutt/accounts/jones.bradley'

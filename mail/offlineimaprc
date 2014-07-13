@@ -35,7 +35,7 @@ nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
 maxconnections = 1
 type = Gmail
 remoteuser = caffeinatedbrad@gmail.com
-remotepasseval = get_password(account="caffeinatedbrad@gmail.com")
+remotepasseval = get_password("caffeinatedbrad@gmail.com")
 realdelete = no
 nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
                             '[Gmail]/Sent Mail': 'sent',
@@ -65,7 +65,7 @@ type = IMAP
 ssl = yes
 remotehost = imap.mail.me.com
 remoteuser = jones.bradley@me.com
-remotepasseval = get_password(account="jones.bradley@me.com")
+remotepasseval = get_password("jones.bradley@me.com")
 keepalive = 60
 holdconnectionopen = yes
 
@@ -84,7 +84,7 @@ type = IMAP
 ssl = yes
 remotehost = pod51036.outlook.com
 remoteuser = bj59@kent.ac.uk
-remotepasseval = get_password(account="bj59@kent.ac.uk")
+remotepasseval = get_password("bj59@kent.ac.uk")
 folderfilter = lambda folder: folder not in ['Calendar',
                                              'Contacts',
                                              'Notes',
@@ -112,7 +112,7 @@ type = IMAP
 ssl = yes
 remotehost = mail.cisco.com
 remoteuser = bradjone@cisco.com
-remotepasseval = get_password(account="bradjone@cisco.com")
+remotepasseval = get_password("bradjone@cisco.com")
 folderfilter = lambda folder: folder not in ['Calendar',
                                              'Contacts',
                                              ]

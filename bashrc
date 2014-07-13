@@ -134,7 +134,3 @@ fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source /home/bradley/.rvm/scripts/rvm
-
-if [[ ! $TERM =~ screen ]]; then
-  exec tmux
-fi

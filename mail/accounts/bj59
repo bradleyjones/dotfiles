@@ -1,16 +1,18 @@
 # ------------ CaffeinatedBrad -----------------------
-set spoolfile = "+bj59/INBOX"
+set folder = ~/.mail/bj59
+set spoolfile = "+------ Kent ------"
 
 # Mailboxes to show in the sidebar.
-mailboxes +bj59/INBOX \
-          +bj59/Assessments \
-          +bj59/Cisco \
-          +bj59/Drafts \
-          +bj59/Job\ applications \
-          +bj59/Keep \
-          +bj59/Placement \
-          +bj59/Sent\ Messages \
-          +bj59/Software\ engineering \
+mailboxes ="------ Kent ------" \
+          =Assessments \
+          =Cisco \
+          =Drafts \
+          =Job\ applications \
+          =Keep \
+          =Placement \
+          =Sent\ Messages \
+          =Software\ engineering  \
+
 
 # Other special folders.
 set mbox      = "+bj59/INBOX"

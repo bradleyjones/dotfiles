@@ -1,0 +1,26 @@
+# ------------ CaffeinatedBrad -----------------------
+set folder = ~/.mail/bradjone
+set spoolfile = "+------ Cisco ------"
+
+# Mailboxes to show in the sidebar.
+mailboxes ="------ Cisco ------" \
+          =INBOX.Accounts \
+          =INBOX.Keep \
+          =2013 \
+          =Curvature\ &-\ Donabe \
+          =Drafts \
+          =Grad\ Job \
+          =Hong\ Kong \
+          =Sent\ Items \
+          =Trash \
+
+
+# Other special folders.
+set mbox      = "+bradjone/INBOX"
+set postponed = "+bradjone/Drafts"
+
+# Send mail via msmtp
+set from     = "bradjone@cisco.com"
+set sendmail = "/usr/bin/msmtp -a bradjone"
+set sendmail_wait = 0
+unset record

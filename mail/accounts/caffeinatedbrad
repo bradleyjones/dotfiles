@@ -1,11 +1,13 @@
 # ------------ CaffeinatedBrad -----------------------
-set spoolfile = "+caffeinatedbrad/INBOX"
+set folder = ~/.mail/caffeinatedbrad
+set spoolfile = "+------ GMail ------"
 
 # Mailboxes to show in the sidebar.
-mailboxes +caffeinatedbrad/INBOX \
-          +caffeinatedbrad/archive \
-          +caffeinatedbrad/sent \
-          +caffeinatedbrad/drafts \
+mailboxes ="------ GMail ------" \
+          =INBOX \
+          =archive \
+          =sent \
+          =drafts \
 
 # Other special folders.
 set mbox      = "+caffeinatedbrad/archive"

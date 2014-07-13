@@ -1,23 +1,25 @@
-# ------------ CaffeinatedBrad -----------------------
-set spoolfile = "+jones.bradley/INBOX"
+# ------------ jones.brad ----------------------
+set folder = ~/.mail/jones.bradley
+set spoolfile = "+------ Me ------"
 
 # Mailboxes to show in the sidebar.
-mailboxes +jones.bradley/INBOX \
-          +jones.bradley/Accounts \
-          +jones.bradley/Banking \
-          +jones.bradley/Cisco \
-          +jones.bradley/Connections \
-          +jones.bradley/Cycling \
-          +jones.bradley/Drafts \
-          +jones.bradley/Family \
-          +jones.bradley/Friends \
-          +jones.bradley/Mobile \
-          +jones.bradley/Orders \
-          +jones.bradley/Payroll \
-          +jones.bradley/Rewards\ Programs \
-          +jones.bradley/Sent\ Messages \
-          +jones.bradley/Travel \
-          +jones.bradley/Uni \
+mailboxes ="------ Me ------" \
+          =Accounts \
+          =Banking \
+          =Cisco \
+          =Connections \
+          =Cycling \
+          =Drafts \
+          =Family \
+          =Friends \
+          =Mobile \
+          =Orders \
+          =Payroll \
+          =Rewards\ Programs \
+          =Sent\ Messages \
+          =Travel \
+          =Uni
+
 
 # Other special folders.
 set mbox      = "+jones.bradley/Archive"
