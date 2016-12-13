@@ -20,6 +20,7 @@ Plug 'tpope/vim-repeat' " Make some plugins repeatable
 Plug 'tmhedberg/SimpylFold' " Improve folding for python code
 Plug 'junegunn/vim-easy-align' " Align text/tables,variables, etc
 Plug 'reedes/vim-pencil' " Makes writing prose better in vim
+Plug 'ctrlpvim/ctrlp.vim' " CtrlP Fuzzy file & buffer menu
 
 filetype plugin indent on
 call plug#end()
@@ -33,8 +34,8 @@ let g:syntastic_check_on_wq = 0
 
 
 " CtrlP Settings
-:let g:ctrlp_map = '<Leader>t'
-:let g:ctrlp_match_window_bottom = 0
+:let g:ctrlp_map = '<C-p>'
+:let g:ctrlp_match_window_bottom = 1
 :let g:ctrlp_match_window_reversed = 0
 :let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 :let g:ctrlp_working_path_mode = 0
@@ -87,6 +88,11 @@ iabbrev me@ jones.bradley@me.com
 " Key Mappings -------------------------------------------------------------{{{
 map j gj
 map k gk
+" provide hjkl movements in Insert mode via the <Alt> modifier key
+inoremap <C-h> <C-o>h
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-l> <C-o>l
 
 ":nmap <leader>l :set number!<CR>
 :nmap <leader>p :set paste!<CR>
@@ -94,7 +100,7 @@ map k gk
 :nmap <leader>r :source ~/.vimrc<CR>:echo "Reloaded vimrc!"<CR>
 :nmap \q :nohlsearch<CR> " Clear the search hightlight
 
-:nmap ; :CtrlPBuffer<CR>
+:nmap <C-b> :CtrlPBuffer<CR>
 
 " }}}
 " Colours & Theming ------------------------------------------------------- {{{
