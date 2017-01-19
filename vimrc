@@ -68,7 +68,7 @@ set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set backspace=indent,eol,start
 set tw=80
-set colorcolumn=80
+set colorcolumn=81
 filetype plugin indent on
 
 set clipboard=unnamed
@@ -87,6 +87,10 @@ iabbrev me@ jones.bradley@me.com
 " Key Mappings -------------------------------------------------------------{{{
 map j gj
 map k gk
+
+" extra map for ESC key while using iPad Pro Smart Keyboard
+map § <esc>
+:imap § <esc>
 
 ":nmap <leader>l :set number!<CR>
 :nmap <leader>p :set paste!<CR>
@@ -131,7 +135,7 @@ augroup END
 " Writing Prose (blogs, commits, etc.) {{{
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd,md call pencil#init({'wrap': 'hard'})
+  "autocmd FileType markdown,mkd,md call pencil#init({'wrap': 'soft'})
   autocmd FileType md call pencil#init({'wrap': 'hard'})
   "autocmd FileType text,txt        call pencil#init({'wrap': 'hard'})
   autocmd FileType mail            call pencil#init({'wrap': 'hard'})
