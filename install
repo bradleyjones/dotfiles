@@ -2,23 +2,33 @@
 
 DIR=`pwd`
 
-ln -s $DIR/bashrc ~/.bashrc
+# SHELL
+#ln -s $DIR/bashrc ~/.bashrc
+
+# TMUX
 ln -s $DIR/tmux.conf ~/.tmux.conf
-ln -s $DIR/vim ~/.vim
+
+# VIM
+mkdir -p ~/.vim/autoload
+mkdir -p ~/.vim/bundle
 ln -s $DIR/vimrc ~/.vimrc
+
+# GIT
 ln -s $DIR/gitconfig ~/.gitconfig
-ln -s $DIR/i3 ~/.i3
-ln -s $DIR/Xresources ~/.Xresources
-ln -s $DIR/conkyrc ~/.conkyrc
-ln -s $DIR/mail/msmtprc ~/.msmtprc
-ln -s $DIR/mail/muttrc ~/.muttrc
-ln -s $DIR/mail/offlineimaprc ~/.offlineimaprc
-ln -s $DIR/mail/mailcap ~/.mutt/mailcap
-ln -s $DIR/mail/accounts ~/.mutt/accounts
-ln -s $DIR/mail/getpasswords.py ~/.mutt/getpasswords.py
-ln -s $DIR/config/awesome ~/.config/awesome
-ln -s $DIR/config/mc ~/.config/mc
-ln -s $DIR/config/compton.conf ~/.config/compton.conf
+
+
+#ln -s $DIR/i3 ~/.i3
+#ln -s $DIR/Xresources ~/.Xresources
+#ln -s $DIR/conkyrc ~/.conkyrc
+#ln -s $DIR/mail/msmtprc ~/.msmtprc
+#ln -s $DIR/mail/muttrc ~/.muttrc
+#ln -s $DIR/mail/offlineimaprc ~/.offlineimaprc
+#ln -s $DIR/mail/mailcap ~/.mutt/mailcap
+#ln -s $DIR/mail/accounts ~/.mutt/accounts
+#ln -s $DIR/mail/getpasswords.py ~/.mutt/getpasswords.py
+#ln -s $DIR/config/awesome ~/.config/awesome
+#ln -s $DIR/config/mc ~/.config/mc
+#ln -s $DIR/config/compton.conf ~/.config/compton.conf
 
 #load Xresources
-xrdb ~/.Xresources
+#xrdb ~/.Xresources
