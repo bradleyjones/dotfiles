@@ -10,14 +10,14 @@ ln -s $DIR/tmux.conf ~/.tmux.conf
 
 # VIM
 mkdir -p ~/.vim/autoload
-mkdir -p ~/.vim/bundle
 ln -s $DIR/vimrc ~/.vimrc
 
 # GIT
 ln -s $DIR/gitconfig ~/.gitconfig
 
+# i3wm
+ln -s $DIR/i3 ~/.i3
 
-#ln -s $DIR/i3 ~/.i3
 #ln -s $DIR/Xresources ~/.Xresources
 #ln -s $DIR/conkyrc ~/.conkyrc
 #ln -s $DIR/mail/msmtprc ~/.msmtprc
