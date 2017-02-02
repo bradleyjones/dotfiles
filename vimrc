@@ -98,7 +98,8 @@ inoremap <C-l> <C-o>l
 map § <esc>
 :imap § <esc>
 
-":nmap <leader>l :set number!<CR>
+:nmap <leader>l :set number!<CR>
+:nmap <leader>L :set relativenumber!<CR>
 :nmap <leader>p :set paste!<CR>
 :nmap <leader>e :NERDTreeToggle<CR>
 :nmap <leader>r :source ~/.vimrc<CR>:echo "Reloaded vimrc!"<CR>
