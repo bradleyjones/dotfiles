@@ -21,6 +21,8 @@ Plug 'tmhedberg/SimpylFold' " Improve folding for python code
 Plug 'junegunn/vim-easy-align' " Align text/tables,variables, etc
 Plug 'reedes/vim-pencil' " Makes writing prose better in vim
 Plug 'ctrlpvim/ctrlp.vim' " CtrlP Fuzzy file & buffer menu
+Plug 'vimwiki/vimwiki' " vimwiki organise notes & todo lists, export to HTML
+Plug 'mattn/calendar-vim' " Calendar
 
 filetype plugin indent on
 call plug#end()
@@ -83,6 +85,12 @@ iabbrev me@ jones.bradley@me.com
 :set ignorecase
 :set smartcase
 :set hlsearch
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 " }}}
 " Key Mappings -------------------------------------------------------------{{{
@@ -147,6 +155,25 @@ augroup pencil
   "autocmd FileType text,txt        call pencil#init({'wrap': 'hard'})
   autocmd FileType mail            call pencil#init({'wrap': 'hard'})
 augroup END
+" }}}
+" VimWiki Specific {{{
+let g:vimwiki_folding='list'
+au BufRead,BufNewFile *.wiki set filetype=vimwiki
+:autocmd FileType vimwiki map n :VimwikiMakeDiaryNote
+function! ToggleCalendar()
+  execute ":Calendar"
+  if exists("g:calendar_open")
+    if g:calendar_open == 1
+      execute "q"
+      unlet g:calendar_open
+    else
+      g:calendar_open = 1
+    end
+  else
+    let g:calendar_open = 1
+  end
+endfunction
+:autocmd FileType vimwiki map c :call ToggleCalendar()
 " }}}
 
 " }}}

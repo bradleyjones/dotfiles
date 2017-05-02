@@ -1,29 +1,39 @@
 # ------------ jones.brad ----------------------
-set folder = ~/.mail/jones.bradley
-set spoolfile = "+------ Me ------"
+set folder = ~/.mail/me
+set spoolfile = "+Inbox"
 
 # Mailboxes to show in the sidebar.
 mailboxes ="------ Me ------" \
+          =Inbox \
           =Accounts \
+          =Archive \
           =Banking \
           =Cisco \
           =Connections \
           =Cycling \
+          =Deleted\ Messages \
           =Drafts \
           =Family \
           =Friends \
+          =House \
+          =Junk \
           =Mobile \
+          =openstack-gerrit \
           =Orders \
           =Payroll \
+          =Sent \
           =Rewards\ Programs \
           =Sent\ Messages \
+          =Sent\ Myself \
+          =Trash \
           =Travel \
           =Uni
 
 
 # Other special folders.
-set mbox      = "+jones.bradley/Archive"
-set postponed = "+jones.bradley/Drafts"
+set mbox      = "+Inbox"
+set postponed = "+Drafts"
+set trash     = "+Trash"
 
 # Send mail via msmtp
 set from     = "jones.bradley@me.com"

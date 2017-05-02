@@ -41,9 +41,9 @@ color body brightgreen default "(https|http|ftp|news|telnet|finger)://[^ \"\t\r\
 color body brightyellow default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
 
 # Sidebar Patch --------------------------------------
-set sidebar_delim   = '  │'
 set sidebar_visible = yes
 set sidebar_width   = 24
+set sidebar_short_path = yes
 color sidebar_new yellow default
 # b toggles sidebar visibility
 macro index b '<enter-command>toggle sidebar_visible<enter>'
@@ -169,24 +169,20 @@ bind compose p postpone-message
 
 # Default inbox.
 #mailboxes ="-------- Me -------"
-source ~/.mutt/accounts/jones.bradley
+source ~/.mutt/accounts/cisco
 mailboxes =" "
 mailboxes ="  "
-source ~/.mutt/accounts/caffeinatedbrad
-mailboxes ="   "
-mailboxes ="    "
-source ~/.mutt/accounts/bj59
-mailboxes ="     "
-mailboxes ="      "
-source ~/.mutt/accounts/bradjone
 source ~/.mutt/accounts/jones.bradley
+#mailboxes ="   "
+#mailboxes ="    "
+#source ~/.mutt/accounts/caffeinatedbrad
+source ~/.mutt/accounts/cisco
 
 folder-hook jones.bradley/* 'source ~/.mutt/accounts/jones.bradley'
-folder-hook caffeinatedbrad/* 'source ~/.mutt/accounts/caffeinatedbrad'
-folder-hook bj59/* 'source ~/.mutt/accounts/bj59'
-folder-hook bradjone/* 'source ~/.mutt/accounts/bradjone'
+#folder-hook caffeinatedbrad/* 'source ~/.mutt/accounts/caffeinatedbrad'
+#folder-hook bj59/* 'source ~/.mutt/accounts/bj59'
+folder-hook cisco/* 'source ~/.mutt/accounts/cisco'
 
-macro index,pager <f1> '<sync-mailbox><enter-command>source ~/.mutt/accounts/jones.bradley<enter><change-folder>!<enter>'
-macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/caffeinatedbrad<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/bj59<enter><change-folder>!<enter>'
-macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.mutt/accounts/bradjone<enter><change-folder>!<enter>'
+macro index,pager <f1> '<sync-mailbox><enter-command>source ~/.mutt/accounts/cisco<enter><change-folder>+Inbox<enter>'
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/jones.bradley<enter><change-folder>+Inbox<enter>'
+#macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/caffeinatedbrad<enter><change-folder>!<enter>'

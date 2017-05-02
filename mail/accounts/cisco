@@ -1,23 +1,22 @@
 # ------------ CaffeinatedBrad -----------------------
-set folder = ~/.mail/bradjone
-set spoolfile = "+------ Cisco ------"
+set folder = ~/.mail/cisco
+set spoolfile = "+Inbox"
 
 # Mailboxes to show in the sidebar.
 mailboxes ="------ Cisco ------" \
-          =INBOX.Accounts \
-          =INBOX.Keep \
-          =2013 \
-          =Curvature\ &-\ Donabe \
+          =Inbox \
+          =Deleted\ Items \
           =Drafts \
-          =Grad\ Job \
-          =Hong\ Kong \
+          =Keep \
+          =openstack-dev \
+          =openstack-mailer-cisco \
           =Sent\ Items \
-          =Trash \
 
 
 # Other special folders.
-set mbox      = "+bradjone/INBOX"
-set postponed = "+bradjone/Drafts"
+set mbox      = "+Inbox"
+set postponed = "+Drafts"
+set trash     = "+Deleted\ Items"
 
 # Send mail via msmtp
 set from     = "bradjone@cisco.com"
