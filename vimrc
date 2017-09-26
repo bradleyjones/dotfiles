@@ -147,7 +147,14 @@ augroup ft_python
     au FileType python setlocal foldmethod=expr foldexpr=SimpylFold(v:lnum)
 augroup END
 " }}}
-" Writing Prose (blogs, commits, etc.) {{{
+" Yaml {{{
+augroup ft_yaml
+    au!
+    au FileType yaml setlocal tw=9000
+    au FileType yml setlocal tw=9000
+augroup END
+" }}}
+" Writ ing Prose (blogs, commits, etc.) {{{
 augroup pencil
   autocmd!
   "autocmd FileType markdown,mkd,md call pencil#init({'wrap': 'soft'})

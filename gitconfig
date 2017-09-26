@@ -5,3 +5,5 @@
 	editor = vim
 [push]
 	default = simple
+[gitreview]
+	username = bradjones
