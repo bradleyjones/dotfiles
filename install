@@ -4,6 +4,7 @@ DIR=`pwd`
 
 # SHELL
 #ln -s $DIR/bashrc ~/.bashrc
+ln -s $DIR/zsh ~/.zshrc
 
 # TMUX
 ln -s $DIR/tmux.conf ~/.tmux.conf
