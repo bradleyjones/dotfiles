@@ -4,7 +4,7 @@ DIR=`pwd`
 
 # SHELL
 #ln -s $DIR/bashrc ~/.bashrc
-ln -s $DIR/zsh ~/.zshrc
+ln -s $DIR/zshrc ~/.zshrc
 
 # TMUX
 ln -s $DIR/tmux.conf ~/.tmux.conf
@@ -17,14 +17,14 @@ ln -s $DIR/vimrc ~/.vimrc
 ln -s $DIR/gitconfig ~/.gitconfig
 
 # i3wm
-ln -s $DIR/i3 ~/.i3
+#ln -s $DIR/i3 ~/.i3
 
 #ln -s $DIR/Xresources ~/.Xresources
 #ln -s $DIR/conkyrc ~/.conkyrc
-ln -s $DIR/mail/msmtprc ~/.msmtprc
-ln -s $DIR/mail/muttrc ~/.muttrc
-ln -s $DIR/mail/mailcap ~/.mutt/mailcap
-ln -s $DIR/mail/accounts ~/.mutt/accounts
+#ln -s $DIR/mail/msmtprc ~/.msmtprc
+#ln -s $DIR/mail/muttrc ~/.muttrc
+#ln -s $DIR/mail/mailcap ~/.mutt/mailcap
+#ln -s $DIR/mail/accounts ~/.mutt/accounts
 #ln -s $DIR/mail/getpasswords.py ~/.mutt/getpasswords.py
 #ln -s $DIR/config/awesome ~/.config/awesome
 #ln -s $DIR/config/mc ~/.config/mc

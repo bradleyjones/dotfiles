@@ -23,6 +23,10 @@ Plug 'reedes/vim-pencil' " Makes writing prose better in vim
 Plug 'ctrlpvim/ctrlp.vim' " CtrlP Fuzzy file & buffer menu
 Plug 'vimwiki/vimwiki' " vimwiki organise notes & todo lists, export to HTML
 Plug 'mattn/calendar-vim' " Calendar
+Plug 'rizzatti/dash.vim' " Dash integration
+Plug 'vim-airline/vim-airline' " Vim airline - status bar
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 
 filetype plugin indent on
 call plug#end()
@@ -36,13 +40,20 @@ let g:syntastic_check_on_wq = 0
 
 
 " CtrlP Settings
-:let g:ctrlp_map = '<C-p>'
-:let g:ctrlp_match_window_bottom = 1
-:let g:ctrlp_match_window_reversed = 0
-:let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-:let g:ctrlp_working_path_mode = 0
-:let g:ctrlp_dotfiles = 0
-:let g:ctrlp_switch_buffer = 0
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_match_window_bottom = 1
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_switch_buffer = 0
+
+" Airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='simple'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:tmuxline_powerline_separators = 0
+
 " }}}
 " }}}
 " General Settings ---------------------------------------------------------{{{
@@ -70,13 +81,11 @@ set wrap "Wrap lines
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set backspace=indent,eol,start
-set tw=80
-set colorcolumn=81
+set tw=79
+set colorcolumn=80
 filetype plugin indent on
 
 set clipboard=unnamed
-
-setlocal spell spelllang=en_gb
 
 iabbrev me@ jones.bradley@me.com
 
@@ -104,16 +113,19 @@ inoremap <C-l> <C-o>l
 
 " extra map for ESC key while using iPad Pro Smart Keyboard
 map § <esc>
-:imap § <esc>
+imap § <esc>
 
-:nmap <leader>l :set number!<CR>
-:nmap <leader>L :set relativenumber!<CR>
-:nmap <leader>p :set paste!<CR>
-:nmap <leader>e :NERDTreeToggle<CR>
-:nmap <leader>r :source ~/.vimrc<CR>:echo "Reloaded vimrc!"<CR>
-:nmap \q :nohlsearch<CR> " Clear the search hightlight
+nmap <leader>l :set number!<CR>
+nmap <leader>L :set relativenumber!<CR>
+nmap <leader>p :set paste!<CR>
+nmap <leader>e :NERDTreeToggle<CR>
+nmap <leader>r :source ~/.vimrc<CR>:echo "Reloaded vimrc!"<CR>
+nmap <leader>q :nohlsearch<CR> " Clear the search hightlight
+nmap <silent> <leader>d <Plug>DashSearch " Dash search
+nmap <C-h> :bprevious<CR>
+nmap <C-l> :bNext<CR>
 
-:nmap <C-b> :CtrlPBuffer<CR>
+nmap <C-b> :CtrlPBuffer<CR>
 
 " }}}
 " Colours & Theming ------------------------------------------------------- {{{
@@ -161,6 +173,7 @@ augroup pencil
   autocmd FileType md call pencil#init({'wrap': 'hard'})
   "autocmd FileType text,txt        call pencil#init({'wrap': 'hard'})
   autocmd FileType mail            call pencil#init({'wrap': 'hard'})
+  au FileType md setlocal spell spelllang=en_gb
 augroup END
 " }}}
 " VimWiki Specific {{{

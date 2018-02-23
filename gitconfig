@@ -1,9 +1,14 @@
 [user]
 	name = Bradley Jones
 	email = jones.bradley@me.com
+	signingkey = E5CAD663B8825B0E
 [core]
-	editor = vim
+  editor = vim
 [push]
 	default = simple
 [gitreview]
-	username = bradjones
+  username = bradjones
+[merge]
+  tool = vimdiff
+[rerere]
+	enabled = true
