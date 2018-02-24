@@ -27,6 +27,9 @@ Plug 'rizzatti/dash.vim' " Dash integration
 Plug 'vim-airline/vim-airline' " Vim airline - status bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
+Plug 'yggdroot/indentLine' " Show indentation
+Plug 'airblade/vim-gitgutter' " Show git status in sidebar
+Plug 'majutsushi/tagbar' " Display tags in a window
 
 filetype plugin indent on
 call plug#end()
@@ -54,6 +57,8 @@ let g:airline_theme='simple'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:tmuxline_powerline_separators = 0
 
+" Indent line config
+let g:indentLine_char = '⎸'
 " }}}
 " }}}
 " General Settings ---------------------------------------------------------{{{
