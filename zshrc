@@ -20,6 +20,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export GPG_TTY=$(tty)
 
 # Load venv
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 source ~/.venv/bin/activate
 
 # Fix DYLD path for networking-cisco UTs
