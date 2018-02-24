@@ -59,6 +59,10 @@ let g:tmuxline_powerline_separators = 0
 
 " Indent line config
 let g:indentLine_char = '⎸'
+
+" Tagbar config
+let g:tagbar_sort = 0
+let g:tagbar_autofocus = 1
 " }}}
 " }}}
 " General Settings ---------------------------------------------------------{{{
@@ -124,6 +128,7 @@ nmap <leader>l :set number!<CR>
 nmap <leader>L :set relativenumber!<CR>
 nmap <leader>p :set paste!<CR>
 nmap <leader>e :NERDTreeToggle<CR>
+nmap <leader>t :TagbarToggle<CR>
 nmap <leader>r :source ~/.vimrc<CR>:echo "Reloaded vimrc!"<CR>
 nmap <leader>q :nohlsearch<CR> " Clear the search hightlight
 nmap <silent> <leader>d <Plug>DashSearch " Dash search
