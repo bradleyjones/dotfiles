@@ -3,19 +3,19 @@
 DIR=`pwd`
 
 # SHELL
-ln -s $DIR/zshrc ~/.zshrc
+ln -s $DIR/.zshrc ~/.zshrc
 
 # TMUX
-ln -s $DIR/tmux.conf ~/.tmux.conf
-ln -s $DIR/tmux-airline ~/.tmux-airline
+ln -s $DIR/.tmux.conf ~/.tmux.conf
+ln -s $DIR/.tmux-airline ~/.tmux-airline
 
 # VIM
 mkdir -p ~/.vim/autoload
-ln -s $DIR/vimrc ~/.vimrc
+ln -s $DIR/.vimrc ~/.vimrc
 vim +PlugInstall +qall
 
 # GIT
-ln -s $DIR/gitconfig ~/.gitconfig
+ln -s $DIR/.gitconfig ~/.gitconfig
 
 # Fonts
 sudo ln -s $DIR/etc/fonts/local.conf /etc/fonts/local.conf
