@@ -16,3 +16,6 @@ vim +PlugInstall +qall
 
 # GIT
 ln -s $DIR/gitconfig ~/.gitconfig
+
+# Fonts
+sudo ln -s $DIR/etc/fonts/local.conf /etc/fonts/local.conf
