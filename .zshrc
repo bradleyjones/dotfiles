@@ -1,14 +1,14 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git zsh-iterm-touchbar vi-mode)
+plugins=(git vi-mode)
+#plugins=(git zsh-iterm-touchbar vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 ########### User configuration ###########
 
 # Show Hostname
 #PROMPT="%m ${PROMPT}"
-PROMPT="${PROMPT}"
 # Bifrost / ansible
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 # GO PATH
