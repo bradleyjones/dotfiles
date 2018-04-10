@@ -26,7 +26,7 @@ Plug 'mattn/calendar-vim' " Calendar
 Plug 'rizzatti/dash.vim' " Dash integration
 Plug 'vim-airline/vim-airline' " Vim airline - status bar
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
+"Plug 'edkolev/tmuxline.vim'
 Plug 'yggdroot/indentLine' " Show indentation
 Plug 'airblade/vim-gitgutter' " Show git status in sidebar
 Plug 'majutsushi/tagbar' " Display tags in a window
@@ -55,7 +55,20 @@ let g:ctrlp_switch_buffer = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='simple'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:tmuxline_powerline_separators = 0
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = '¬'
+let g:airline_symbols.readonly = '⌀'
+let g:airline_symbols.linenr = 'Ξ'
+let g:airline_symbols.whitespace = ''
+let g:airline_symbols.maxlinenr = ''
 
 " Indent line config
 let g:indentLine_char = '⎸'
