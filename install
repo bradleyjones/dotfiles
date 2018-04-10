@@ -20,3 +20,5 @@ ln -s $DIR/.gitconfig ~/.gitconfig
 
 # Fonts
 sudo ln -s $DIR/etc/fonts/local.conf /etc/fonts/local.conf
+mkdir -p ~/.local/share
+ln -s $DIR/.fonts ~/.local/share/fonts
