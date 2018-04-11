@@ -22,3 +22,7 @@ ln -s $DIR/.gitconfig ~/.gitconfig
 sudo ln -s $DIR/etc/fonts/local.conf /etc/fonts/local.conf
 mkdir -p ~/.local/share
 ln -s $DIR/.fonts ~/.local/share/fonts
+
+# Keyboard setting
+ln -s $DIR/.xmodmaprc ~/.xmodmaprc
+xmodmap ~/.xmodmaprc
