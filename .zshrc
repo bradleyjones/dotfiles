@@ -19,11 +19,9 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # GPG support password pop up for tagging
 export GPG_TTY=$(tty)
 
-export TERM=xterm-256color
-
 # Load venv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-source ~/.venv/bin/activate
+#source ~/.venv/bin/activate
 
 # Fix DYLD path for networking-cisco UTs
 #export DYLD_FALLBACK_LIBRARY_PATH=/usr/lib
