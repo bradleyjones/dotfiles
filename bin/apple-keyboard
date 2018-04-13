@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#For my apple wireless keyboard:
+# - change to us keyboard layout :(
+# - swap alt and meta key so layout is more similar to Poker Pro keyboard
+
+setxkbmap -device 17 us -option "altwin:swap_alt_win"
+xmodmap ~/.xmodmaprc

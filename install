@@ -32,3 +32,6 @@ ln -s $DIR/.xinitrc ~/.xinitrc
 
 # i3
 ln -s $DIR/.i3 ~/.i3
+
+# bin
+ln -s $DIR/bin ~/bin
