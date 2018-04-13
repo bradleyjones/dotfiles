@@ -30,3 +30,4 @@ xmodmap ~/.xmodmaprc
 # Xresources
 ln -s $DIR/.Xresources ~/.Xresources
 xrdb ~/.Xresources
+ln -s $DIR/.xinitrc ~/.xinitrc
