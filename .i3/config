@@ -1,0 +1,200 @@
+# i3 config file
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# Vars
+set $mod Mod1
+set $up k
+set $down j
+set $left h
+set $right l
+# Workspace vars
+set $one 1: browser
+set $two 2: mail
+set $three 3: editing
+set $four 4: servers
+set $five 5: testing
+set $six 6: chat
+set $seven 7: design
+set $eight 8: slicing
+set $nine 9: media
+set $ten 10: system
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+font pango:Terminus 10
+
+focus_follows_mouse yes
+
+# Border style for new windows
+new_window 1pixel
+#hide_edge_borders both
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+Shift+V split h
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+# focus the child container
+bindsym $mod+Shift+a focus child
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# switch to workspace and setup workspace names
+bindsym $mod+1 workspace $one
+bindsym $mod+2 workspace $two
+bindsym $mod+3 workspace $three
+bindsym $mod+4 workspace $four
+bindsym $mod+5 workspace $five
+bindsym $mod+6 workspace $six
+bindsym $mod+7 workspace $seven
+bindsym $mod+8 workspace $eight
+bindsym $mod+9 workspace $nine
+bindsym $mod+0 workspace $ten
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $one
+bindsym $mod+Shift+2 move container to workspace $two
+bindsym $mod+Shift+3 move container to workspace $three
+bindsym $mod+Shift+4 move container to workspace $four
+bindsym $mod+Shift+5 move container to workspace $five
+bindsym $mod+Shift+6 move container to workspace $six
+bindsym $mod+Shift+7 move container to workspace $seven
+bindsym $mod+Shift+8 move container to workspace $eight
+bindsym $mod+Shift+9 move container to workspace $nine
+bindsym $mod+Shift+0 move container to workspace $ten
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym $left resize shrink width 2 px or 2 ppt
+        bindsym $down resize grow height 2 px or 2 ppt
+        bindsym $up resize shrink height 2 px or 2 ppt
+        bindsym $right resize grow width 2 px or 2 ppt
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+gaps inner 10
+gaps outer 0
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Ctrl+h move workspace to output left
+bindsym $mod+Ctrl+l move workspace to output right
+
+# move between workspaces
+bindsym $mod+Tab workspace back_and_forth
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+  status_command i3status
+  position top
+}
+
+# Startup apps
+exec compton & # Starts composition manager for window transparency
+exec xrdb -merge ~/.Xresources # Urxvt config and fonts
+exec blueman-applet & # Bluetooth manager
+exec xmodmap ~/.xmodmaprc # Keyboard remaps

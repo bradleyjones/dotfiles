@@ -25,9 +25,10 @@ ln -s $DIR/.fonts ~/.local/share/fonts
 
 # Keyboard setting
 ln -s $DIR/.xmodmaprc ~/.xmodmaprc
-xmodmap ~/.xmodmaprc
 
 # Xresources
 ln -s $DIR/.Xresources ~/.Xresources
-xrdb ~/.Xresources
 ln -s $DIR/.xinitrc ~/.xinitrc
+
+# i3
+ln -s $DIR/.i3 ~/.i3
