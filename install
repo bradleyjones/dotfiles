@@ -20,8 +20,8 @@ ln -s $DIR/.gitconfig ~/.gitconfig
 
 # Fonts
 sudo ln -s $DIR/etc/fonts/local.conf /etc/fonts/local.conf
-mkdir -p ~/.local/share
-ln -s $DIR/.fonts ~/.local/share/fonts
+mkdir -p ~/.local/share/fonts
+ln -s $DIR/.fonts/* ~/.local/share/fonts/
 
 # Keyboard setting
 ln -s $DIR/.xmodmaprc ~/.xmodmaprc
@@ -31,7 +31,9 @@ ln -s $DIR/.Xresources ~/.Xresources
 ln -s $DIR/.xinitrc ~/.xinitrc
 
 # i3
-ln -s $DIR/.i3 ~/.i3
+mkdir ~/.i3
+ln -s $DIR/.i3/* ~/.i3/
 
 # bin
-ln -s $DIR/bin ~/bin
+mkdir ~/bin
+ln -s $DIR/bin/* ~/bin
