@@ -194,7 +194,7 @@ bar {
 }
 
 # Startup apps
-exec compton & # Starts composition manager for window transparency
+exec compton --xrender-sync --xrender-sync-fence & # Starts composition manager for window transparency
 exec xrdb ~/.Xresources # Urxvt config and fonts
 exec blueman-applet & # Bluetooth manager
 exec xmodmap ~/.xmodmaprc # Keyboard remaps
