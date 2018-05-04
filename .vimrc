@@ -76,6 +76,9 @@ let g:indentLine_char = '⎸'
 " Tagbar config
 let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
+
+" GitGutter
+set updatetime=100
 " }}}
 " }}}
 " General Settings ---------------------------------------------------------{{{
