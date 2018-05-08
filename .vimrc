@@ -30,6 +30,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'yggdroot/indentLine' " Show indentation
 Plug 'airblade/vim-gitgutter' " Show git status in sidebar
 Plug 'majutsushi/tagbar' " Display tags in a window
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Golang
 
 filetype plugin indent on
 call plug#end()
@@ -183,6 +184,12 @@ augroup END
 augroup ft_python
     au!
     au FileType python setlocal foldmethod=expr foldexpr=SimpylFold(v:lnum)
+augroup END
+" }}}
+" Golang {{{
+augroup ft_go
+    au!
+    au FileType go set nolist
 augroup END
 " }}}
 " Yaml {{{
