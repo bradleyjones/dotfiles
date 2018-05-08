@@ -31,6 +31,14 @@ Plug 'yggdroot/indentLine' " Show indentation
 Plug 'airblade/vim-gitgutter' " Show git status in sidebar
 Plug 'majutsushi/tagbar' " Display tags in a window
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Golang
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'zchee/deoplete-go'
 
 filetype plugin indent on
 call plug#end()
@@ -74,6 +82,9 @@ let g:airline_symbols.maxlinenr = ''
 " Indent line config
 let g:indentLine_char = '⎸'
 
+" Completion
+let g:deoplete#enable_at_startup = 1
+
 " Tagbar config
 let g:tagbar_sort = 0
 let g:tagbar_autofocus = 1
@@ -110,6 +121,7 @@ set backspace=indent,eol,start
 set tw=79
 set colorcolumn=80
 filetype plugin indent on
+set encoding=utf-8
 
 set clipboard=unnamed
 
