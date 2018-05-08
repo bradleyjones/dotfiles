@@ -84,6 +84,7 @@ let g:indentLine_char = '⎸'
 
 " Completion
 let g:deoplete#enable_at_startup = 1
+set completeopt-=preview " Hide the preview
 
 " Tagbar config
 let g:tagbar_sort = 0
