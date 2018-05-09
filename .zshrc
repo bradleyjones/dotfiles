@@ -11,6 +11,7 @@ source $ZSH/oh-my-zsh.sh
 #PROMPT="%m ${PROMPT}"
 # GO PATH
 export GOPATH=$HOME/go
+export GOBIN=$HOME/go/bin
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$GOPATH/bin
 export LC_ALL=en_GB.UTF-8
 export EDITOR='vim'
