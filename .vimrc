@@ -141,6 +141,9 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" Terminal
+:tnoremap <Esc> <C-\><C-n>
+
 " }}}
 " Key Mappings -------------------------------------------------------------{{{
 map j gj
