@@ -21,6 +21,7 @@ vim:
 	mkdir -p $(HOME)/.vim/autoload
 	ln -sf $(CURDIR)/.vimrc $(HOME)/.vimrc
 	vim +PlugInstall +qall
+	pip3 install --upgrade neovim # Required for deoplete
 
 git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
