@@ -3,43 +3,43 @@ all: bin cli desktop
 
 bin:
 	mkdir $(HOME)/bin
-	ln -s $(CURDIR)/bin/* $(HOME)/bin
+	ln -sf $(CURDIR)/bin/* $(HOME)/bin
 
 
 cli: shell tmux vim git
 
 shell:
 	$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)
-	ln -s $(CURDIR)/.zshrc $(HOME)/.zshrc
-	ln -s $(CURDIR)/.aliases $(HOME)/.aliases
+	ln -sf $(CURDIR)/.zshrc $(HOME)/.zshrc
+	ln -sf $(CURDIR)/.aliases $(HOME)/.aliases
 
 tmux:
-	ln -s $(CURDIR)/.tmux.conf $(HOME)/.tmux.conf
-	ln -s $(CURDIR)/.tmux-airline $(HOME)/.tmux-airline
+	ln -sf $(CURDIR)/.tmux.conf $(HOME)/.tmux.conf
+	ln -sf $(CURDIR)/.tmux-airline $(HOME)/.tmux-airline
 
 vim:
 	mkdir -p $(HOME)/.vim/autoload
-	ln -s $(CURDIR)/.vimrc $(HOME)/.vimrc
+	ln -sf $(CURDIR)/.vimrc $(HOME)/.vimrc
 	vim +PlugInstall +qall
 
 git:
-	ln -s $(CURDIR)/.gitconfig ~/.gitconfig
+	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
 	
 
 desktop: i3 xresrouces keyboard fonts
 
 i3:
 	mkdir $(HOME)/.i3
-	ln -s $(CURDIR)/.i3/* $(HOME)/.i3/
+	ln -sf $(CURDIR)/.i3/* $(HOME)/.i3/
 
 xresources:
-	ln -s $(CURDIR)/.Xresources $(HOME)/.Xresources
-	ln -s $(CURDIR)/.xinitrc $(HOME)/.xinitrc
+	ln -sf $(CURDIR)/.Xresources $(HOME)/.Xresources
+	ln -sf $(CURDIR)/.xinitrc $(HOME)/.xinitrc
 
 keyboard:
-	ln -s $(CURDIR)/.xmodmaprc $(HOME)/.xmodmaprc
+	ln -sf $(CURDIR)/.xmodmaprc $(HOME)/.xmodmaprc
 
 fonts:
-	sudo ln -s $(CURDIR)/etc/fonts/local.conf /etc/fonts/local.conf
+	sudo ln -sf $(CURDIR)/etc/fonts/local.conf /etc/fonts/local.conf
 	mkdir -p $(HOME)/.local/share/fonts
-	ln -s $(CURDIR)/.fonts/* $(HOME)/.local/share/fonts/
+	ln -sf $(CURDIR)/.fonts/* $(HOME)/.local/share/fonts/
