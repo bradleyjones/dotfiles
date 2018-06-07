@@ -13,9 +13,17 @@ shell:
 	ln -sf $(CURDIR)/.zshrc $(HOME)/.zshrc
 	ln -sf $(CURDIR)/.aliases $(HOME)/.aliases
 
-tmux:
+tmux: tmux-plugins
 	ln -sf $(CURDIR)/.tmux.conf $(HOME)/.tmux.conf
 	ln -sf $(CURDIR)/.tmux-airline $(HOME)/.tmux-airline
+
+tmux-plugins:
+	mkdir -p $(HOME)/.tmux-plugins
+	@while read -r plugin; do \
+		repo="$$plugin"; \
+		dir="$(HOME)/.tmux-plugins/$${repo##*/}"; \
+		if cd $$dir; then git pull; else git clone $$repo $$dir; fi; \
+	done < $(CURDIR)/.tmux-plugins
 
 vim:
 	mkdir -p $(HOME)/.vim/autoload

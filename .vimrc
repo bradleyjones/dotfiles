@@ -34,11 +34,12 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Golang
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/deoplete.nvim' " Autocompletion
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'zchee/deoplete-go'
+Plug 'zchee/deoplete-go' " Autocomplete for go
+Plug 'tpope/vim-obsession' " Vim store sessions (used with tmux-resurrect)
 
 filetype plugin indent on
 call plug#end()
