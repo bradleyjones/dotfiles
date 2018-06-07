@@ -35,10 +35,10 @@ git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
 	
 
-desktop: i3 xresrouces keyboard fonts
+desktop: i3 xresources keyboard fonts
 
 i3:
-	mkdir $(HOME)/.i3
+	mkdir -p $(HOME)/.i3
 	ln -sf $(CURDIR)/.i3/* $(HOME)/.i3/
 
 xresources:
