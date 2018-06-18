@@ -31,16 +31,16 @@ func main() {
 		user := os.Args[2]
 		msg := os.Args[3]
 
-		// Only show first 15 chars of message
-		if len(msg) >= 15 {
-			msg = msg[0:15]
-		}
+		// Only show first n chars of message
 		fmt.Fprintf(file, user+": "+msg)
 	case "show":
 		contents, err := ioutil.ReadFile(storage)
 		if err != nil {
 			fmt.Println("Could not open notification file", err)
 			os.Exit(1)
+		}
+		if len(contents) >= 60 {
+			contents = contents[0:60]
 		}
 		fmt.Println(string(contents))
 	default:
