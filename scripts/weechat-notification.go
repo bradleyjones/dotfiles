@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 var storage string = os.Getenv("HOME") + "/.weechat-notification"
@@ -29,7 +30,7 @@ func main() {
 		defer file.Close()
 
 		user := os.Args[2]
-		msg := os.Args[3]
+		msg := strings.Join(os.Args[3:], " ")
 
 		// Only show first n chars of message
 		fmt.Fprintf(file, user+": "+msg)
