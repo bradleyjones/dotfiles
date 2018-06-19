@@ -33,7 +33,7 @@ vim:
 
 git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
-	
+
 
 desktop: i3 xresources keyboard fonts
 
@@ -52,3 +52,7 @@ fonts:
 	sudo ln -sf $(CURDIR)/etc/fonts/local.conf /etc/fonts/local.conf
 	mkdir -p $(HOME)/.local/share/fonts
 	ln -sf $(CURDIR)/.fonts/* $(HOME)/.local/share/fonts/
+
+
+gertty:
+	cp $(CURDIR)/.gertty.yaml $(HOME)/.gertty.yaml
