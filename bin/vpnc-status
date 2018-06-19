@@ -1,0 +1,7 @@
+#!/bin/bash
+
+VPNC_PID_FILE=/var/run/vpnc.pid
+
+if [ -f $VPNC_PID_FILE ]; then
+   echo "VPN"
+fi
