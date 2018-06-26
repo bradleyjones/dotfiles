@@ -40,8 +40,8 @@ func main() {
 			fmt.Println("Could not open notification file", err)
 			os.Exit(1)
 		}
-		if len(contents) >= 60 {
-			contents = contents[0:60]
+		if len(contents) >= 54 {
+			contents = contents[0:54]
 		}
 		fmt.Println(string(contents))
 	default:
