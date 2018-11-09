@@ -9,6 +9,7 @@ bin:
 cli: shell tmux vim git
 
 shell:
+	which curl || ( echo 'curl is required, please install it' && exit 1 )
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	ln -sf $(CURDIR)/.zshrc $(HOME)/.zshrc
 	ln -sf $(CURDIR)/.aliases $(HOME)/.aliases
