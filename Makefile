@@ -26,6 +26,8 @@ tmux-plugins:
 	done < $(CURDIR)/.tmux-plugins
 
 vim:
+	which curl || ( echo 'curl is required, please install it' && exit 1 )
+	which pip3 || ( echo 'pip3 is required, please install it' && exit 1 )
 	mkdir -p $(HOME)/.vim/autoload
 	ln -sf $(CURDIR)/.vimrc $(HOME)/.vimrc
 	vim +PlugInstall +qall
