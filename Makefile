@@ -1,3 +1,30 @@
+install-ubuntu:
+	sudo sed -e 's/$/ universe/' -i /etc/apt/sources.list
+	add-apt-repository ppa:keithw/mosh-dev
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+	apt update
+	apt install \
+		tmux \
+		vim \
+		zsh \
+		wget \
+		git \
+		htop \
+		exuberant-ctags \
+		python-dev \
+		python3-dev \
+		python3-pip \
+		ca-certificates \
+		software-properties-common \
+		docker-ce \
+		mosh
+	wget https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
+	dpkg -i bat_0.9.0_amd64.deb
+	rm bat_0.9.0_amd64.deb
+	usermod -aG docker bradley
+
+
 all: bin cli desktop
 
 
