@@ -35,7 +35,7 @@ bin:
 	ln -sf $(CURDIR)/bin/* $(HOME)/bin
 
 
-cli: shell tmux vim git
+cli: shell tmux vim git bin
 
 shell:
 	which curl || ( echo 'curl is required, please install it' && exit 1 )

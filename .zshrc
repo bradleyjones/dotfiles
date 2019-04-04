@@ -10,9 +10,10 @@ source $ZSH/oh-my-zsh.sh
 # Show Hostname
 #PROMPT="%m ${PROMPT}"
 # GO PATH
-export GOPATH=$HOME/go
-export GOBIN=$HOME/go/bin
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$GOPATH/bin
+export GOROOT=/usr/local/go
+export GOPATH=$HOME
+export GOBIN=$HOME/bin
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$GOPATH/bin:$GOROOT/bin
 export LC_ALL=en_GB.UTF-8
 export EDITOR='vim'
 export SSH_KEY_PATH="~/.ssh/rsa_id"
