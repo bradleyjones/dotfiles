@@ -12,3 +12,5 @@
   tool = vimdiff
 [rerere]
   enabled = true
+[credential]
+  helper = store

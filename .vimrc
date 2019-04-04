@@ -9,6 +9,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree' " File Browser
+Plug 'Xuyuanp/nerdtree-git-plugin' " Git plugin for nerdtree
 Plug 'scrooloose/nerdcommenter' " \ci toggle code comments
 Plug 'tpope/vim-surround' " quickly add '' or () to code
 Plug 'alvan/vim-closetag' " auto close html tags
@@ -40,6 +41,9 @@ else
 endif
 Plug 'zchee/deoplete-go' " Autocomplete for go
 Plug 'tpope/vim-obsession' " Vim store sessions (used with tmux-resurrect)
+Plug 'severin-lemaignan/vim-minimap' " Sublime like minimap
+Plug 'sheerun/vim-polyglot' " ALL THE LANGUAGES!
+Plug 'christoomey/vim-tmux-navigator' " Common split navigation between vim & tmux (ctrl + hjlk)
 
 filetype plugin indent on
 call plug#end()
@@ -93,6 +97,12 @@ let g:tagbar_autofocus = 1
 
 " GitGutter
 set updatetime=100
+
+" NERDTree
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 " }}}
 " }}}
 " General Settings ---------------------------------------------------------{{{
@@ -120,7 +130,6 @@ set wrap "Wrap lines
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set backspace=indent,eol,start
-set tw=79
 set colorcolumn=80
 filetype plugin indent on
 set encoding=utf-8
@@ -162,6 +171,7 @@ nmap <leader>l :set number!<CR>
 nmap <leader>L :set relativenumber!<CR>
 nmap <leader>p :set paste!<CR>
 nmap <leader>e :NERDTreeToggle<CR>
+nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>t :TagbarToggle<CR>
 nmap <leader>r :source ~/.vimrc<CR>:echo "Reloaded vimrc!"<CR>
 nmap <leader>q :nohlsearch<CR> " Clear the search hightlight
@@ -201,6 +211,7 @@ augroup END
 augroup ft_python
     au!
     au FileType python setlocal foldmethod=expr foldexpr=SimpylFold(v:lnum)
+    au FileType python setlocal tw=79
 augroup END
 " }}}
 " Golang {{{
