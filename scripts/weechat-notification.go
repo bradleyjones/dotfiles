@@ -32,7 +32,6 @@ func main() {
 		user := os.Args[2]
 		msg := strings.Join(os.Args[3:], " ")
 
-		// Only show first n chars of message
 		fmt.Fprintf(file, user+": "+msg)
 	case "show":
 		contents, err := ioutil.ReadFile(storage)
@@ -40,9 +39,10 @@ func main() {
 			fmt.Println("Could not open notification file", err)
 			os.Exit(1)
 		}
-		if len(contents) >= 54 {
-			contents = contents[0:54]
-		}
+		// Only show first n chars of message
+		//if len(contents) >= 54 {
+		//contents = contents[0:54]
+		//}
 		fmt.Println(string(contents))
 	default:
 		fmt.Println("A command is required 'set' or 'show'")

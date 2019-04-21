@@ -32,12 +32,12 @@ Plug 'yggdroot/indentLine' " Show indentation
 Plug 'airblade/vim-gitgutter' " Show git status in sidebar
 Plug 'majutsushi/tagbar' " Display tags in a window
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Golang
+Plug 'roxma/vim-hug-neovim-rpc'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   Plug 'Shougo/deoplete.nvim' " Autocompletion
   Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'zchee/deoplete-go' " Autocomplete for go
 Plug 'tpope/vim-obsession' " Vim store sessions (used with tmux-resurrect)
@@ -103,6 +103,9 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+
+" vimwiki
+"let g:vimwiki_url_maxsave=0
 " }}}
 " }}}
 " General Settings ---------------------------------------------------------{{{

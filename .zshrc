@@ -10,7 +10,7 @@ source $ZSH/oh-my-zsh.sh
 # Show Hostname
 #PROMPT="%m ${PROMPT}"
 # GO PATH
-export GOROOT=/usr/local/go
+export GOROOT=/usr/lib/go
 export GOPATH=$HOME
 export GOBIN=$HOME/bin
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$GOPATH/bin:$GOROOT/bin

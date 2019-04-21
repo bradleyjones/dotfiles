@@ -27,6 +27,9 @@ install-ubuntu:
 	usermod -aG docker bradley
 
 
+# arch install packages
+# jq
+
 all: bin cli desktop
 
 

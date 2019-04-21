@@ -1,0 +1,17 @@
+#!/bin/bash
+
+CISCO_COUNT=$(ls ~/.mail/cisco/INBOX/new | wc -l)
+ME_COUNT=$(ls ~/.mail/me/INBOX/new | wc -l)
+
+# Colours
+DEFAULT_COLOUR='#[fg=colour55]'
+CISCO_COLOUR=''
+ME_COLOUR=''
+if [ $CISCO_COUNT -gt 0 ]; then
+  CISCO_COLOUR='#[fg=red]'
+fi
+if [ $ME_COUNT -gt 0 ]; then
+  ME_COLOUR='#[fg=red]'
+fi
+
+echo "MAIL:$CISCO_COLOUR W($CISCO_COUNT)$DEFAULT_COLOUR$ME_COLOUR M($ME_COUNT)$DEFAULT_COLOUR"

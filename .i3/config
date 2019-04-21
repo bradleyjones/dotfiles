@@ -28,7 +28,7 @@ focus_follows_mouse yes
 
 # Border style for new windows
 new_window 1pixel
-#hide_edge_borders both
+hide_edge_borders both
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -37,7 +37,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -142,6 +142,7 @@ bindsym $mod+r mode "resize"
 
 gaps inner 10
 gaps outer 0
+smart_gaps on
 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -182,19 +183,36 @@ mode "$mode_gaps_outer" {
 
 bindsym $mod+Ctrl+h move workspace to output left
 bindsym $mod+Ctrl+l move workspace to output right
+bindsym $mod+Ctrl+j move workspace to output up
+bindsym $mod+Ctrl+k move workspace to output down
 
 # move between workspaces
 bindsym $mod+Tab workspace back_and_forth
 
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  status_command ~/.i3/custom_i3_status.sh
+#  status_command ~/.i3/custom_i3_status.sh
+  #status_command i3status -c /home/bradley/.i3/i3status.conf
+  status_command i3blocks -c /home/bradley/.i3/i3blocks.conf
   position top
 }
 
 # Startup apps
-#exec compton --xrender-sync --xrender-sync-fence & # Starts composition manager for window transparency
+exec compton --xrender-sync --xrender-sync-fence & # Starts composition manager for window transparency
 exec xrdb ~/.Xresources # Urxvt config and fonts
 exec blueman-applet & # Bluetooth manager
+exec nm-applet & # Network
+exec nextcloud & # Nextcloud
+exec davmail & # Exchange hook for imap
 exec xmodmap ~/.xmodmaprc # Keyboard remaps
+exec feh --bg-scale .background # Set desktop background
