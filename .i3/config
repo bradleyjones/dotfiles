@@ -42,6 +42,9 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 
+# clear weechat-notification
+bindsym $mod+c exec weechat-notification clear
+
 # change focus
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
@@ -216,3 +219,4 @@ exec nextcloud & # Nextcloud
 exec davmail & # Exchange hook for imap
 exec xmodmap ~/.xmodmaprc # Keyboard remaps
 exec feh --bg-scale .background # Set desktop background
+exec dunst & # Notification daemon
