@@ -5,6 +5,9 @@ CHARGE_STATUS=$(acpi -b | awk '{ print $3 }' | grep -E -o '[A-Z]*[a-z]*')
 if acpi | grep -q 100 ; then
   BAT='100%'
 fi
+if acpi | grep -q Full ; then
+  BAT='Full'
+fi
 
 STATUS="🔋"
 [ $CHARGE_STATUS == "Charging" ] && STATUS="⚡"
