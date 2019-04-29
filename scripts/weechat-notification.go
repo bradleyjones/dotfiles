@@ -44,6 +44,15 @@ func main() {
 		//contents = contents[0:54]
 		//}
 		fmt.Println(string(contents))
+	case "clear":
+		file, err := os.Create(storage)
+		if err != nil {
+			fmt.Println("Cannot clear notification file", err)
+			os.Exit(1)
+		}
+		defer file.Close()
+		fmt.Fprintf(file, "")
+
 	default:
 		fmt.Println("A command is required 'set' or 'show'")
 		os.Exit(1)
