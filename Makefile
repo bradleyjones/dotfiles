@@ -70,7 +70,7 @@ git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
 
 
-desktop: i3 xresources keyboard fonts
+desktop: i3 xresources keyboard fonts sounds
 
 i3:
 	mkdir -p $(HOME)/.i3
@@ -88,6 +88,8 @@ fonts:
 	mkdir -p $(HOME)/.local/share/fonts
 	ln -sf $(CURDIR)/.fonts/* $(HOME)/.local/share/fonts/
 
+sounds:
+	sudo ln -sf $(CURDIR)/sounds $(HOME)/.sounds
 
 gertty:
 	cp $(CURDIR)/.gertty.yaml $(HOME)/.gertty.yaml
