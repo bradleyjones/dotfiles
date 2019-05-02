@@ -11,12 +11,12 @@ set $right l
 # Workspace vars
 set $one 1: browser
 set $two 2: mail
-set $three 3: editing
+set $three 3: 
 set $four 4: servers
 set $five 5: testing
 set $six 6: chat
-set $seven 7: design
-set $eight 8: slicing
+set $seven 7: home
+set $eight 8: other
 set $nine 9: media
 set $ten 10: system
 
@@ -34,7 +34,7 @@ hide_edge_borders both
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite # i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+q kill

@@ -70,7 +70,7 @@ git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
 
 
-desktop: i3 xresources keyboard fonts sounds
+desktop: i3 xresources keyboard fonts sounds termite
 
 i3:
 	mkdir -p $(HOME)/.i3
@@ -79,6 +79,10 @@ i3:
 xresources:
 	ln -sf $(CURDIR)/.Xresources $(HOME)/.Xresources
 	ln -sf $(CURDIR)/.xinitrc $(HOME)/.xinitrc
+
+termite:
+	mkdir -p $(HOME)/.config/termite
+	ln -sf $(CURDIR)/.termite-config $(HOME)/.config/termite/config
 
 keyboard:
 	ln -sf $(CURDIR)/.xmodmaprc $(HOME)/.xmodmaprc
