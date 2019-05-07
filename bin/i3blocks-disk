@@ -1,0 +1,3 @@
+#!/bin/bash
+
+df -H --output=target,avail / /home /ext | sed 1d | xargs

@@ -19,10 +19,11 @@ export EDITOR='vim'
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 # GPG support password pop up for tagging
 export GPG_TTY=$(tty)
-
 # Disable shared history across terminals
 setopt no_share_history
 export HISTCONTROL=ignoreboth
+# Fix tmux on remote server using termite
+export TERM=xterm-256color
 
 # Load venv
 #export VIRTUAL_ENV_DISABLE_PROMPT=1
