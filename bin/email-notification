@@ -6,11 +6,18 @@ ME_COUNT=$(ls ~/.mail/me/INBOX/new | wc -l)
 # Colours
 CISCO_COLOUR='#FFFFFF'
 ME_COLOUR='#FFFFFF'
+MAIL_COLOUR='#FFFFFF'
 if [ $CISCO_COUNT -gt 0 ]; then
   CISCO_COLOUR='#FF0000'
+  MAIL_COLOUR='#FF0000'
 fi
 if [ $ME_COUNT -gt 0 ]; then
   ME_COLOUR='#FF0000'
+  MAIL_COLOUR='#FF0000'
 fi
 
-echo "MAIL: <span foreground='$CISCO_COLOUR'>W($CISCO_COUNT)</span> <span foreground='$ME_COLOUR'>M($ME_COUNT)</span>"
+# PLAINTEXT
+#echo "MAIL: <span foreground='$CISCO_COLOUR'>W($CISCO_COUNT)</span> <span foreground='$ME_COLOUR'>M($ME_COUNT)</span>"
+
+# ICON
+echo "<span foreground='$CISCO_COLOUR'>W($CISCO_COUNT)</span> <span foreground='$ME_COLOUR'>M($ME_COUNT)</span> <span foreground='$MAIL_COLOUR'></span>"

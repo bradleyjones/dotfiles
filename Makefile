@@ -88,6 +88,7 @@ keyboard:
 	ln -sf $(CURDIR)/.xmodmaprc $(HOME)/.xmodmaprc
 
 fonts:
+	# on arch install awesome-terminal-fonts
 	sudo ln -sf $(CURDIR)/etc/fonts/local.conf /etc/fonts/local.conf
 	mkdir -p $(HOME)/.local/share/fonts
 	ln -sf $(CURDIR)/.fonts/* $(HOME)/.local/share/fonts/

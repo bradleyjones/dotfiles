@@ -1,6 +1,6 @@
 !-- Xft settings -- !
-!Xft.dpi:        96
-Xft.dpi:        150
+Xft.dpi:        96
+!Xft.dpi:        150
 Xft.rgba:       rgb
 Xft.autohint:   0
 Xft.lcdfilter:  lcddefault
@@ -9,7 +9,7 @@ Xft.hinting:    1
 Xft.antialias:  1
 
 ! -- URxvt -- !
-URxvt.font: xft:UbuntuMono:size=13:antialias=true:hinting=full,xft:Symbola:antialias=true:hinting=full
+URxvt.font: xft:UbuntuMono:size=13:antialias=true:hinting=full,xft:FontAwesome:antialias=true:hinting=full,xft:Symbola:antialias=true:hinting=full
 !URxvt.letterSpace:          -1
 ! clickable urls
 URxvt.perl-ext-common:      default,matcher,font-size,selection-to-clipboard

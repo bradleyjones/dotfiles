@@ -12,7 +12,7 @@ fi
 STATUS="🔋"
 [ $CHARGE_STATUS == "Charging" ] && STATUS="⚡"
 
-TEXT="$STATUS $BAT"
+TEXT="$BAT $STATUS"
 
 # Set colour white by default
 COLOUR="#ffffff"

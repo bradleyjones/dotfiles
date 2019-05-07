@@ -9,16 +9,27 @@ set $down j
 set $left h
 set $right l
 # Workspace vars
-set $one 1: browser
-set $two 2: mail
-set $three 3: 
-set $four 4: servers
-set $five 5: testing
-set $six 6: chat
-set $seven 7: home
-set $eight 8: other
-set $nine 9: media
-set $ten 10: system
+#set $one 1: browser
+#set $two 2: mail
+#set $three 3: editing
+#set $four 4: servers
+#set $five 5: testing
+#set $six 6: chat
+#set $seven 7: home
+#set $eight 8: other
+#set $nine 9: media
+#set $ten 10: system
+# icons
+set $one 1 
+set $two 2 
+set $three 3 
+set $four 4 
+set $five 5 
+set $six 6 
+set $seven 7 
+set $eight 8 
+set $nine 9 
+set $ten 10 
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
