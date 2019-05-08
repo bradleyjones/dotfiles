@@ -193,12 +193,12 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
 endif
 
 " Theming
-set background=dark
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-silent! colorscheme solarized
+"set background=dark
+"let g:solarized_termtrans=1
+"let g:solarized_termcolors=256
+"let g:solarized_contrast="high"
+"let g:solarized_visibility="high"
+"silent! colorscheme solarized
 
 " }}}
 " Language/File type specific config -------------------------------------- {{{
