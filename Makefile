@@ -26,9 +26,51 @@ install-ubuntu:
 	rm bat_0.9.0_amd64.deb
 	usermod -aG docker bradley
 
+yay: arch-pre
+	cd /tmp && \
+	git clone https://aur.archlinux.org/yay.git
+	cd /tmp/yay && \-
+	makepkg -si
 
-# arch install packages
-# jq
+yay-pre:
+	sudo pacman -Sy --noconfirm vim git tmux zsh
+
+install-arch:
+	yay -S --noconfirm \
+		xorg-xinit \
+		xorg-server \
+		xf86-video-intel \
+		i3-gaps \
+		i3blocks-git \
+		chromium \
+		termite \
+		curl \
+		python \
+		python-pip \
+		compton \
+		bat \
+		jq \
+		davmail \
+		feh \
+		dunst \
+		blueman \
+		pulseaudio \
+		ttf-ubuntu-font-family \
+		ttf-font-awesome \
+		dmenu \
+		pavucontrol \
+		nextcloud-client \
+		networkmanager \
+		network-manager-applet \
+		openssh \
+		rsync \
+		mosh \
+		htop \
+		syncthing \
+		syncthing-gtk
+
+
+
 
 all: bin cli desktop
 
@@ -64,7 +106,7 @@ vim:
 	mkdir -p $(HOME)/.vim/autoload
 	ln -sf $(CURDIR)/.vimrc $(HOME)/.vimrc
 	vim +PlugInstall +qall
-	pip3 install --upgrade neovim # Required for deoplete
+	sudo pip3 install --upgrade neovim # Required for deoplete
 
 git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig

@@ -1,3 +1,5 @@
 #!/bin/bash
 
-df -H --output=target,avail / /home /ext | sed 1d | xargs
+DISKS='/ /home'
+DISKS_LAPTOP='/ /home /ext'
+df -H --output=target,avail $DISKS | sed 1d | xargs
