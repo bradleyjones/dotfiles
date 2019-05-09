@@ -232,3 +232,4 @@ exec davmail & # Exchange hook for imap
 exec xmodmap ~/.xmodmaprc # Keyboard remaps
 exec feh --bg-scale .background # Set desktop background
 exec dunst & # Notification daemon
+exec syncthing-gtk & # syncthing client
