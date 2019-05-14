@@ -26,6 +26,12 @@ install-ubuntu:
 	rm bat_0.9.0_amd64.deb
 	usermod -aG docker bradley
 
+comms:
+	yay -S --noconfirm \
+		weechat \
+		neomutt \
+		mbsync
+
 yay: arch-pre
 	cd /tmp && \
 	git clone https://aur.archlinux.org/yay.git
