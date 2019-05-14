@@ -81,9 +81,8 @@ install-arch:
 		mosh \
 		htop \
 		syncthing \
-		syncthing-gtk
-
-
+		syncthing-gtk \
+		tree
 
 
 all: bin cli desktop
