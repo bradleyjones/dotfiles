@@ -31,7 +31,12 @@ comms:
 		weechat \
 		neomutt \
 		mbsync \
-		msmtp
+		msmtp \
+		aspell \
+		guile2.0 \
+		tcl \
+		ruby \
+		python2-websocket-client
 
 yay: arch-pre
 	cd /tmp && \
