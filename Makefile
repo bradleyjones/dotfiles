@@ -138,6 +138,14 @@ termite:
 	mkdir -p $(HOME)/.config/termite
 	ln -sf $(CURDIR)/.termite-config $(HOME)/.config/termite/config
 
+compton:
+	mkdir -p $(HOME)/.config/compton
+	ln -sf $(CURDIR)/.compton.conf $(HOME)/.config/compton/compton.conf
+
+dunst:
+	mkdir -p $(HOME)/.config/dunst
+	ln -sf $(CURDIR)/.dunstrc $(HOME)/.config/dunst/dunstrc
+
 keyboard:
 	ln -sf $(CURDIR)/.xmodmaprc $(HOME)/.xmodmaprc
 
