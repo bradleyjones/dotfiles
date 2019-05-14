@@ -1,0 +1,13 @@
+[calendars]
+
+  [[work]]
+    path = ~/.calendar/calendar/
+    color = dark green
+
+  [[uk_holidays]]
+    path = ~/.calendar/United Kingdom holidays
+    readonly = True
+
+[keybindings]
+export = E
+external_edit = e

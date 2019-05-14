@@ -146,6 +146,10 @@ dunst:
 	mkdir -p $(HOME)/.config/dunst
 	ln -sf $(CURDIR)/.dunstrc $(HOME)/.config/dunst/dunstrc
 
+khal:
+	mkdir -p $(HOME)/.config/khal
+	ln -sf $(CURDIR)/.khal-config $(HOME)/.config/khal/config
+
 keyboard:
 	ln -sf $(CURDIR)/.xmodmaprc $(HOME)/.xmodmaprc
 
