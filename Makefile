@@ -38,7 +38,8 @@ comms:
 		ruby \
 		python2-websocket-client \
 		khal \
-		vdirsyncer
+		vdirsyncer \
+		urlview
 
 yay: arch-pre
 	cd /tmp && \
