@@ -30,7 +30,8 @@ comms:
 	yay -S --noconfirm \
 		weechat \
 		neomutt \
-		mbsync
+		mbsync \
+		msmtp
 
 yay: arch-pre
 	cd /tmp && \
