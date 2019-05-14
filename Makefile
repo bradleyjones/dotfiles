@@ -36,7 +36,9 @@ comms:
 		guile2.0 \
 		tcl \
 		ruby \
-		python2-websocket-client
+		python2-websocket-client \
+		khal \
+		vdirsyncer
 
 yay: arch-pre
 	cd /tmp && \
