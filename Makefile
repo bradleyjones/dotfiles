@@ -39,7 +39,10 @@ comms:
 		python2-websocket-client \
 		khal \
 		vdirsyncer \
-		urlview
+		davmail \
+		urlview \
+		jp2a \
+		w3m
 
 yay: arch-pre
 	cd /tmp && \
@@ -65,13 +68,13 @@ install-arch:
 		compton \
 		bat \
 		jq \
-		davmail \
 		feh \
 		dunst \
 		blueman \
 		pulseaudio \
 		ttf-ubuntu-font-family \
 		ttf-font-awesome \
+		ttf-ms-fonts \
 		dmenu \
 		pavucontrol \
 		nextcloud-client \
