@@ -1,6 +1,6 @@
 !-- Xft settings -- !
-Xft.dpi:        96
-!Xft.dpi:        192
+!Xft.dpi:        96
+Xft.dpi:        192
 Xft.rgba:       rgb
 Xft.autohint:   0
 Xft.lcdfilter:  lcddefault

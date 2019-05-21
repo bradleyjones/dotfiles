@@ -86,7 +86,9 @@ install-arch:
 		htop \
 		syncthing \
 		syncthing-gtk \
-		tree
+		tree \
+		xsel \
+		clipit
 
 
 all: bin cli desktop

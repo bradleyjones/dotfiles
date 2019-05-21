@@ -33,7 +33,7 @@ set $ten 10 
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font pango:Terminus 10
+font pango:Terminus 8
 
 focus_follows_mouse yes
 
@@ -219,6 +219,7 @@ bar {
   #status_command i3status -c /home/bradley/.i3/i3status.conf
   status_command i3blocks -c /home/bradley/.i3/i3blocks.conf
   position top
+  font pango:Terminus 8
 }
 
 # Startup apps
@@ -233,3 +234,4 @@ exec xmodmap ~/.xmodmaprc # Keyboard remaps
 exec feh --bg-scale .background # Set desktop background
 exec dunst & # Notification daemon
 exec syncthing-gtk & # syncthing client
+exec clipit & # clipboard manager

@@ -3,7 +3,7 @@
 BAT="$(acpi -b | grep -E -o '[0-9][0-9]?%') $(acpi -b | awk '{ print $5 }')"
 CHARGE_STATUS=$(acpi -b | awk '{ print $3 }' | grep -E -o '[A-Z]*[a-z]*')
 if acpi | grep -q 100 ; then
-  BAT='100%'
+  BAT='100%  $(acpi -b | awk '{ print $5 }')'
 fi
 if acpi | grep -q Full ; then
   BAT='Full'
