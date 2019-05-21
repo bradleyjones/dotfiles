@@ -25,11 +25,11 @@ if $(which acpi) ; then
   # Full text
   echo "$TEXT"
   # Short text
-  echo "$TEXT"
+  #echo "$TEXT"
   # Set Foreground colour
   echo "$COLOUR"
   # Set background colour
-  echo "#000000"
+  #echo "#000000"
 
   # Set urgent flag below 5%
   [ ${BAT%?} -le 5 ] && exit 33
