@@ -137,7 +137,7 @@ set colorcolumn=80
 filetype plugin indent on
 set encoding=utf-8
 
-set clipboard=unnamed
+set clipboard+=unnamedplus
 
 iabbrev me@ jones.bradley@me.com
 
