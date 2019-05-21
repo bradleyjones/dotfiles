@@ -193,12 +193,12 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
 endif
 
 " Theming
-"set background=dark
-"let g:solarized_termtrans=1
-"let g:solarized_termcolors=256
-"let g:solarized_contrast="high"
-"let g:solarized_visibility="high"
-"silent! colorscheme solarized
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+silent! colorscheme solarized
 
 " }}}
 " Language/File type specific config -------------------------------------- {{{
@@ -221,6 +221,8 @@ augroup END
 augroup ft_go
     au!
     au FileType go set nolist
+    au FileType go setlocal tw=160
+    au FileType go setlocal colorcolumn=159
 augroup END
 " }}}
 " Yaml {{{
