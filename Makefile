@@ -88,7 +88,8 @@ install-arch:
 		syncthing-gtk \
 		tree \
 		xsel \
-		clipit
+		clipit \
+		universal-ctags-git
 
 
 all: bin cli desktop
