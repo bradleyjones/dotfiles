@@ -44,3 +44,4 @@ bindkey '\e[B' history-beginning-search-forward
 export PATH=$PATH:/home/bradley/.go/bin
 
 export PATH=$PATH:/home/bradley/go/bin
+
