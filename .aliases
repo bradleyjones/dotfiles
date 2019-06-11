@@ -3,4 +3,3 @@ alias pi="pip install --upgrade ."
 alias csco="curl -s https://api.iextrading.com/1.0/stock/csco/book | jq '.quote.latestPrice'"
 alias cat="bat"
 alias vim="nvim"
-alias gcd="cd $(find $(go env GOPATH)/src -maxdepth 3 -type d -name \"$1\")

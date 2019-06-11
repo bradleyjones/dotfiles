@@ -212,6 +212,20 @@ nmap <C-l> :bNext<CR>
 
 nmap <C-b> :CtrlPBuffer<CR>
 
+"Terminal specific
+tnoremap <Esc> <C-\><C-n>
+autocmd BufWinEnter,WinEnter,BufEnter,TermOpen * if &buftype == 'terminal' | :startinsert | endif
+
+"Close buffer
+nmap <leader>c :bd<CR>
+
+" Golang
+nmap <leader>gr :split <bar> terminal go run %<CR>
+nmap <leader>gb :split <bar> terminal go build && zsh<CR>
+nmap <leader>gl :split <bar> lcd %:p:h <bar> terminal pwd && golangci-lint run<CR> " Running golint on whole folder
+nmap <leader>glf :split <bar> lcd %:p:h <bar> terminal pwd && golangci-lint run %<CR>  " Running golint on single file
+
+
 " }}}
 " Colours & Theming ------------------------------------------------------- {{{
 

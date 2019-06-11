@@ -29,9 +29,6 @@ export TERM=xterm-256color
 #export VIRTUAL_ENV_DISABLE_PROMPT=1
 #source ~/.venv/bin/activate
 
-# Custom aliases
-source ~/.aliases
-
 # Fix DYLD path for networking-cisco UTs
 #export DYLD_FALLBACK_LIBRARY_PATH=/usr/lib
 
@@ -45,3 +42,5 @@ export PATH=$PATH:/home/bradley/.go/bin
 
 export PATH=$PATH:/home/bradley/go/bin
 
+# Custom aliases
+source ~/.aliases
