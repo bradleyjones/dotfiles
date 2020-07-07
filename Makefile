@@ -2,7 +2,7 @@ install-ubuntu:
 	# sudo sed -e 's/$/ universe/' -i /etc/apt/sources.list
 	add-apt-repository ppa:keithw/mosh-dev
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $$(lsb_release -cs) stable"
 	apt update
 	apt install \
 		tmux \
@@ -18,6 +18,8 @@ install-ubuntu:
 		ca-certificates \
 		software-properties-common \
 		docker-ce \
+		docker-ce-cli \
+		containerd.io \
 		mosh \
 		jq \
 		language-pack-en \
@@ -89,16 +91,15 @@ install-arch:
 		clipit \
 		universal-ctags-git
 
-
 all: bin cli desktop
 
+ubuntu-server: install-ubuntu cli
 
 bin:
 	mkdir $(HOME)/bin
 	ln -sf $(CURDIR)/bin/* $(HOME)/bin
 
-
-cli: shell tmux vim git bin
+cli: shell tmux vim git
 
 shell:
 	which curl || ( echo 'curl is required, please install it' && exit 1 )
