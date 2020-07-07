@@ -92,8 +92,6 @@ install-arch:
 
 all: bin cli desktop
 
-ubuntu-server: install-ubuntu cli
-
 bin:
 	mkdir $(HOME)/bin
 	ln -sf $(CURDIR)/bin/* $(HOME)/bin

@@ -14,6 +14,8 @@ Optional (install script will run without it):
 To get use
   git clone git://github.com/bradleyjones/dot.git
 
-To symlink all of the configs
-  cd dot;
-  ./install;
+Install packages:
+  sudo make install-ubuntu
+
+Copy CLI config as user:
+  make cli
