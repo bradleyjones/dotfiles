@@ -118,7 +118,7 @@ tmux-plugins:
 
 vim-coc:
 	curl -sL install-node.now.sh/lts | sudo bash
-	pip install --user jedi
+	pip3 install --user jedi
 
 vim: vim-coc
 	which curl || ( echo 'curl is required, please install it' && exit 1 )
