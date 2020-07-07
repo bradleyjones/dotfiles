@@ -119,11 +119,15 @@ tmux-plugins:
 		if cd $$dir; then git pull; else git clone $$repo $$dir; fi; \
 	done < $(CURDIR)/.tmux-plugins
 
+nvim:
+	mkdir -p $(HOME)/.config
+	ln -sf $(CURDIR)/nvim $(HOME)/.config/nvim
+
 vim-coc:
 	curl -sL install-node.now.sh/lts | sudo bash
 	pip3 install --user jedi
 
-vim: vim-coc
+vim: vim-coc nvim
 	which curl || ( echo 'curl is required, please install it' && exit 1 )
 	which pip3 || ( echo 'pip3 is required, please install it' && exit 1 )
 	mkdir -p $(HOME)/.vim/autoload
