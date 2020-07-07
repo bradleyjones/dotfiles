@@ -1,5 +1,5 @@
 install-ubuntu:
-	sudo sed -e 's/$/ universe/' -i /etc/apt/sources.list
+	# sudo sed -e 's/$/ universe/' -i /etc/apt/sources.list
 	add-apt-repository ppa:keithw/mosh-dev
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
@@ -120,7 +120,11 @@ tmux-plugins:
 		if cd $$dir; then git pull; else git clone $$repo $$dir; fi; \
 	done < $(CURDIR)/.tmux-plugins
 
-vim:
+vim-coc:
+	curl -sL install-node.now.sh/lts | sudo bash
+	pip install --user jedi
+
+vim: vim-coc
 	which curl || ( echo 'curl is required, please install it' && exit 1 )
 	which pip3 || ( echo 'pip3 is required, please install it' && exit 1 )
 	mkdir -p $(HOME)/.vim/autoload
