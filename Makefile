@@ -23,7 +23,7 @@ install-ubuntu:
 		jq \
 		language-pack-en \
 		bat
-	usermod -aG docker bradley
+	#usermod -aG docker bradley
 
 comms:
 	yay -S --noconfirm \
