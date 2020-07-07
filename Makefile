@@ -23,7 +23,8 @@ install-ubuntu:
 		mosh \
 		jq \
 		language-pack-en \
-		bat
+		bat \
+		nodejs npm # Used for vim-coc
 	#usermod -aG docker bradley
 
 comms:
@@ -124,7 +125,6 @@ nvim-config:
 	ln -sf $(CURDIR)/nvim $(HOME)/.config/nvim
 
 vim-coc:
-	curl -sL install-node.now.sh/lts | sudo bash
 	pip3 install --user jedi
 
 vim: vim-coc nvim-config
