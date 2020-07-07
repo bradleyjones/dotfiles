@@ -6,6 +6,7 @@ install-ubuntu:
 	apt install \
 		tmux \
 		vim \
+		neovim \
 		zsh \
 		wget \
 		git \
