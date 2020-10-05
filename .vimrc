@@ -89,6 +89,7 @@ let g:indentLine_char = '⎸'
 
 " Completion
 let g:deoplete#enable_at_startup = 1
+let g:python3_host_prog = "/usr/local/bin/python3"
 set completeopt-=preview " Hide the preview
 
 " Tagbar config
@@ -263,6 +264,8 @@ augroup END
 augroup ft_go
     au!
     au FileType go set nolist
+    au FileType go setlocal foldmethod=indent
+    au FileType go setlocal foldnestmax=1 
     au FileType go setlocal tw=160
     au FileType go setlocal colorcolumn=159
 augroup END
@@ -315,7 +318,7 @@ nnoremap <Space> za
 vnoremap <Space> za
 
 " Make zO recursively open whatever fold we're in, even if it's partially open.
-nnoremap zO zczO
+nnoremap zz zczO
 
 " "Focus" the current line.  Basically:
 "
@@ -345,4 +348,5 @@ function! MyFoldText() " {{{
     return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
 endfunction " }}}
 set foldtext=MyFoldText()
+
 " }}}
