@@ -3,33 +3,33 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Vars
-set $mod Mod1
+set $mod Mod4
 set $up k
 set $down j
 set $left h
 set $right l
 # Workspace vars
-#set $one 1: browser
-#set $two 2: mail
-#set $three 3: editing
-#set $four 4: servers
-#set $five 5: testing
-#set $six 6: chat
-#set $seven 7: home
-#set $eight 8: other
-#set $nine 9: media
-#set $ten 10: system
+set $one 1: browser
+set $two 2: mail
+set $three 3: editing
+set $four 4: servers
+set $five 5: testing
+set $six 6: chat
+set $seven 7: home
+set $eight 8: other
+set $nine 9: media
+set $ten 10: system
 # icons
-set $one 1 
-set $two 2 
-set $three 3 
-set $four 4 
-set $five 5 
-set $six 6 
-set $seven 7 
-set $eight 8 
-set $nine 9 
-set $ten 10 
+#set $one 1 
+#set $two 2 
+#set $three 3 
+#set $four 4 
+#set $five 5 
+#set $six 6 
+#set $seven 7 
+#set $eight 8 
+#set $nine 9 
+#set $ten 10 
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -216,8 +216,8 @@ bindsym XF86MonBrightnessDown exec sudo xbacklight -dec 10 # decrease screen bri
 # finds out, if available)
 bar {
 #  status_command ~/.i3/custom_i3_status.sh
-  #status_command i3status -c /home/bradley/.i3/i3status.conf
-  status_command i3blocks -c /home/bradley/.i3/i3blocks.conf
+  status_command i3status -c /home/bradley/.i3/i3status.conf
+  #status_command i3blocks -c /home/bradley/.i3/i3blocks.conf
   position top
   font pango:Terminus 8
 }

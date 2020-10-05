@@ -1,12 +1,12 @@
 install-ubuntu:
-	sudo sed -e 's/$/ universe/' -i /etc/apt/sources.list
-	add-apt-repository ppa:keithw/mosh-dev
+	# sudo sed -e 's/$/ universe/' -i /etc/apt/sources.list
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $$(lsb_release -cs) stable"
 	apt update
 	apt install \
 		tmux \
 		vim \
+		neovim \
 		zsh \
 		wget \
 		git \
@@ -18,13 +18,14 @@ install-ubuntu:
 		ca-certificates \
 		software-properties-common \
 		docker-ce \
+		docker-ce-cli \
+		containerd.io \
 		mosh \
 		jq \
-		language-pack-en
-	wget https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
-	dpkg -i bat_0.9.0_amd64.deb
-	rm bat_0.9.0_amd64.deb
-	usermod -aG docker bradley
+		language-pack-en \
+		bat \
+		nodejs npm # Used for vim-coc
+	#usermod -aG docker bradley
 
 comms:
 	yay -S --noconfirm \
@@ -91,20 +92,19 @@ install-arch:
 		clipit \
 		universal-ctags-git
 
-
 all: bin cli desktop
-
 
 bin:
 	mkdir $(HOME)/bin
 	ln -sf $(CURDIR)/bin/* $(HOME)/bin
 
+cli: shell tmux vim git
 
-cli: shell tmux vim git bin
-
-shell:
+$(~/.oh-my-zsh):
 	which curl || ( echo 'curl is required, please install it' && exit 1 )
 	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+shell: $(~/.oh-my-zsh)
 	ln -sf $(CURDIR)/.zshrc $(HOME)/.zshrc
 	ln -sf $(CURDIR)/.aliases $(HOME)/.aliases
 
@@ -120,7 +120,14 @@ tmux-plugins:
 		if cd $$dir; then git pull; else git clone $$repo $$dir; fi; \
 	done < $(CURDIR)/.tmux-plugins
 
-vim:
+nvim-config:
+	mkdir -p $(HOME)/.config
+	ln -sf $(CURDIR)/nvim $(HOME)/.config/nvim
+
+vim-coc:
+	pip3 install --user jedi
+
+vim: vim-coc nvim-config
 	which curl || ( echo 'curl is required, please install it' && exit 1 )
 	which pip3 || ( echo 'pip3 is required, please install it' && exit 1 )
 	mkdir -p $(HOME)/.vim/autoload
