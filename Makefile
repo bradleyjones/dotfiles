@@ -1,7 +1,7 @@
 install-ubuntu:
 	# sudo sed -e 's/$/ universe/' -i /etc/apt/sources.list
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $$(lsb_release -cs) stable"
+	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 	apt update
 	apt install \
 		tmux \
@@ -24,6 +24,8 @@ install-ubuntu:
 		jq \
 		language-pack-en \
 		bat \
+		fzf \
+		ripgrep \
 		nodejs npm # Used for vim-coc
 	#usermod -aG docker bradley
 
@@ -100,11 +102,11 @@ bin:
 
 cli: shell tmux vim git
 
-$(~/.oh-my-zsh):
-	which curl || ( echo 'curl is required, please install it' && exit 1 )
-	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+~/.oh-my-zsh:
+	which wget || ( echo 'wget is required, please install it' && exit 1 )
+	sh -c "$$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
-shell: $(~/.oh-my-zsh)
+shell: ~/.oh-my-zsh
 	ln -sf $(CURDIR)/.zshrc $(HOME)/.zshrc
 	ln -sf $(CURDIR)/.aliases $(HOME)/.aliases
 
