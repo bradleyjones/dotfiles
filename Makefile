@@ -82,6 +82,7 @@ install-arch:
 		ttf-ubuntu-font-family \
 		ttf-font-awesome \
 		ttf-ms-fonts \
+		ttf-symbola \
 		dmenu \
 		pavucontrol \
 		openssh \
