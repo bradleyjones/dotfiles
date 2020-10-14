@@ -99,6 +99,7 @@ install-arch:
 		nodejs \
 		arandr \
 		man \
+		docker \
 		universal-ctags-git
 
 all: bin cli desktop
