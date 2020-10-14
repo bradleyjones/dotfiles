@@ -104,7 +104,7 @@ bindsym $mod+Shift+a focus child
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+bindsym $mod+minus scratchpad show, resize set 800 px 50 ppt, move position center;
 
 # switch to workspace and setup workspace names
 bindsym $mod+1 workspace $one
