@@ -224,7 +224,7 @@ bar {
 
 # Startup apps
 #exec compton --xrender-sync --xrender-sync-fence & # Starts composition manager for window transparency
-exec compton & # Starts composition manager for window transparency
+exec picom & # Starts composition manager for window transparency
 exec xrdb ~/.Xresources # Urxvt config and fonts
 exec blueman-applet & # Bluetooth manager
 exec nm-applet & # Network
@@ -235,4 +235,4 @@ exec feh --bg-scale .background # Set desktop background
 exec dunst & # Notification daemon
 exec syncthing-gtk & # syncthing client
 exec clipit & # clipboard manager
-exec bash /home/bradley/.screenlayout/desktop.sh
+#exec bash /home/bradley/.screenlayout/desktop.sh
