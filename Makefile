@@ -192,3 +192,6 @@ sounds:
 
 gertty:
 	cp $(CURDIR)/.gertty.yaml $(HOME)/.gertty.yaml
+
+pull-docker-containers:
+	docker pull jiahaog/nativefier
