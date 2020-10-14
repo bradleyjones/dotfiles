@@ -62,9 +62,12 @@ install-arch:
 		xorg-server \
 		xf86-video-intel \
 		i3-gaps \
-		i3blocks-git \
+		i3blocks \
 		termite \
 		curl \
+		wget \
+		fzf \
+		ripgrep \
 		python \
 		python-pip \
 		compton \
@@ -83,16 +86,15 @@ install-arch:
 		rsync \
 		mosh \
 		htop \
-		syncthing \
-		syncthing-gtk \
 		tree \
 		xsel \
 		clipit \
+		vim \
+		neovim \
+		tmux \
+		git \
+		nodejs \
 		universal-ctags-git
-		#nextcloud-client \
-		#networkmanager \
-		#network-manager-applet \
-		#chromium \
 
 all: bin cli desktop
 
@@ -134,7 +136,7 @@ vim: vim-coc nvim-config
 	which pip3 || ( echo 'pip3 is required, please install it' && exit 1 )
 	mkdir -p $(HOME)/.vim/autoload
 	ln -sf $(CURDIR)/.vimrc $(HOME)/.vimrc
-	vim +PlugInstall +qall
+	GOPATH=$(HOME) GOBIN=$(HOME)/bin vim +PlugInstall +qall
 	sudo pip3 install --upgrade neovim # Required for deoplete
 
 git:
