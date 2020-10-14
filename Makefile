@@ -72,7 +72,7 @@ install-arch:
 		ripgrep \
 		python \
 		python-pip \
-		compton \
+		picom \
 		bat \
 		jq \
 		feh \
@@ -98,6 +98,7 @@ install-arch:
 		git \
 		nodejs \
 		arandr \
+		man \
 		universal-ctags-git
 
 all: bin cli desktop
@@ -147,7 +148,7 @@ git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
 
 
-desktop: i3 xresources keyboard fonts sounds termite screen-tear
+desktop: i3 xresources keyboard fonts sounds termite screen-tear picom
 
 i3:
 	mkdir -p $(HOME)/.i3
@@ -161,9 +162,9 @@ termite:
 	mkdir -p $(HOME)/.config/termite
 	ln -sf $(CURDIR)/.termite-config $(HOME)/.config/termite/config
 
-compton:
-	mkdir -p $(HOME)/.config/compton
-	ln -sf $(CURDIR)/.compton.conf $(HOME)/.config/compton/compton.conf
+picom:
+	mkdir -p $(HOME)/.config/picom
+	ln -sf $(CURDIR)/.picom.conf $(HOME)/.config/picom/picom.conf
 
 dunst:
 	mkdir -p $(HOME)/.config/dunst

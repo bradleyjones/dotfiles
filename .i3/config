@@ -235,3 +235,4 @@ exec feh --bg-scale .background # Set desktop background
 exec dunst & # Notification daemon
 exec syncthing-gtk & # syncthing client
 exec clipit & # clipboard manager
+exec bash /home/bradley/.screenlayout/desktop.sh
