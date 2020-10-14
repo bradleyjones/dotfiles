@@ -147,7 +147,7 @@ git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
 
 
-desktop: i3 xresources keyboard fonts sounds termite
+desktop: i3 xresources keyboard fonts sounds termite screen-tear
 
 i3:
 	mkdir -p $(HOME)/.i3
@@ -175,6 +175,9 @@ khal:
 
 keyboard:
 	ln -sf $(CURDIR)/.xmodmaprc $(HOME)/.xmodmaprc
+
+screen-tear:
+	sudo ln -sf $(CURDIR)/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 
 fonts:
 	# on arch install awesome-terminal-fonts
