@@ -56,6 +56,7 @@ yay: yay-pre
 yay-pre:
 	sudo pacman -S --needed git base-devel
 
+# TODO decide on either i3blocks or i3status
 install-arch:
 	yay -S --noconfirm \
 		xorg-xinit \
@@ -63,6 +64,7 @@ install-arch:
 		xf86-video-intel \
 		i3-gaps \
 		i3blocks \
+		i3status \
 		termite \
 		curl \
 		wget \
@@ -94,6 +96,7 @@ install-arch:
 		tmux \
 		git \
 		nodejs \
+		arandr \
 		universal-ctags-git
 
 all: bin cli desktop

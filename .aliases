@@ -1,5 +1,5 @@
 alias ucsm-coverage="coverage report -m --omit='networking_cisco/tests/*,networking_cisco/ml2_drivers/ucsm/deprecated_network_driver.py,networking_cisco/ml2_drivers/ucsm/ucs_urllib2.py' --include='*ucsm*'"
 alias pi="pip install --upgrade ."
 alias csco="curl -s https://api.iextrading.com/1.0/stock/csco/book | jq '.quote.delayedPrice'"
-alias cat="batcat"
+alias cat="bat"
 alias vim="nvim"
