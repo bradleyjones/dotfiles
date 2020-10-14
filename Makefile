@@ -47,14 +47,14 @@ comms:
 		jp2a \
 		w3m
 
-yay: arch-pre
+yay: yay-pre
 	cd /tmp && \
 	git clone https://aur.archlinux.org/yay.git
-	cd /tmp/yay && \-
+	cd /tmp/yay && \
 	makepkg -si
 
 yay-pre:
-	sudo pacman -Sy --noconfirm vim git tmux zsh
+	sudo pacman -S --needed git base-devel
 
 install-arch:
 	yay -S --noconfirm \
@@ -63,7 +63,6 @@ install-arch:
 		xf86-video-intel \
 		i3-gaps \
 		i3blocks-git \
-		chromium \
 		termite \
 		curl \
 		python \
@@ -80,9 +79,6 @@ install-arch:
 		ttf-ms-fonts \
 		dmenu \
 		pavucontrol \
-		nextcloud-client \
-		networkmanager \
-		network-manager-applet \
 		openssh \
 		rsync \
 		mosh \
@@ -93,6 +89,10 @@ install-arch:
 		xsel \
 		clipit \
 		universal-ctags-git
+		#nextcloud-client \
+		#networkmanager \
+		#network-manager-applet \
+		#chromium \
 
 all: bin cli desktop
 
