@@ -77,6 +77,7 @@ install-arch:
 		jq \
 		feh \
 		dunst \
+		lib-notify \
 		blueman \
 		pulseaudio \
 		ttf-ubuntu-font-family \
@@ -149,7 +150,7 @@ git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
 
 
-desktop: i3 xresources keyboard fonts sounds termite screen-tear picom
+desktop: i3 xresources keyboard fonts sounds termite screen-tear picom dunst
 
 i3:
 	mkdir -p $(HOME)/.i3
