@@ -31,6 +31,7 @@ install-ubuntu:
 
 comms:
 	yay -S --noconfirm \
+		slack-desktop \
 		weechat \
 		neomutt \
 		mbsync \
