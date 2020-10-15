@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/usr/bin/ffplay -nodisp -autoexit /home/bradley/.sounds/knock_brush.mp3
+# Set urgent flag on webex teams window so it is highlighted by window manager
+wmctrl -r Webex\ Teams -b add,demands_attention

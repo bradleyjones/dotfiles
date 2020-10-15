@@ -103,11 +103,13 @@ install-arch:
 		docker \
 		universal-ctags-git
 
-all: bin cli desktop
+all: binaries cli desktop
 
-bin:
+binaries: $(home)/bin
+	ln -sf $(CURDIR)/bin/* $(HOME)/bin/
+
+$(HOME)/bin:
 	mkdir $(HOME)/bin
-	ln -sf $(CURDIR)/bin/* $(HOME)/bin
 
 cli: shell tmux vim git
 
