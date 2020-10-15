@@ -236,3 +236,5 @@ exec dunst & # Notification daemon
 exec syncthing-gtk & # syncthing client
 exec clipit & # clipboard manager
 #exec bash /home/bradley/.screenlayout/desktop.sh
+exec setxkbmap -layout gb
+exec xmodmap ~/.xmodmaprc
