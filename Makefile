@@ -200,3 +200,7 @@ gertty:
 
 pull-docker-containers:
 	docker pull jiahaog/nativefier
+
+# Ensure docker containers use systemd-resolved
+docker-dns:
+	echo 'nameserver 127.0.0.53' > /etc/resolv.conf
