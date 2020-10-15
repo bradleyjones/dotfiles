@@ -152,7 +152,7 @@ git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
 
 
-desktop: i3 xresources keyboard fonts sounds termite screen-tear picom dunst
+desktop: i3 xresources keyboard fonts copy-sounds termite screen-tear picom dunst
 
 i3:
 	mkdir -p $(HOME)/.i3
@@ -190,7 +190,7 @@ fonts:
 	mkdir -p $(HOME)/.local/share/fonts
 	ln -sf $(CURDIR)/.fonts/* $(HOME)/.local/share/fonts/
 
-sounds:
+copy-sounds:
 	sudo ln -sf $(CURDIR)/sounds $(HOME)/.sounds
 
 gertty:
