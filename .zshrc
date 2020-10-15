@@ -24,6 +24,11 @@ setopt no_share_history
 export HISTCONTROL=ignoreboth
 # Fix tmux on remote server using termite
 export TERM=xterm-256color
+# Allow go get to accept input
+export GIT_TERMINAL_PROMPT=1
+
+# WORK Dev settings
+export DOCKER_BUILD=true
 
 # Load venv
 #export VIRTUAL_ENV_DISABLE_PROMPT=1
