@@ -102,6 +102,7 @@ install-arch:
 		arandr \
 		man \
 		docker \
+		inetutils \
 		universal-ctags-git
 
 all: binaries cli desktop
