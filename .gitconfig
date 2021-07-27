@@ -1,6 +1,6 @@
 [user]
-  name = Bradley Jones
-  email = jones.bradley@me.com
+	name = Bradley Jones
+	email = bradjone@cisco.com
   signingkey = E5CAD663B8825B0E
 [core]
   editor = vim

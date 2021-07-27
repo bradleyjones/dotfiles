@@ -70,9 +70,11 @@ let g:fzf_action = {
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-map <C-f> :Files<CR>
+map <C-f> :GFiles<CR>
+nnoremap <C-f> :GFiles<CR>
+map <C-g> :Rg<CR>
 map <C-b> :Buffers<CR>
-nnoremap <leader>g :Rg<CR>
+nnoremap <leader>g :GFiles<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>m :Marks<CR>
 
@@ -127,6 +129,10 @@ command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
 
+" vimgo
+let g:go_code_completion_enabled = 1
+let g:go_fmt_experimental = 1
+let go_diagnostics_enabled = 1
 
 " Coc config
 " if hidden is not set, TextEdit might fail.
@@ -348,6 +354,8 @@ let NERDTreeDirArrows = 1
 
 " vimwiki
 "let g:vimwiki_url_maxsave=0
+"let g:vimwiki_listsyms = '✗○◐●✓'
+let g:vimwiki_listsyms = ' ○◐●✓'
 " }}}
 " }}}
 " General Settings ---------------------------------------------------------{{{
@@ -440,7 +448,6 @@ nmap <leader>gb :split <bar> terminal go build && zsh<CR>
 nmap <leader>gl :split <bar> lcd %:p:h <bar> terminal pwd && golangci-lint run<CR> " Running golint on whole folder
 nmap <leader>glf :split <bar> lcd %:p:h <bar> terminal pwd && golangci-lint run %<CR>  " Running golint on single file
 
-
 " }}}
 " Colours & Theming ------------------------------------------------------- {{{
 
@@ -456,6 +463,49 @@ let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 silent! colorscheme solarized
+
+" }}}
+" Folding ----------------------------------------------------------------- {{{
+" Stolen from Steve Losh - https://bitbucket.org/sjl/dotfiles/
+
+set foldlevelstart=0
+
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Make zO recursively open whatever fold we're in, even if it's partially open.
+nnoremap zz zczO
+nnoremap zA zczA
+
+" "Focus" the current line.  Basically:
+"
+" 1. Close all folds.
+" 2. Open just the folds containing the current line.
+" 3. Move the line to a little bit (15 lines) above the center of the screen.
+" 4. Pulse the cursor line.  My eyes are bad.
+"
+" This mapping wipes out the z mark, which I never use.
+"
+" I use :sus for the rare times I want to actually background Vim.
+nnoremap <c-z> mzzMzvzz15<c-e>`z<cr>
+
+function! MyFoldText() " {{{
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction " }}}
+set foldtext=MyFoldText()
 
 " }}}
 " Language/File type specific config -------------------------------------- {{{
@@ -478,9 +528,10 @@ augroup END
 augroup ft_go
     au!
     au FileType go set nolist
-    au FileType go setlocal foldmethod=indent
-    au FileType go setlocal foldnestmax=1 
-    au FileType go setlocal tw=160
+    au FileType go setlocal foldmethod=syntax
+    au FileType go setlocal foldnestmax=1
+    au FileType go setlocal nofoldenable
+    au FileType go set tw=160
     au FileType go setlocal colorcolumn=159
 augroup END
 " }}}
@@ -502,15 +553,20 @@ augroup pencil
 augroup END
 " }}}
 " VimWiki Specific {{{
-let g:vimwiki_folding='list'
-au BufRead,BufNewFile *.wiki set filetype=vimwiki
-:autocmd FileType vimwiki map n :VimwikiMakeDiaryNote
+let g:vimwiki_list = [{'path': '~/Nextcloud/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_folding='expr:quick'
+au BufRead,BufNewFile *.md set filetype=vimwiki
+au BufRead,BufNewFile *.md highlight Folded ctermbg=None cterm=None guifg=None guibg=None ctermfg=None
+au BufRead,BufNewFile *.md highlight LineNr ctermbg=None ctermfg=None
+au BufRead,BufNewFile *.md highlight SignColumn ctermbg=None
+" :autocmd FileType vimwiki map n :VimwikiMakeDiaryNote
 function! ToggleCalendar()
   execute ":Calendar"
   if exists("g:calendar_open")
     if g:calendar_open == 1
       execute "q"
-      unlet g:calendar_open
+j     unlet g:calendar_open
     else
       g:calendar_open = 1
     end
@@ -520,47 +576,11 @@ function! ToggleCalendar()
 endfunction
 :autocmd FileType vimwiki map c :call ToggleCalendar()
 " }}}
-
+" Json {{{
+augroup ft_json
+    au!
+    au FileType json setlocal tw=9000 foldmethod=syntax
+augroup END
 " }}}
-" Folding ----------------------------------------------------------------- {{{
-" Stolen from Steve Losh - https://bitbucket.org/sjl/dotfiles/
-
-set foldlevelstart=0
-
-" Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
-
-" Make zO recursively open whatever fold we're in, even if it's partially open.
-nnoremap zz zczO
-
-" "Focus" the current line.  Basically:
-"
-" 1. Close all folds.
-" 2. Open just the folds containing the current line.
-" 3. Move the line to a little bit (15 lines) above the center of the screen.
-" 4. Pulse the cursor line.  My eyes are bad.
-"
-" This mapping wipes out the z mark, which I never use.
-"
-" I use :sus for the rare times I want to actually background Vim.
-nnoremap <c-z> mzzMzvzz15<c-e>`z:Pulse<cr>
-
-function! MyFoldText() " {{{
-    let line = getline(v:foldstart)
-
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
-
-    " expand tabs into spaces
-    let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
-
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
-endfunction " }}}
-set foldtext=MyFoldText()
 
 " }}}
