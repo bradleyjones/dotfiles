@@ -1,6 +1,8 @@
 [global]
     ### Display ###
 
+    timeout = 0
+
     # Which monitor should the notifications be displayed on.
     monitor = 0
 
@@ -127,6 +129,8 @@
     #   %%  Literal %
     # Markup is allowed
     format = "<b>%s</b>\n%b"
+    # Debug Format
+    #format = "<b>%s</b>%a\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -160,7 +164,7 @@
     ### Icons ###
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 32
@@ -267,7 +271,7 @@
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = ctrl+grave
+    history = ctrl+apostrophe
 
     # Context menu.
     context = ctrl+shift+period
@@ -277,14 +281,14 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#222222"
     foreground = "#888888"
-    timeout = 10
+    timeout = 0
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
     background = "#285577"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 0
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
@@ -296,6 +300,13 @@
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
 
+[webex_teams]
+    appname = "*webexteams*"
+    # Teams messages when in electron app (nativefier) are closed from the
+    # client so setting timeout/transient mode has no effect
+    #set_transient = no
+    #timeout = 0
+    script = /home/bradley/bin/webex-notification
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 #

@@ -1,7 +1,7 @@
 install-ubuntu:
 	# sudo sed -e 's/$/ universe/' -i /etc/apt/sources.list
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $$(lsb_release -cs) stable"
+	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 	apt update
 	apt install \
 		tmux \
@@ -24,11 +24,14 @@ install-ubuntu:
 		jq \
 		language-pack-en \
 		bat \
+		fzf \
+		ripgrep \
 		nodejs npm # Used for vim-coc
 	#usermod -aG docker bradley
 
 comms:
 	yay -S --noconfirm \
+		slack-desktop \
 		weechat \
 		neomutt \
 		mbsync \
@@ -45,66 +48,78 @@ comms:
 		jp2a \
 		w3m
 
-yay: arch-pre
+yay: yay-pre
 	cd /tmp && \
 	git clone https://aur.archlinux.org/yay.git
-	cd /tmp/yay && \-
+	cd /tmp/yay && \
 	makepkg -si
 
 yay-pre:
-	sudo pacman -Sy --noconfirm vim git tmux zsh
+	sudo pacman -S --needed git base-devel
 
+# TODO decide on either i3blocks or i3status
 install-arch:
 	yay -S --noconfirm \
 		xorg-xinit \
 		xorg-server \
 		xf86-video-intel \
 		i3-gaps \
-		i3blocks-git \
-		chromium \
+		i3blocks \
+		i3status \
 		termite \
 		curl \
+		wget \
+		fzf \
+		ripgrep \
 		python \
 		python-pip \
-		compton \
+		picom \
 		bat \
 		jq \
 		feh \
 		dunst \
+		lib-notify \
 		blueman \
 		pulseaudio \
 		ttf-ubuntu-font-family \
 		ttf-font-awesome \
 		ttf-ms-fonts \
+		ttf-symbola \
 		dmenu \
 		pavucontrol \
-		nextcloud-client \
-		networkmanager \
-		network-manager-applet \
 		openssh \
 		rsync \
 		mosh \
 		htop \
-		syncthing \
-		syncthing-gtk \
 		tree \
 		xsel \
 		clipit \
+		vim \
+		neovim \
+		tmux \
+		git \
+		nodejs \
+		arandr \
+		man \
+		docker \
+		inetutils \
 		universal-ctags-git
 
-all: bin cli desktop
+all: binaries cli desktop
 
-bin:
+binaries: $(home)/bin
+	ln -sf $(CURDIR)/bin/* $(HOME)/bin/
+
+$(HOME)/bin:
 	mkdir $(HOME)/bin
-	ln -sf $(CURDIR)/bin/* $(HOME)/bin
 
 cli: shell tmux vim git
 
-$(~/.oh-my-zsh):
-	which curl || ( echo 'curl is required, please install it' && exit 1 )
-	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+~/.oh-my-zsh:
+	which wget || ( echo 'wget is required, please install it' && exit 1 )
+	sh -c "$$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
-shell: $(~/.oh-my-zsh)
+shell: ~/.oh-my-zsh
 	ln -sf $(CURDIR)/.zshrc $(HOME)/.zshrc
 	ln -sf $(CURDIR)/.aliases $(HOME)/.aliases
 
@@ -132,14 +147,14 @@ vim: vim-coc nvim-config
 	which pip3 || ( echo 'pip3 is required, please install it' && exit 1 )
 	mkdir -p $(HOME)/.vim/autoload
 	ln -sf $(CURDIR)/.vimrc $(HOME)/.vimrc
-	vim +PlugInstall +qall
+	GOPATH=$(HOME) GOBIN=$(HOME)/bin vim +PlugInstall +qall
 	sudo pip3 install --upgrade neovim # Required for deoplete
 
 git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
 
 
-desktop: i3 xresources keyboard fonts sounds termite
+desktop: i3 xresources keyboard fonts copy-sounds termite screen-tear picom dunst
 
 i3:
 	mkdir -p $(HOME)/.i3
@@ -153,9 +168,9 @@ termite:
 	mkdir -p $(HOME)/.config/termite
 	ln -sf $(CURDIR)/.termite-config $(HOME)/.config/termite/config
 
-compton:
-	mkdir -p $(HOME)/.config/compton
-	ln -sf $(CURDIR)/.compton.conf $(HOME)/.config/compton/compton.conf
+picom:
+	mkdir -p $(HOME)/.config/picom
+	ln -sf $(CURDIR)/.picom.conf $(HOME)/.config/picom/picom.conf
 
 dunst:
 	mkdir -p $(HOME)/.config/dunst
@@ -168,14 +183,24 @@ khal:
 keyboard:
 	ln -sf $(CURDIR)/.xmodmaprc $(HOME)/.xmodmaprc
 
+screen-tear:
+	sudo ln -sf $(CURDIR)/20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
+
 fonts:
 	# on arch install awesome-terminal-fonts
 	sudo ln -sf $(CURDIR)/etc/fonts/local.conf /etc/fonts/local.conf
 	mkdir -p $(HOME)/.local/share/fonts
 	ln -sf $(CURDIR)/.fonts/* $(HOME)/.local/share/fonts/
 
-sounds:
+copy-sounds:
 	sudo ln -sf $(CURDIR)/sounds $(HOME)/.sounds
 
 gertty:
 	cp $(CURDIR)/.gertty.yaml $(HOME)/.gertty.yaml
+
+pull-docker-containers:
+	docker pull jiahaog/nativefier
+
+# Ensure docker containers use systemd-resolved
+docker-dns:
+	echo 'nameserver 127.0.0.53' > /etc/resolv.conf

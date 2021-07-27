@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git)
+plugins=(git docker)
 #plugins=(git zsh-iterm-touchbar vi-mode)
 source $ZSH/oh-my-zsh.sh
 
@@ -24,6 +24,11 @@ setopt no_share_history
 export HISTCONTROL=ignoreboth
 # Fix tmux on remote server using termite
 export TERM=xterm-256color
+# Allow go get to accept input
+export GIT_TERMINAL_PROMPT=1
+
+# WORK Dev settings
+export DOCKER_BUILD=true
 
 # Load venv
 #export VIRTUAL_ENV_DISABLE_PROMPT=1
