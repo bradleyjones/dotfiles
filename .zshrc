@@ -50,6 +50,3 @@ export PATH=$PATH:/home/bradley/go/bin
 # Custom aliases
 source ~/.aliases
 export PATH="/usr/local/sbin:$PATH"
-
-export DOCKER_BUILD=true
-alias make=/usr/local/bin/gmake
