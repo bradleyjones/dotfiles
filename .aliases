@@ -1,3 +1,4 @@
 alias csco="curl -s https://api.iextrading.com/1.0/stock/csco/book | jq '.quote.delayedPrice'"
 alias cat="bat"
 alias vim="nvim"
+alias update_ctl='curl -sSfL https://anchorectl-releases.anchore.io/anchorectl/install.sh | sh -s -- -b /usr/local/bin'

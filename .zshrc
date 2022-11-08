@@ -11,9 +11,7 @@ source $ZSH/oh-my-zsh.sh
 #PROMPT="%m ${PROMPT}"
 # GO PATH
 export GOROOT=/usr/local/go
-export GOPATH=$HOME
-export GOBIN=$HOME/bin
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$GOPATH/bin:$GOROOT/bin
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$GOROOT/bin
 export LC_ALL=en_GB.UTF-8
 export EDITOR='vim'
 export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -50,3 +48,6 @@ export PATH=$PATH:/home/bradley/go/bin
 # Custom aliases
 source ~/.aliases
 export PATH="/usr/local/sbin:$PATH"
+
+source ~/.anchore-secrets
+export PATH="/opt/homebrew/opt/go@1.18/bin:$PATH"
