@@ -113,6 +113,12 @@ binaries: $(home)/bin
 $(HOME)/bin:
 	mkdir $(HOME)/bin
 
+macos: homebrew
+	brew bundle
+
+homebrew:
+	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 cli: shell tmux vim git
 
 ~/.oh-my-zsh:
