@@ -118,6 +118,7 @@ cli: shell tmux vim git
 ~/.oh-my-zsh:
 	which wget || ( echo 'wget is required, please install it' && exit 1 )
 	sh -c "$$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+	git clone https://github.com/zsh-users/zsh-autosuggestions $${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 shell: ~/.oh-my-zsh
 	ln -sf $(CURDIR)/.zshrc $(HOME)/.zshrc

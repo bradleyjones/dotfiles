@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git docker)
+plugins=(git docker alias-finder brew common-aliases docker-compose git-auto-fetch golang history helm kubectl man pip pyenv pylint python copyfile zsh-autosuggestions)
 #plugins=(git zsh-iterm-touchbar vi-mode)
 source $ZSH/oh-my-zsh.sh
 
@@ -51,3 +51,8 @@ export PATH="/usr/local/sbin:$PATH"
 
 source ~/.anchore-secrets
 export PATH="/opt/homebrew/opt/go@1.18/bin:$PATH"
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
