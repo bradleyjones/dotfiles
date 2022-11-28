@@ -10,8 +10,9 @@ source $ZSH/oh-my-zsh.sh
 # Show Hostname
 #PROMPT="%m ${PROMPT}"
 # GO PATH
-export GOROOT=/usr/local/go
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$GOROOT/bin
+export GOPATH=/Users/bradley/go
+export GOROOT=/opt/homebrew/opt/go@1.18/libexec
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$GOROOT/bin:$GOPATH/bin
 export LC_ALL=en_GB.UTF-8
 export EDITOR='vim'
 export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -56,3 +57,6 @@ export PATH="/opt/homebrew/opt/go@1.18/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+
+# GPG
+export GPG_TTY=$(tty)
