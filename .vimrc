@@ -51,6 +51,7 @@ Plug 'tommcdo/vim-lion' " Align \'s at the end of lines
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+Plug 'github/copilot.vim'
 
 filetype plugin indent on
 call plug#end()
