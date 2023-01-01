@@ -16,30 +16,20 @@ Plug 'alvan/vim-closetag' " auto close html tags
 Plug 'Raimondi/delimitMate' " insert mode auto-complete for (), '', etc.
 Plug 'tpope/vim-fugitive' " git wrapper for vim
 Plug 'altercation/vim-colors-solarized' " Solarized colour theme
-"Plug 'scrooloose/syntastic' " Syntax checker
 Plug 'tpope/vim-repeat' " Make some plugins repeatable
 Plug 'tmhedberg/SimpylFold' " Improve folding for python code
 Plug 'junegunn/vim-easy-align' " Align text/tables,variables, etc
 Plug 'reedes/vim-pencil' " Makes writing prose better in vim
-"Plug 'ctrlpvim/ctrlp.vim' " CtrlP Fuzzy file & buffer menu
 Plug 'vimwiki/vimwiki' " vimwiki organise notes & todo lists, export to HTML
 Plug 'mattn/calendar-vim' " Calendar
 Plug 'rizzatti/dash.vim' " Dash integration
 Plug 'vim-airline/vim-airline' " Vim airline - status bar
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'edkolev/tmuxline.vim'
 Plug 'yggdroot/indentLine' " Show indentation
 Plug 'airblade/vim-gitgutter' " Show git status in sidebar
 Plug 'majutsushi/tagbar' " Display tags in a window
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Golang
 Plug 'roxma/vim-hug-neovim-rpc'
-"if has('nvim')
-  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-  "Plug 'Shougo/deoplete.nvim' " Autocompletion
-  "Plug 'roxma/nvim-yarp'
-"endif
-"Plug 'zchee/deoplete-go' " Autocomplete for go
 Plug 'tpope/vim-obsession' " Vim store sessions (used with tmux-resurrect)
 Plug 'severin-lemaignan/vim-minimap' " Sublime like minimap
 Plug 'sheerun/vim-polyglot' " ALL THE LANGUAGES!
@@ -268,22 +258,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-
-" Syntastic config
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
-
-" CtrlP Settings
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_match_window_bottom = 1
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_dotfiles = 0
-let g:ctrlp_switch_buffer = 0
 
 " Airline config
 let g:airline#extensions#tabline#enabled = 1
