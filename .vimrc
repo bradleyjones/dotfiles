@@ -46,6 +46,9 @@ Plug 'github/copilot.vim'
 filetype plugin indent on
 call plug#end()
 
+" Install coc extensions
+let g:coc_global_extensions = ['coc-go']
+
 " Plugin Configs -----------------------------------------------------------{{{
 "
 " FZF Config
