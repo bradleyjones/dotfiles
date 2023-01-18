@@ -47,7 +47,7 @@ filetype plugin indent on
 call plug#end()
 
 " Install coc extensions
-let g:coc_global_extensions = ['coc-go']
+let g:coc_global_extensions = ['coc-go', 'coc-snippets']
 
 " Plugin Configs -----------------------------------------------------------{{{
 "
