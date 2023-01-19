@@ -512,6 +512,8 @@ augroup ft_go
     au FileType go setlocal nofoldenable
     au FileType go set tw=160
     au FileType go setlocal colorcolumn=159
+    au FileType go setlocal tabstop=4
+    au FileType go setlocal shiftwidth=4
 augroup END
 " }}}
 " Yaml {{{
