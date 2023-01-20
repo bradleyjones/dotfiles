@@ -142,14 +142,14 @@ tmux-plugins:
 		if cd $$dir; then git pull; else git clone $$repo $$dir; fi; \
 	done < $(CURDIR)/.tmux-plugins
 
-nvim-config:
+vimrc-nvim-config:
 	mkdir -p $(HOME)/.config
-	ln -sf $(CURDIR)/nvim $(HOME)/.config/nvim
+	ln -sf $(CURDIR)/vimrc-nvim $(HOME)/.config/nvim
 
 vim-coc:
 	pip3 install --user jedi
 
-vim: vim-coc nvim-config
+vim: vim-coc vimrc-nvim-config
 	which curl || ( echo 'curl is required, please install it' && exit 1 )
 	which pip3 || ( echo 'pip3 is required, please install it' && exit 1 )
 	mkdir -p $(HOME)/.vim/autoload
