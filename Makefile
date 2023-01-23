@@ -53,6 +53,13 @@ vim: vim-coc vimrc-nvim-config
 git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
 
+neovim-packer:
+	which git || (echo 'git is required, please install it' && exit 1)
+	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+neovim: neovim-packer
+	mkdir -p $(HOME)/.config
+	ln -sf $(CURDIR)/nvim $(HOME)/.config/nvim
 
 desktop: i3 xresources keyboard fonts copy-sounds termite screen-tear picom dunst
 
