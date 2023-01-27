@@ -9,10 +9,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Show Hostname
 #PROMPT="%m ${PROMPT}"
-# GO PATH
-export GOPATH=/Users/bradley/go
-export GOROOT=/opt/homebrew/opt/go@1.18/libexec
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$GOROOT/bin:$GOPATH/bin
 export LC_ALL=en_GB.UTF-8
 export EDITOR='vim'
 export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -42,16 +38,25 @@ bindkey '\e[A' history-beginning-search-backward
 bindkey '\eOB' history-beginning-search-forward
 bindkey '\e[B' history-beginning-search-forward
 
-export PATH=$PATH:/home/bradley/.go/bin
-
-export PATH=$PATH:/home/bradley/go/bin
-
 # Custom aliases
 source ~/.aliases
 export PATH="/usr/local/sbin:$PATH"
 
 source ~/.anchore-secrets
-export PATH="/opt/homebrew/opt/go@1.18/bin:$PATH"
+
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    export GOPATH=/Users/bradley/go
+    export GOROOT=/opt/homebrew/opt/go@1.18/libexec
+    export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$GOROOT/bin:$GOPATH/bin
+    export PATH="/opt/homebrew/opt/go@1.18/bin:$PATH"
+  ;;
+  Linux)
+    # commands for Linux go here
+    export PATH=$PATH:/usr/local/go/bin
+  ;;
+esac
 
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
