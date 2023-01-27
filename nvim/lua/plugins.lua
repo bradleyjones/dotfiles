@@ -20,12 +20,25 @@ vim.cmd([[
   augroup end
 ]])
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
+  -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+
+  -- Fuzzy Finder
+  use {
+  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+-- or                            , branch = '0.1.x',
+  requires = { {'nvim-lua/plenary.nvim'} }
+}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
-end)
+end,
+config = {
+  display = {
+    open_fn = require('packer.util').float,
+  }
+}})
