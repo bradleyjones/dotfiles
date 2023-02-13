@@ -26,9 +26,19 @@ return require('packer').startup({function(use)
 
   -- Fuzzy Finder
   use {
-  'nvim-telescope/telescope.nvim', branch = '0.1.x',
-  requires = { {'nvim-lua/plenary.nvim'} }
-}
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  -- Sidebar tree file explorer
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- for file icons
+    },
+    tag = 'nightly',
+    config = function() require('plugin-configs.nvim-tree') end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
