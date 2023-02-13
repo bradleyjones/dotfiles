@@ -8,3 +8,6 @@ vim.keymap.set('n', '<C-g>', telescope.live_grep, {}) -- live grep uses ripgrep
 vim.keymap.set('n', '<C-s>', telescope.resume, {})
 vim.keymap.set('n', '<C-b>', telescope.buffers, {})
 vim.keymap.set('n', '<leader>?', telescope.help_tags, {})
+-- 
+-- Nvim Tree
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {})
