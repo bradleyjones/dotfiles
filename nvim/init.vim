@@ -1,2 +1,1 @@
-lua require('plugins')
-lua require('keymaps')
+lua require("bradley")
