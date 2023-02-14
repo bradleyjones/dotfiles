@@ -37,7 +37,7 @@ return require('packer').startup({function(use)
       'nvim-tree/nvim-web-devicons', -- for file icons
     },
     tag = 'nightly',
-    config = function() require('plugin-configs.nvim-tree') end
+    config = function() require('bradley.plugin-configs.nvim-tree') end
   }
 
   -- Theme/Colorscheme
@@ -55,7 +55,7 @@ return require('packer').startup({function(use)
   use({
 	  "nvim-treesitter/nvim-treesitter", 
 	  run = ":TSUpdate",
-	  config = function() require('plugin-configs.treesitter') end
+	  config = function() require('bradley.plugin-configs.treesitter') end
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
