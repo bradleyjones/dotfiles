@@ -40,6 +40,18 @@ return require('packer').startup({function(use)
     config = function() require('plugin-configs.nvim-tree') end
   }
 
+  -- Theme/Colorscheme
+  use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    config = function()
+        require("rose-pine").setup({
+		disable_background = true,
+	})
+        vim.cmd('colorscheme rose-pine')
+    end
+  })
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
