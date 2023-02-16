@@ -1,73 +1,73 @@
 -- Ensure that packer is installed when nvim is started if not present
 local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+	local fn = vim.fn
+	local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+		vim.cmd [[packadd packer.nvim]]
+		return true
+	end
+	return false
 end
 
 local packer_bootstrap = ensure_packer()
 
 -- Auto compile Packer when this file changes
 vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
+	augroup packer_user_config
+		autocmd!
+		autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+	augroup end
 ]])
 
 return require('packer').startup({function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+	-- Packer can manage itself
+	use 'wbthomason/packer.nvim'
 
-  -- Fuzzy Finder
-  use {
-    'nvim-telescope/telescope.nvim', branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
+	-- Fuzzy Finder
+	use {
+		'nvim-telescope/telescope.nvim', branch = '0.1.x',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
 
-  -- Sidebar tree file explorer
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- for file icons
-    },
-    tag = 'nightly',
-    config = function() require('bradley.plugin-configs.nvim-tree') end
-  }
+	-- Sidebar tree file explorer
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- for file icons
+		},
+		tag = 'nightly',
+		config = function() require('bradley.plugin-configs.nvim-tree') end
+	}
 
-  -- Theme/Colorscheme
-  use({
-    'rose-pine/neovim',
-    as = 'rose-pine',
-    config = function()
-	require('rose-pine').setup({
-		disable_background = true,
-		disable_italics = true
+	-- Theme/Colorscheme
+	use({
+		'rose-pine/neovim',
+		as = 'rose-pine',
+		config = function()
+			require('rose-pine').setup({
+				disable_background = true,
+				disable_italics = true
+			})
+			vim.cmd('colorscheme rose-pine')
+		end
 	})
-	vim.cmd('colorscheme rose-pine')
-    end
-  })
 
-  -- Treesitter
-  use({
-	  "nvim-treesitter/nvim-treesitter", 
-	  run = ":TSUpdate",
-	  config = function() require('bradley.plugin-configs.treesitter') end
-  })
+	-- Treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter", 
+		run = ":TSUpdate",
+		config = function() require('bradley.plugin-configs.treesitter') end
+	})
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
+	-- Automatically set up your configuration after cloning packer.nvim
+	-- Put this at the end after all plugins
+	if packer_bootstrap then
+		require('packer').sync()
+	end
 end,
 config = {
-  display = {
-    open_fn = require('packer.util').float,
-  }
+	display = {
+		open_fn = require('packer.util').float,
+	}
 }})

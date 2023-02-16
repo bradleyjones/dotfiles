@@ -1,5 +1,6 @@
 require("nvim-tree").setup({
 	hijack_cursor = true,
+
 	view = {
 		adaptive_size = true,
 		width = 30,
@@ -16,9 +17,11 @@ require("nvim-tree").setup({
 			enable = false,
 		},
 	},
+
 	git = {
 		enable = true, -- show git statuses
 	},
+
 	actions = {
 		open_file = {
 			quit_on_open = true,
