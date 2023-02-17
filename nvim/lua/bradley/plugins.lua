@@ -60,6 +60,18 @@ return require('packer').startup({function(use)
 		config = function() require('bradley.plugin-configs.treesitter') end
 	})
 
+	-- Preserve last place when opening a file
+	use({
+		'ethanholz/nvim-lastplace',
+		config = function()
+			require('nvim-lastplace').setup({
+				lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
+				lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit"},
+				lastplace_open_folds = true
+			})
+		end
+	})
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
