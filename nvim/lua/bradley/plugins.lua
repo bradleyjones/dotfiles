@@ -104,6 +104,15 @@ return require('packer').startup({function(use)
 		end,
 	})
 
+	-- Git setup
+	use {
+		'lewis6991/gitsigns.nvim',
+		config = function()
+			require('gitsigns').setup()
+		end
+	}
+	use 'tpope/vim-fugitive'
+
 	-- Just for Fun :)
 	use 'eandrju/cellular-automaton.nvim'  -- make it rain!
 
