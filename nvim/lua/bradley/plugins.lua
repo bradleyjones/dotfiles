@@ -145,6 +145,9 @@ return require('packer').startup({function(use)
 		} end
 	}
 
+	-- Copilot
+	use 'github/copilot.vim'
+
 	-- Just for Fun :)
 	use 'eandrju/cellular-automaton.nvim'  -- make it rain!
 
