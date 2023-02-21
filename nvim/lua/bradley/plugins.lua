@@ -55,8 +55,8 @@ return require('packer').startup({function(use)
 
 	-- Treesitter
 	use({
-		"nvim-treesitter/nvim-treesitter", 
-		run = ":TSUpdate",
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate',
 		config = function() require('bradley.plugin-configs.treesitter') end
 	})
 
@@ -65,8 +65,8 @@ return require('packer').startup({function(use)
 		'ethanholz/nvim-lastplace',
 		config = function()
 			require('nvim-lastplace').setup({
-				lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
-				lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit"},
+				lastplace_ignore_buftype = {'quickfix', 'nofile', 'help'},
+				lastplace_ignore_filetype = {'gitcommit', 'gitrebase', 'svn', 'hgcommit'},
 				lastplace_open_folds = true
 			})
 		end
@@ -98,9 +98,9 @@ return require('packer').startup({function(use)
 	})
 	use 'hrsh7th/cmp-nvim-lsp-signature-help' -- Show function signature while typing
 	use({ -- Multiline diagnostics
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
 		config = function()
-			require("lsp_lines").setup()
+			require('lsp_lines').setup()
 		end,
 	})
 
@@ -115,24 +115,34 @@ return require('packer').startup({function(use)
 
 	-- Surround - quotes,tags,brackets,etc.
 	use({
-		"kylechui/nvim-surround",
+		'kylechui/nvim-surround',
 		config = function()
-			require("nvim-surround").setup()
+			require('nvim-surround').setup()
 		end
 	})
 
 	-- Auto pair brackets, quotes, etc.
 	use {
-		"windwp/nvim-autopairs",
-		config = function() require("nvim-autopairs").setup {} end
+		'windwp/nvim-autopairs',
+		config = function() require('nvim-autopairs').setup {} end
 	}
 
 	-- Buffer line
 	use {
 		'akinsho/bufferline.nvim',
-		tag = "v3.*",
+		tag = 'v3.*',
 		requires = 'nvim-tree/nvim-web-devicons',
 		config = function() require('bufferline').setup {} end
+	}
+
+	-- Fix list
+	use {
+		'folke/trouble.nvim',
+		requires = 'nvim-tree/nvim-web-devicons',
+		config = function() require('trouble').setup {
+			auto_close = true,
+			auto_open = false,
+		} end
 	}
 
 	-- Just for Fun :)
