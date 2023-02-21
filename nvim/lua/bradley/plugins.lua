@@ -96,6 +96,7 @@ return require('packer').startup({function(use)
 		},
 		config = function() require('bradley.plugin-configs.lsp') end
 	})
+	use 'hrsh7th/cmp-nvim-lsp-signature-help' -- Show function signature while typing
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
