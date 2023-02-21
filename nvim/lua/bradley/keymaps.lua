@@ -32,21 +32,14 @@ vim.keymap.set('i', '<C-k>', '<C-o>k')
 vim.keymap.set('i', '<C-l>', '<C-o>l')
 --
 -- Trouble
-vim.keymap.set("n", "gr", "<cmd>TroubleToggle lsp_references<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>tt", "<cmd>TroubleToggle<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>tl", "<cmd>TroubleToggle loclist<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>tq", "<cmd>TroubleToggle quickfix<cr>",
-  {silent = true, noremap = true}
-)
+vim.keymap.set('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', {silent = true, noremap = true})
+vim.keymap.set('n', '<leader>tt', '<cmd>TroubleToggle<cr>', {silent = true, noremap = true})
+vim.keymap.set('n', '<leader>tw', '<cmd>TroubleToggle workspace_diagnostics<cr>', {silent = true, noremap = true})
+vim.keymap.set('n', '<leader>td', '<cmd>TroubleToggle document_diagnostics<cr>', {silent = true, noremap = true})
+vim.keymap.set('n', '<leader>tl', '<cmd>TroubleToggle loclist<cr>', {silent = true, noremap = true})
+vim.keymap.set('n', '<leader>tq', '<cmd>TroubleToggle quickfix<cr>', {silent = true, noremap = true})
+--
+-- NeoTest
+vim.keymap.set('n', '<leader>Tt', function() require('neotest').summary.toggle() end)
+vim.keymap.set('n', '<leader>Tr', function() require('neotest').run.run() end)
+vim.keymap.set('n', '<leader>To', function() require("neotest").output.open({ enter = true }) end)

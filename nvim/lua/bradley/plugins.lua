@@ -148,6 +148,19 @@ return require('packer').startup({function(use)
 	-- Copilot
 	use 'github/copilot.vim'
 
+	-- Neotest - test runner
+	use {
+		'nvim-neotest/neotest',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'nvim-treesitter/nvim-treesitter',
+			'antoinemadec/FixCursorHold.nvim',
+			'nvim-neotest/neotest-go',
+			'nvim-neotest/neotest-python',
+		},
+		config = function() require('bradley.plugin-configs.neotest') end
+	}
+
 	-- Just for Fun :)
 	use 'eandrju/cellular-automaton.nvim'  -- make it rain!
 
