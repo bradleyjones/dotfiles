@@ -161,6 +161,13 @@ return require('packer').startup({function(use)
 		config = function() require('bradley.plugin-configs.neotest') end
 	}
 
+	-- Statusline
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		config = function() require('lualine').setup({  }) end
+	}
+
 	-- Just for Fun :)
 	use 'eandrju/cellular-automaton.nvim'  -- make it rain!
 
