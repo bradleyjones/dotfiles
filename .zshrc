@@ -10,7 +10,7 @@ source $ZSH/oh-my-zsh.sh
 # Show Hostname
 #PROMPT="%m ${PROMPT}"
 export LC_ALL=en_GB.UTF-8
-export EDITOR='vim'
+export EDITOR='nvim'
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 # GPG support password pop up for tagging
 export GPG_TTY=$(tty)
