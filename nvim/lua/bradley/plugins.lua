@@ -104,6 +104,9 @@ return require('packer').startup({function(use)
 		end,
 	})
 
+	-- Just for Fun :)
+	use 'eandrju/cellular-automaton.nvim'  -- make it rain!
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
