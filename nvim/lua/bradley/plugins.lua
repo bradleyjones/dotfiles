@@ -113,6 +113,20 @@ return require('packer').startup({function(use)
 	}
 	use 'tpope/vim-fugitive'
 
+	-- Surround - quotes,tags,brackets,etc.
+	use({
+		"kylechui/nvim-surround",
+		config = function()
+			require("nvim-surround").setup()
+		end
+	})
+
+	-- Auto pair brackets, quotes, etc.
+	use {
+		"windwp/nvim-autopairs",
+		config = function() require("nvim-autopairs").setup {} end
+	}
+
 	-- Just for Fun :)
 	use 'eandrju/cellular-automaton.nvim'  -- make it rain!
 
