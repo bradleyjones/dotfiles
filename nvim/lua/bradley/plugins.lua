@@ -127,6 +127,14 @@ return require('packer').startup({function(use)
 		config = function() require("nvim-autopairs").setup {} end
 	}
 
+	-- Buffer line
+	use {
+		'akinsho/bufferline.nvim',
+		tag = "v3.*",
+		requires = 'nvim-tree/nvim-web-devicons',
+		config = function() require('bufferline').setup {} end
+	}
+
 	-- Just for Fun :)
 	use 'eandrju/cellular-automaton.nvim'  -- make it rain!
 
