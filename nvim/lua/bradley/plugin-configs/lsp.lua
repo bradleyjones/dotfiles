@@ -46,6 +46,11 @@ vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
 local cmp = require('cmp')
 local cmp_config = lsp.defaults.cmp_config({
+	snippet = {
+		expand = function(args)
+			require('luasnip').lsp_expand(args.body)
+		end,
+	},
 	window = {
 		completion = cmp.config.window.bordered()
 	},
@@ -63,7 +68,10 @@ cmp.setup(cmp_config)
 
 -- Diagnostic messages
 vim.diagnostic.config({
-	virtual_text = false,
+	virtual_lines = false, -- enable/disable lsp_lines (default false so enabled with toggle
+	virtual_text = {
+		spacing = 16
+	},
 	signs = true,
 	update_in_insert = true,
 	underline = true,
