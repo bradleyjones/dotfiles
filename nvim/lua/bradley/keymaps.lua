@@ -20,4 +20,13 @@ vim.keymap.set('n', '<leader>gc', '<cmd>G c<CR>') -- git commit (using git c ali
 vim.keymap.set('n', '<leader>ga', '<cmd>G c --amend<CR>') -- git commit --amend (using git c alias)
 --
 -- LSP Lines
-vim.keymap.set("", "<Leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+vim.keymap.set('n', '<leader>l', require('lsp_lines').toggle, { desc = 'Toggle lsp_lines' })
+--
+-- Line Numbers
+vim.keymap.set('n', '<leader>L', '<cmd>set relativenumber!<CR>')
+--
+-- Insert Mode hjkl movements
+vim.keymap.set('i', '<C-h>', '<C-o>h')
+vim.keymap.set('i', '<C-j>', '<C-o>j')
+vim.keymap.set('i', '<C-k>', '<C-o>k')
+vim.keymap.set('i', '<C-l>', '<C-o>l')

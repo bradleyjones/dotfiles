@@ -45,6 +45,7 @@ lsp.setup()
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
 local cmp = require('cmp')
+local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
 local cmp_config = lsp.defaults.cmp_config({
 	snippet = {
 		expand = function(args)
@@ -61,7 +62,13 @@ local cmp_config = lsp.defaults.cmp_config({
 		{ name = 'buffer', keyword_length = 3 },
 		{ name = 'luasnip', keyword_length = 2 },
 		{ name = 'nvim_lsp_signature_help' }
-	}
+	},
+	mapping = cmp.mapping.preset.insert({
+		['<Tab>'] = cmp.mapping.confirm({ select = false }),
+		['<CR>'] = cmp.mapping.confirm({ select = false }),
+		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select_opts),
+		['<C-n>'] = cmp.mapping.select_next_item(cmp_select_opts),
+	}),
 })
 
 cmp.setup(cmp_config)
