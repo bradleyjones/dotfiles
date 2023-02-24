@@ -48,3 +48,7 @@ vim.keymap.set('n', '<leader>To', function() require("neotest").output.open({ en
 vim.keymap.set('n', '<C-l>', '<cmd>BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<C-h>', '<cmd>BufferLineCyclePrev<CR>')
 vim.keymap.set('n', '<C-w>', '<cmd>bd<CR>') -- Close window / delete buffer
+--
+-- Light/Dark Mode
+vim.keymap.set('n', '<leader>cl', '<cmd>set background=light<CR>')
+vim.keymap.set('n', '<leader>cd', '<cmd>set background=dark<CR>')

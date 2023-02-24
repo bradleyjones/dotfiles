@@ -46,6 +46,7 @@ return require('packer').startup({function(use)
 		as = 'rose-pine',
 		config = function()
 			require('rose-pine').setup({
+				dark_variant = 'moon',
 				disable_background = true,
 				disable_italics = true
 			})
@@ -167,6 +168,9 @@ return require('packer').startup({function(use)
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 		config = function() require('lualine').setup({  }) end
 	}
+
+	-- Tmux line sync with vim Theme
+	use 'edkolev/tmuxline.vim'
 
 	-- Just for Fun :)
 	use 'eandrju/cellular-automaton.nvim'  -- make it rain!
