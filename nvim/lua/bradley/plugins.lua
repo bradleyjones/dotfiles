@@ -172,6 +172,14 @@ return require('packer').startup({function(use)
 	-- Tmux line sync with vim Theme
 	use 'edkolev/tmuxline.vim'
 
+	-- Auto comments
+	use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
+
 	-- Just for Fun :)
 	use 'eandrju/cellular-automaton.nvim'  -- make it rain!
 

@@ -52,3 +52,12 @@ vim.keymap.set('n', '<C-w>', '<cmd>bd<CR>') -- Close window / delete buffer
 -- Light/Dark Mode
 vim.keymap.set('n', '<leader>cl', '<cmd>set background=light<CR>')
 vim.keymap.set('n', '<leader>cd', '<cmd>set background=dark<CR>')
+--
+-- Toggle comments
+local comment_api = require('Comment.api')
+local esc = vim.api.nvim_replace_termcodes('<ESC>', true, false, true)
+vim.keymap.set('n', '<leader>ci', comment_api.toggle.linewise.current)
+vim.keymap.set('x', '<leader>ci', function()
+	vim.api.nvim_feedkeys(esc, 'nx', false)
+	comment_api.toggle.linewise(vim.fn.visualmode())
+end)
