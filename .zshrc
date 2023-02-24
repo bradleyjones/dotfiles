@@ -66,3 +66,6 @@ eval "$(pyenv init --path)"
 # GPG
 export GPG_TTY=$(tty)
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+
+# Use tab as autocomplete
+bindkey '	' autosuggest-accept
