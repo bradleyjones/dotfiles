@@ -48,12 +48,6 @@ export GIT_TERMINAL_PROMPT=1
 #export VIRTUAL_ENV_DISABLE_PROMPT=1
 #source ~/.venv/bin/activate
 
-# Zsh history search
-bindkey '\eOA' history-beginning-search-backward
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\eOB' history-beginning-search-forward
-bindkey '\e[B' history-beginning-search-forward
-
 # Custom aliases
 source ~/.aliases
 export PATH="/usr/local/sbin:$PATH"
@@ -83,6 +77,9 @@ eval "$(pyenv init --path)"
 # GPG
 export GPG_TTY=$(tty)
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+
+# Ctrl+j to accept autosuggestions
+bindkey '^j' autosuggest-accept
 
 # Enable vi mode
 bindkey -v
