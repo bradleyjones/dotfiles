@@ -88,9 +88,7 @@ cmp.setup(cmp_config)
 -- Diagnostic messages
 vim.diagnostic.config({
 	virtual_lines = false, -- enable/disable lsp_lines (default false so enabled with toggle
-	virtual_text = {
-		spacing = 16
-	},
+	virtual_text = false,
 	signs = true,
 	update_in_insert = true,
 	underline = true,
