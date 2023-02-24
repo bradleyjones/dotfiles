@@ -61,3 +61,7 @@ vim.keymap.set('x', '<leader>ci', function()
 	vim.api.nvim_feedkeys(esc, 'nx', false)
 	comment_api.toggle.linewise(vim.fn.visualmode())
 end)
+--
+-- Copilot
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
