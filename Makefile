@@ -22,6 +22,7 @@ cli: shell tmux vim git
 
 shell: ~/.oh-my-zsh
 	ln -sf $(CURDIR)/.zshrc $(HOME)/.zshrc
+	ln -sf $(CURDIR)/.p10k.zsh $(HOME)/.p10k.zsh
 	ln -sf $(CURDIR)/.aliases $(HOME)/.aliases
 
 tmux: tmux-plugins
