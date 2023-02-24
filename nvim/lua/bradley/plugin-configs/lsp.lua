@@ -76,8 +76,11 @@ local cmp_config = lsp.defaults.cmp_config({
 		{ name = 'nvim_lsp_signature_help' }
 	},
 	mapping = cmp.mapping.preset.insert({
-		['<Tab>'] = cmp.mapping.confirm({ select = false }),
-		['<CR>'] = cmp.mapping.confirm({ select = false }),
+		['<CR>'] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
+		['<C-e>'] = cmp.mapping.close(),
 		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select_opts),
 		['<C-n>'] = cmp.mapping.select_next_item(cmp_select_opts),
 	}),
@@ -88,7 +91,10 @@ cmp.setup(cmp_config)
 -- Diagnostic messages
 vim.diagnostic.config({
 	virtual_lines = false, -- enable/disable lsp_lines (default false so enabled with toggle
-	virtual_text = false,
+	virtual_text = {
+		prefix = '',
+		spacing = 16,
+	},
 	signs = true,
 	update_in_insert = true,
 	underline = true,

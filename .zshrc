@@ -1,14 +1,36 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-plugins=(git docker alias-finder brew common-aliases docker-compose git-auto-fetch golang history helm kubectl man pip pyenv pylint python copyfile zsh-autosuggestions)
-#plugins=(git zsh-iterm-touchbar vi-mode)
+ZSH_THEME="powerlevel10k/powerlevel10k"
+plugins=(
+	colored-man-pages
+	docker
+	docker-compose
+	git-auto-fetch
+	gh
+	golang
+	helm
+	kubectl
+	minikube
+	mosh
+	pip
+	poetry
+	pyenv
+	pylint
+	ripgrep
+	vi-mode
+ 	zsh-autosuggestions
+)
 source $ZSH/oh-my-zsh.sh
 
 ########### User configuration ###########
 
-# Show Hostname
-#PROMPT="%m ${PROMPT}"
 export LC_ALL=en_GB.UTF-8
 export EDITOR='nvim'
 export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -22,15 +44,9 @@ export TERM=xterm-256color
 # Allow go get to accept input
 export GIT_TERMINAL_PROMPT=1
 
-# WORK Dev settings
-export DOCKER_BUILD=true
-
 # Load venv
 #export VIRTUAL_ENV_DISABLE_PROMPT=1
 #source ~/.venv/bin/activate
-
-# Fix DYLD path for networking-cisco UTs
-#export DYLD_FALLBACK_LIBRARY_PATH=/usr/lib
 
 # Zsh history search
 bindkey '\eOA' history-beginning-search-backward
@@ -42,6 +58,7 @@ bindkey '\e[B' history-beginning-search-forward
 source ~/.aliases
 export PATH="/usr/local/sbin:$PATH"
 
+# Secrets
 source ~/.anchore-secrets
 
 case `uname` in
@@ -67,5 +84,17 @@ eval "$(pyenv init --path)"
 export GPG_TTY=$(tty)
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 
-# Use tab as autocomplete
-bindkey '	' autosuggest-accept
+# Enable vi mode
+bindkey -v
+MODE_INDICATOR="%F{white}N%f"
+INSERT_MODE_INDICATOR="%F{yellow}I%f"
+VI_MODE_SET_CURSOR=true
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+
+# Prompt
+# Show Hostname
+#PROMPT="%m ${PROMPT}"
+# PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+# PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
