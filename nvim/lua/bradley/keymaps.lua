@@ -43,3 +43,8 @@ vim.keymap.set('n', '<leader>tq', '<cmd>TroubleToggle quickfix<cr>', {silent = t
 vim.keymap.set('n', '<leader>Tt', function() require('neotest').summary.toggle() end)
 vim.keymap.set('n', '<leader>Tr', function() require('neotest').run.run() end)
 vim.keymap.set('n', '<leader>To', function() require("neotest").output.open({ enter = true }) end)
+--
+-- Buffer Control
+vim.keymap.set('n', '<C-l>', '<cmd>BufferLineCycleNext<CR>')
+vim.keymap.set('n', '<C-h>', '<cmd>BufferLineCyclePrev<CR>')
+vim.keymap.set('n', '<C-w>', '<cmd>bd<CR>') -- Close window / delete buffer
