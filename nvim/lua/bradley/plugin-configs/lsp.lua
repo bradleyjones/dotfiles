@@ -67,7 +67,7 @@ local cmp_config = lsp.defaults.cmp_config({
 	window = {
 		completion = cmp.config.window.bordered()
 	},
-	experimental = { ghost_text = true },
+	experimental = { ghost_text = false },
 	sources = {
 		{ name = 'path' },
 		{ name = 'nvim_lsp', keyword_length = 1 },
@@ -96,7 +96,7 @@ vim.diagnostic.config({
 		spacing = 16,
 	},
 	signs = true,
-	update_in_insert = true,
+	update_in_insert = false,
 	underline = true,
 	severity_sort = false,
 	float = true,

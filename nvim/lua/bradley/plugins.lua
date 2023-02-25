@@ -147,7 +147,26 @@ return require('packer').startup({function(use)
 	}
 
 	-- Copilot
-	use 'github/copilot.vim'
+	use {
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function() require("copilot").setup({
+			suggestion = {
+				enabled = true,
+				auto_trigger = true,
+				keymap = {
+					accept = "<C-o>",
+					accept_word = false,
+					accept_line = "<C-]>",
+					next = "<C-n>",
+					prev = "<C-p>",
+					dismiss = "<C-q>",
+				},
+			},
+			panel = { enabled = false },
+		}) end,
+	}
 
 	-- Neotest - test runner
 	use {
