@@ -2,6 +2,7 @@
 
 require('bradley.plugins')
 require('bradley.keymaps')
+require('bradley.autocmd')
 
 --
 -- Vim settings
