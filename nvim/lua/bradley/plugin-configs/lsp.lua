@@ -76,10 +76,11 @@ local cmp_config = lsp.defaults.cmp_config({
 		{ name = 'nvim_lsp_signature_help' }
 	},
 	mapping = cmp.mapping.preset.insert({
-		['<CR>'] = cmp.mapping.confirm({
+		['<Tab>'] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
 		}),
+		['<CR>'] = cmp.mapping.close(),
 		['<C-e>'] = cmp.mapping.close(),
 		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select_opts),
 		['<C-n>'] = cmp.mapping.select_next_item(cmp_select_opts),
