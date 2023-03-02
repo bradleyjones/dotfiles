@@ -40,9 +40,10 @@ vim.keymap.set('n', '<leader>tl', '<cmd>TroubleToggle loclist<cr>', {silent = tr
 vim.keymap.set('n', '<leader>tq', '<cmd>TroubleToggle quickfix<cr>', {silent = true, noremap = true})
 --
 -- NeoTest
-vim.keymap.set('n', '<leader>Tt', function() require('neotest').summary.toggle() end)
-vim.keymap.set('n', '<leader>Tr', function() require('neotest').run.run() end)
-vim.keymap.set('n', '<leader>To', function() require("neotest").output.open({ enter = true }) end)
+local neotest = require('neotest')
+vim.keymap.set('n', '<leader>Tt', function() neotest.summary.toggle() end)
+vim.keymap.set('n', '<leader>Tr', function() neotest.run.run() end)
+vim.keymap.set('n', '<leader>To', function() neotest.output.open({ enter = true }) end)
 --
 -- Buffer Control
 vim.keymap.set('n', '<C-l>', '<cmd>BufferLineCycleNext<CR>')
