@@ -8,10 +8,10 @@ vim.keymap.set('n', '<C-g>', telescope.live_grep, {}) -- live grep uses ripgrep
 vim.keymap.set('n', '<C-s>', telescope.resume, {})
 vim.keymap.set('n', '<C-b>', telescope.buffers, {})
 vim.keymap.set('n', '<leader>?', telescope.help_tags, {})
--- 
+--
 -- Nvim Tree
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {})
--- 
+--
 -- Cellular Automation
 vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<CR>')
 --
@@ -32,12 +32,12 @@ vim.keymap.set('i', '<C-k>', '<C-o>k')
 vim.keymap.set('i', '<C-l>', '<C-o>l')
 --
 -- Trouble
-vim.keymap.set('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', {silent = true, noremap = true})
-vim.keymap.set('n', '<leader>tt', '<cmd>TroubleToggle<cr>', {silent = true, noremap = true})
-vim.keymap.set('n', '<leader>tw', '<cmd>TroubleToggle workspace_diagnostics<cr>', {silent = true, noremap = true})
-vim.keymap.set('n', '<leader>td', '<cmd>TroubleToggle document_diagnostics<cr>', {silent = true, noremap = true})
-vim.keymap.set('n', '<leader>tl', '<cmd>TroubleToggle loclist<cr>', {silent = true, noremap = true})
-vim.keymap.set('n', '<leader>tq', '<cmd>TroubleToggle quickfix<cr>', {silent = true, noremap = true})
+vim.keymap.set('n', 'gr', '<cmd>TroubleToggle lsp_references<cr>', { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>tt', '<cmd>TroubleToggle<cr>', { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>tw', '<cmd>TroubleToggle workspace_diagnostics<cr>', { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>td', '<cmd>TroubleToggle document_diagnostics<cr>', { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>tl', '<cmd>TroubleToggle loclist<cr>', { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>tq', '<cmd>TroubleToggle quickfix<cr>', { silent = true, noremap = true })
 --
 -- NeoTest
 local neotest = require('neotest')
@@ -66,3 +66,7 @@ end)
 -- Copilot
 vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+--
+-- Diagnostics
+vim.keymap.set('n', '<leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+vim.keymap.set('n', '<leader>dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
