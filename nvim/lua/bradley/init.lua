@@ -33,3 +33,6 @@ vim.opt.updatetime = 50
 
 -- Hidden Characters - use 'set list' to show
 vim.opt.listchars="tab:>-,trail:~,extends:>,precedes:<"
+
+-- Default to US spelling
+vim.opt.spelllang = "en_us"
