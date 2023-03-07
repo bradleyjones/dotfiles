@@ -224,6 +224,18 @@ return require('packer').startup({
 		}
 		use 'ray-x/guihua.lua' -- recommended if need floating window support
 
+		-- Github
+		use {
+			'pwntester/octo.nvim',
+			requires = {
+				'nvim-lua/plenary.nvim',
+				'nvim-telescope/telescope.nvim',
+				'kyazdani42/nvim-web-devicons',
+			},
+			config = function()
+				require "octo".setup()
+			end
+		}
 
 		-- Just for Fun :)
 		use 'eandrju/cellular-automaton.nvim' -- make it rain!
