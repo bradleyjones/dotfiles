@@ -210,7 +210,7 @@ return require('packer').startup({
 			"folke/which-key.nvim",
 			config = function()
 				vim.o.timeout = true
-				vim.o.timeoutlen = 300
+				vim.o.timeoutlen = 30
 				require("which-key").setup {}
 			end
 		}
@@ -218,6 +218,12 @@ return require('packer').startup({
 		-- Golang
 		use {
 			'ray-x/go.nvim',
+			requires = {
+				-- Debugger support
+				'mfussenegger/nvim-dap',
+				'rcarriga/nvim-dap-ui',
+				'theHamsta/nvim-dap-virtual-text',
+			},
 			config = function()
 				require("go").setup()
 			end,
