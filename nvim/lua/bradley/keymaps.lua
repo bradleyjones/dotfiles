@@ -70,3 +70,8 @@ vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true,
 -- Diagnostics
 vim.keymap.set('n', '<leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 vim.keymap.set('n', '<leader>dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+--
+-- Go Debugging
+vim.keymap.set('n', '<leader>b', '<cmd>GoBreakToggle<CR>')
+vim.keymap.set('n', '<leader>D', '<cmd>GoDebug<CR>')
+
