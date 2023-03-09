@@ -9,8 +9,8 @@ vim.keymap.set('n', '<C-s>', telescope.resume, {})
 vim.keymap.set('n', '<C-b>', telescope.buffers, {})
 vim.keymap.set('n', '<leader>?', telescope.help_tags, {})
 --
--- Nvim Tree
-vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {})
+-- NeoTree
+vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', {})
 --
 -- Cellular Automation
 vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<CR>')

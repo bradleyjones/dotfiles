@@ -31,14 +31,16 @@ return require('packer').startup({
 			requires = { { 'nvim-lua/plenary.nvim' } }
 		}
 
-		-- Sidebar tree file explorer
+		-- NeoTree - Sidebar tree file explorer
+		vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 		use {
-			'nvim-tree/nvim-tree.lua',
+			"nvim-neo-tree/neo-tree.nvim",
+			branch = "v2.x",
 			requires = {
-				'nvim-tree/nvim-web-devicons', -- for file icons
-			},
-			tag = 'nightly',
-			config = function() require('bradley.plugin-configs.nvim-tree') end
+				"nvim-lua/plenary.nvim",
+				"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+				"MunifTanjim/nui.nvim",
+			}
 		}
 
 		-- Theme/Colorscheme
