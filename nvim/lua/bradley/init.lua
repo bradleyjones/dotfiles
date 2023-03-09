@@ -37,3 +37,11 @@ vim.opt.listchars = "tab:>-,trail:~,extends:>,precedes:<"
 -- Default to US spelling
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
+
+-- Colours
+vim.cmd([[
+	augroup MyColors
+	autocmd!
+	autocmd ColorScheme * hi clear OctoEditable
+	augroup END
+]])

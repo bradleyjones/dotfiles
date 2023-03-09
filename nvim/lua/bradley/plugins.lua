@@ -243,6 +243,9 @@ return require('packer').startup({
 			end
 		}
 
+		-- No-Neck-Pain - center buffer on screen
+		use {"shortcuts/no-neck-pain.nvim", tag = "*" }
+
 		-- Just for Fun :)
 		use 'eandrju/cellular-automaton.nvim' -- make it rain!
 
