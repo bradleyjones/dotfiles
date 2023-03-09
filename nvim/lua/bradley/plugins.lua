@@ -48,7 +48,7 @@ return require('packer').startup({
 			config = function()
 				require('rose-pine').setup({
 					dark_variant = 'moon',
-					disable_background = true,
+					disable_background = false,
 					disable_italics = true
 				})
 				vim.cmd('colorscheme rose-pine')
@@ -244,7 +244,34 @@ return require('packer').startup({
 		}
 
 		-- No-Neck-Pain - center buffer on screen
-		use {"shortcuts/no-neck-pain.nvim", tag = "*" }
+		use {
+			"shortcuts/no-neck-pain.nvim",
+			config = function()
+				require("no-neck-pain").setup({
+					width = 160,
+					autocmds = {
+						enableOnVimEnter = true,
+						enableOnTabEnter = true,
+					},
+					buffers = {
+						scratchPad = {
+							enabled = true, -- set to `false` to disable auto-saving
+							fileName = "scratchpad.md",
+							location = "~/Documents/",
+						},
+						bo = {
+							filetype = "md",
+						},
+						colors = {
+							blend = -0.4,
+						},
+					},
+					mappings = {
+						enabled = true,
+					}
+				})
+			end,
+		}
 
 		-- Just for Fun :)
 		use 'eandrju/cellular-automaton.nvim' -- make it rain!
