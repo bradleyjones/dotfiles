@@ -95,3 +95,4 @@ VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 # PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

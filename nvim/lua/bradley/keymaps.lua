@@ -17,7 +17,9 @@ vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<CR>')
 --
 -- Git
 vim.keymap.set('n', '<leader>gc', '<cmd>G c<CR>') -- git commit (using git c alias)
+vim.keymap.set('n', '<leader>gC', '<cmd>G c -a<CR>') -- git commit -a (using git c alias)
 vim.keymap.set('n', '<leader>ga', '<cmd>G c --amend<CR>') -- git commit --amend (using git c alias)
+vim.keymap.set('n', '<leader>gA', '<cmd>G c -a --amend<CR>') -- git commit -a --amend (using git c alias)
 --
 -- LSP Lines
 vim.keymap.set('n', '<leader>l', require('lsp_lines').toggle, { desc = 'Toggle lsp_lines' })
