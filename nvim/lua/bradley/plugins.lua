@@ -252,8 +252,8 @@ return require('packer').startup({
 				require("no-neck-pain").setup({
 					width = 160,
 					autocmds = {
-						enableOnVimEnter = true,
-						enableOnTabEnter = true,
+						enableOnVimEnter = false,
+						enableOnTabEnter = false,
 					},
 					buffers = {
 						scratchPad = {
