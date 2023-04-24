@@ -24,6 +24,9 @@ vim.keymap.set('n', '<leader>gA', '<cmd>G c -a --amend<CR>') -- git commit -a --
 -- LSP Lines
 vim.keymap.set('n', '<leader>l', require('lsp_lines').toggle, { desc = 'Toggle lsp_lines' })
 --
+-- LSP Signature
+vim.keymap.set({ 'n' }, '<C-k>', function() require('lsp_signature').toggle_float_win() end, { silent = true, noremap = true, desc = 'toggle signature' })
+--
 -- Line Numbers
 vim.keymap.set('n', '<leader>L', '<cmd>set relativenumber!<CR>')
 --

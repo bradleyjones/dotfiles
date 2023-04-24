@@ -101,6 +101,7 @@ return require('packer').startup({
 			config = function() require('bradley.plugin-configs.lsp') end
 		})
 		use 'hrsh7th/cmp-nvim-lsp-signature-help' -- Show function signature while typing
+		use { "ray-x/lsp_signature.nvim", config = function() require('lsp_signature').setup() end }
 		use({
 			-- Multiline diagnostics
 			'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
