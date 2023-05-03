@@ -42,6 +42,13 @@ return require('packer').startup({
 				"MunifTanjim/nui.nvim",
 			}
 		}
+		use {
+			's1n7ax/nvim-window-picker',
+			tag = 'v1.*',
+			config = function()
+				require 'window-picker'.setup()
+			end,
+		}
 
 		-- Theme/Colorscheme
 		use({
