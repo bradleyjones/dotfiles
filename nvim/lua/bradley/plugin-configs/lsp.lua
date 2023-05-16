@@ -43,6 +43,7 @@ lsp.configure('pylsp', {
 				flake8 = {
 					enabled = true,
 					maxLineLength = 88,
+					ignore = { 'E722', 'W503' },
 				},
 				pydocstyle = { enabled = false },
 				pylint = { enabled = true },
