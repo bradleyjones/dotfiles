@@ -46,6 +46,10 @@ lsp.configure('pylsp', {
 				},
 				pydocstyle = { enabled = false },
 				pylint = { enabled = true },
+				pycodestyle = {
+					enabled = false,
+					maxLineLength = 88,
+				},
 				pyflakes = { enabled = true },
 			}
 		}
