@@ -36,6 +36,22 @@ lsp.configure('lua_ls', {
 	}
 })
 
+lsp.configure('pylsp', {
+	settings = {
+		pylsp = {
+			plugins = {
+				flake8 = {
+					enabled = true,
+					maxLineLength = 88,
+				},
+				pydocstyle = { enabled = false },
+				pylint = { enabled = true },
+				pyflakes = { enabled = true },
+			}
+		}
+	}
+})
+
 -- Key mappings need to be done here to apply per buffer
 lsp.on_attach(function(_, bufnr)
 	local opts = { buffer = bufnr, remap = false }
@@ -54,7 +70,7 @@ lsp.setup()
 --
 -- CMP Completion Config
 --
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 local cmp = require('cmp')
 local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
@@ -70,9 +86,9 @@ local cmp_config = lsp.defaults.cmp_config({
 	experimental = { ghost_text = false },
 	sources = {
 		{ name = 'path' },
-		{ name = 'nvim_lsp', keyword_length = 1 },
-		{ name = 'buffer', keyword_length = 3 },
-		{ name = 'luasnip', keyword_length = 2 },
+		{ name = 'nvim_lsp',               keyword_length = 1 },
+		{ name = 'buffer',                 keyword_length = 3 },
+		{ name = 'luasnip',                keyword_length = 2 },
 		{ name = 'nvim_lsp_signature_help' }
 	},
 	mapping = cmp.mapping.preset.insert({
