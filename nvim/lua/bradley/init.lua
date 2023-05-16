@@ -36,7 +36,7 @@ vim.opt.listchars = "tab:>-,trail:~,extends:>,precedes:<"
 
 -- Default to US spelling
 vim.opt.spelllang = "en_us"
-vim.opt.spell = true
+vim.opt.spell = false
 
 -- Colours
 vim.cmd([[
