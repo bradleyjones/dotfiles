@@ -6,10 +6,10 @@ binaries: $(home)/bin
 $(HOME)/bin:
 	mkdir $(HOME)/bin
 
-macos: homebrew
+macos: /opt/homebrew/bin/brew
 	brew bundle
 
-homebrew:
+/opt/homebrew/bin/brew:
 	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 cli: shell tmux vim git
