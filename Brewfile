@@ -27,3 +27,5 @@ cask "postman"
 cask "visual-studio-code"
 brew "fnm"
 brew "yarn"
+brew "xz" # lzma for python
+brew "go@1.20"
