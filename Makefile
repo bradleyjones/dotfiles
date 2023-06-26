@@ -51,6 +51,7 @@ vim: vim-coc vimrc-nvim-config
 	ln -sf $(CURDIR)/.vimrc $(HOME)/.vimrc
 	GOPATH=$(HOME) GOBIN=$(HOME)/bin vim +PlugInstall +qall
 	sudo pip3 install --upgrade neovim # Required for deoplete
+	python3 -m pip install --user --upgrade pynvim
 
 git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
