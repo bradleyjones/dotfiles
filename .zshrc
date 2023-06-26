@@ -96,3 +96,5 @@ VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
