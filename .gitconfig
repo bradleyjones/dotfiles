@@ -1,15 +1,13 @@
 [user]
 	name = Bradley Jones
-	email = bradjone@cisco.com
-  signingkey = E5CAD663B8825B0E
-[core]
-  editor = vim
-[push]
-  default = simple
-[gitreview]
-  username = bradjones
+	email = bradley.jones@anchore.com
+	signingkey = 3A0E7022EBADD1AA
+[commit]
+	gpgsign = true
+[alias]
+	c = commit -s -S
 [merge]
-  tool = vimdiff
+	tool = vimdiff
 [rerere]
   enabled = true
 [credential]
