@@ -12,7 +12,7 @@ macos: /opt/homebrew/bin/brew
 /opt/homebrew/bin/brew:
 	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-cli: shell tmux vim git
+cli: shell tmux neovim git
 
 ~/.oh-my-zsh:
 	which wget || ( echo 'wget is required, please install it' && exit 1 )
