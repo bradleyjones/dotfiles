@@ -46,9 +46,14 @@ vim.keymap.set('n', '<leader>tq', '<cmd>TroubleToggle quickfix<cr>', { silent = 
 --
 -- NeoTest
 local neotest = require('neotest')
-vim.keymap.set('n', '<leader>Tt', function() neotest.summary.toggle() end)
-vim.keymap.set('n', '<leader>Tr', function() neotest.run.run() end)
-vim.keymap.set('n', '<leader>To', function() neotest.output.open({ enter = true }) end)
+vim.keymap.set('n', '<leader>Tt', function() neotest.summary.toggle() end, { desc = 'Toggle test summary' })
+vim.keymap.set('n', '<leader>Tr', function() neotest.run.run() end, { desc = 'Run nearest test' })
+vim.keymap.set('n', '<leader>To', function() neotest.output.open({ enter = true }) end, { desc = 'Open test output' })
+vim.keymap.set('n', '<leader>Tf', function() neotest.run.run(vim.fn.expand("%"))  end, { desc = 'Run test file' })
+-- NEED TO GET WATCH WORKING IN GO
+-- vim.keymap.set('n', '<leader>Tw', function() neotest.watch.toggle() end, { desc = 'Toggle test watch' })
+-- vim.keymap.set('n', '<leader>TW', function() neotest.watch.watch(vim.fn.expand("%")) end, { desc = 'Start test watch' })
+-- vim.keymap.set('n', '<leader>TS', function() neotest.watch.stop() end, { desc = 'Stop test watch' })
 --
 -- Buffer Control
 vim.keymap.set('n', '<C-l>', '<cmd>BufferLineCycleNext<CR>')
