@@ -236,6 +236,10 @@ return require('packer').startup({
 			},
 			config = function()
 				require("go").setup()
+				require("nvim-dap-virtual-text").setup {
+				    commented = true,
+					virt_text_pos = 'eol'
+				}
 			end,
 		}
 		use 'ray-x/guihua.lua' -- recommended if need floating window support

@@ -78,10 +78,15 @@ vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 --
 -- Diagnostics
-vim.keymap.set('n', '<leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-vim.keymap.set('n', '<leader>dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+vim.keymap.set('n', '<leader>Dn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+vim.keymap.set('n', '<leader>Dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 --
 -- Go Debugging
-vim.keymap.set('n', '<leader>b', '<cmd>GoBreakToggle<CR>')
-vim.keymap.set('n', '<leader>D', '<cmd>GoDebug<CR>')
+vim.keymap.set('n', '<leader>db', '<cmd>GoBreakToggle<CR>', { desc = 'Toggle breakpoint' })
+vim.keymap.set('n', '<leader>ds', '<cmd>GoDebug<CR>', { desc = 'Start debugging' })
+vim.keymap.set('n', '<leader>dS', '<cmd>GoDebug -s<CR>', { desc = 'Stop debugging' })
+vim.keymap.set('n', '<leader>dc', function() require('dap').continue() end, { desc = 'Continue' })
+vim.keymap.set('n', '<leader>do', function() require('dap').step_over() end, { desc = 'Step over' })
+vim.keymap.set('n', '<leader>di', function() require('dap').step_into() end, { desc = 'Step into' })
+vim.keymap.set('n', '<leader>dO', function() require('dap').step_out() end, { desc = 'Step out' })
 
