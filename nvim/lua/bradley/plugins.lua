@@ -237,6 +237,7 @@ return require('packer').startup({
 			config = function()
 				require("go").setup()
 				require("nvim-dap-virtual-text").setup {
+					enabled = false,
 				    commented = true,
 					virt_text_pos = 'eol'
 				}
