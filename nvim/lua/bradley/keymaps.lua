@@ -13,7 +13,7 @@ vim.keymap.set('n', '<leader>?', telescope.help_tags, {})
 vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', {})
 --
 -- Cellular Automation
-vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<CR>')
+vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<CR>', { desc = 'Make It RAIN!'})
 --
 -- Git
 vim.keymap.set('n', '<leader>gc', '<cmd>G c<CR>') -- git commit (using git c alias)
@@ -24,8 +24,8 @@ vim.keymap.set('n', '<leader>gA', '<cmd>G c -a --amend<CR>') -- git commit -a --
 -- LSP Lines
 vim.keymap.set('n', '<leader>l', require('lsp_lines').toggle, { desc = 'Toggle lsp_lines' })
 --
--- LSP Signature
-vim.keymap.set({ 'n' }, '<C-k>', function() require('lsp_signature').toggle_float_win() end, { silent = true, noremap = true, desc = 'toggle signature' })
+-- LSP Signatu
+vim.keymap.set('n', '<C-k>', function() require('lsp_signature').toggle_float_win() end, { silent = true, noremap = true, desc = 'toggle signature' })
 --
 -- Line Numbers
 vim.keymap.set('n', '<leader>L', '<cmd>set relativenumber!<CR>')
@@ -78,8 +78,8 @@ vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 --
 -- Diagnostics
-vim.keymap.set('n', '<leader>Dn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-vim.keymap.set('n', '<leader>Dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+vim.keymap.set('n', '<C-d>n', '<cmd>lua vim.diagnostic.goto_next()<CR>', { desc = 'Go to next diagnostic' })
+vim.keymap.set('n', '<C-d>p', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { desc = 'Go to previous diagnostic' })
 --
 -- Go Debugging
 vim.keymap.set('n', '<leader>db', '<cmd>GoBreakToggle<CR>', { desc = 'Toggle breakpoint' })
