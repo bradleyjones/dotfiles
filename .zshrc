@@ -59,9 +59,11 @@ case `uname` in
   Darwin)
     # commands for OS X go here
     export GOPATH=/Users/bradley/go
-    export GOROOT=/opt/homebrew/opt/go@1.21/libexec
+    # export GOROOT=/opt/homebrew/opt/go@1.21/libexec
+    export GOROOT=/opt/homebrew/opt/go@1.20/libexec
     export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH:$GOROOT/bin:$GOPATH/bin
-    export PATH="/opt/homebrew/opt/go@1.21/bin:$PATH"
+    # export PATH="/opt/homebrew/opt/go@1.21/bin:$PATH"
+    export PATH="/opt/homebrew/opt/go@1.20/bin:$PATH"
   ;;
   Linux)
     # commands for Linux go here
