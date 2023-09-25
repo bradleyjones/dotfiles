@@ -38,6 +38,9 @@ vim.opt.listchars = "tab:>-,trail:~,extends:>,precedes:<"
 vim.opt.spelllang = "en_us"
 vim.opt.spell = false
 
+-- Status Line
+vim.opt.laststatus = 3
+
 -- Colours
 vim.cmd([[
 	augroup MyColors
