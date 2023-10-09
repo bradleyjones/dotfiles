@@ -10,7 +10,7 @@ vim.keymap.set('n', '<C-b>', telescope.buffers, {})
 vim.keymap.set('n', '<leader>?', telescope.help_tags, {})
 --
 -- NeoTree
-vim.keymap.set('n', '<leader>e', ':Neotree position=float toggle<CR>', {})
+vim.keymap.set('n', '<leader>e', ':Neotree position=left toggle<CR>', {})
 --
 -- Cellular Automation
 vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<CR>', { desc = 'Make It RAIN!'})

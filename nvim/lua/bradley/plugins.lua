@@ -40,7 +40,28 @@ return require('packer').startup({
 				"nvim-lua/plenary.nvim",
 				"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 				"MunifTanjim/nui.nvim",
-			}
+			},
+			config = function()
+				require('neo-tree').setup {
+					window = {
+						position = "left",
+						width = 30,
+						mappings = {
+							["P"] = { "toggle_preview", config = { use_float = true } },
+						}
+					},
+					filesystem = {
+						filtered_items = {
+							always_show = {
+								".gitignore",
+								".github",
+								".golangci.yaml",
+								".goreleaser.yaml"
+							}
+						}
+					}
+				}
+			end,
 		}
 		use {
 			's1n7ax/nvim-window-picker',
@@ -154,7 +175,7 @@ return require('packer').startup({
 			requires = 'nvim-tree/nvim-web-devicons',
 			config = function()
 				require('trouble').setup {
-					auto_close = true,
+					auto_close = false,
 					auto_open = false,
 				}
 			end

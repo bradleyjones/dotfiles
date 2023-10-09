@@ -26,19 +26,21 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	group = format_sync_grp,
 })
 
+function Startup()
+	-- skip if is a git commit message
+	if vim.bo.filetype == "gitcommit" then
+		return
+	end
+	vim.cmd("set nornu nonu")
+	vim.cmd("Neotree toggle")
+	vim.cmd("Trouble workspace_diagnostics")
+end
 
--- On save show	diagnostics
-vim.api.nvim_create_autocmd(
-	'BufWritePre',
-	{
-		pattern = '<buffer>',
-		command = 'TroubleToggle workspace_diagnostics'
-	}
-)
-vim.api.nvim_create_autocmd(
-	'BufWritePre',
-	{
-		pattern = '<buffer>',
-		command = 'lua vim.diagnostic.config({ virtual_lines = true })'
-	}
-)
+-- Show neotree & neotest on startup
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = Startup,
+})
+vim.api.nvim_create_autocmd("BufEnter", {
+    command = "set rnu nu",
+})
+
