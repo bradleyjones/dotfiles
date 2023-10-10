@@ -28,7 +28,14 @@ return require('packer').startup({
 		-- Fuzzy Finder
 		use {
 			'nvim-telescope/telescope.nvim', branch = '0.1.x',
-			requires = { { 'nvim-lua/plenary.nvim' } }
+			requires = { { 'nvim-lua/plenary.nvim' } },
+			config = function()
+				require('telescope').setup({
+					defaults = {
+						borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
+					}
+				})
+			end
 		}
 
 		-- NeoTree - Sidebar tree file explorer
@@ -81,9 +88,17 @@ return require('packer').startup({
 					disable_background = false,
 					disable_italics = true
 				})
-				vim.cmd('colorscheme rose-pine')
 			end
 		})
+		use {
+			"loctvl842/monokai-pro.nvim",
+			config = function()
+				require("monokai-pro").setup({
+					background_clear = {}
+				})
+				vim.cmd('colorscheme monokai-pro')
+			end
+		}
 
 		-- Treesitter
 		use({
