@@ -46,7 +46,7 @@ vim.keymap.set('n', '<leader>tq', '<cmd>TroubleToggle quickfix<cr>', { silent = 
 --
 -- NeoTest
 local neotest = require('neotest')
-vim.keymap.set('n', '<leader>Tt', function() neotest.summary.toggle() end, { desc = 'Toggle test summary' })
+vim.keymap.set('n', '<leader>Tt', '<cmd>Neotree close<cr><cmd>Neotest summary<cr><cmd>Neotree toggle<cr>', { desc = 'Toggle test summary' })
 vim.keymap.set('n', '<leader>Tr', function() neotest.run.run() end, { desc = 'Run nearest test' })
 vim.keymap.set('n', '<leader>To', function() neotest.output.open({ enter = true }) end, { desc = 'Open test output' })
 vim.keymap.set('n', '<leader>Tf', function() neotest.run.run(vim.fn.expand("%"))  end, { desc = 'Run test file' })
