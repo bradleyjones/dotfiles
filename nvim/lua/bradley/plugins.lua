@@ -91,7 +91,7 @@ return require('packer').startup({
 			end
 		})
 		use {
-			"loctvl842/monokai-pro.nvim",
+			"bradleyjones/monokai-pro.nvim",
 			config = function()
 				require("monokai-pro").setup({
 					background_clear = {}
@@ -274,7 +274,7 @@ return require('packer').startup({
 				require("go").setup()
 				require("nvim-dap-virtual-text").setup {
 					enabled = false,
-				    commented = true,
+					commented = true,
 					virt_text_pos = 'eol'
 				}
 			end,
