@@ -54,6 +54,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 # Secrets
 source ~/.anchore-secrets
+source ~/.secrets
 
 case `uname` in
   Darwin)
