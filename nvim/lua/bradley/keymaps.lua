@@ -61,8 +61,8 @@ vim.keymap.set('n', '<C-h>', '<cmd>BufferLineCyclePrev<CR>')
 vim.keymap.set('n', '<C-w>d', '<cmd>bd<CR>') -- Close window / delete buffer
 --
 -- Light/Dark Mode
-vim.keymap.set('n', '<leader>cl', '<cmd>set background=light<CR>')
-vim.keymap.set('n', '<leader>cd', '<cmd>set background=dark<CR>')
+vim.keymap.set('n', '<leader>cl', '<cmd>colorscheme rose-pine-dawn<CR>')
+vim.keymap.set('n', '<leader>cd', '<cmd>colorscheme monokai-pro<CR>')
 --
 -- Toggle comments
 local comment_api = require('Comment.api')
