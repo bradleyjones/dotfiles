@@ -181,7 +181,24 @@ return require('packer').startup({
 			'akinsho/bufferline.nvim',
 			tag = 'v3.*',
 			requires = 'nvim-tree/nvim-web-devicons',
-			config = function() require('bufferline').setup {} end
+			config = function() require('bufferline').setup {
+				options = {
+					separator_style = 'slant',
+					offsets = {
+						{
+							filetype = "neo-tree",
+							text = "File Explorer",
+							text_align = "center",
+						}
+					}
+				}
+			} end
+		}
+
+		-- Show floating filename on window
+		use {
+			"b0o/incline.nvim",
+			config = function() require('incline').setup() end
 		}
 
 		-- Fix list
