@@ -324,6 +324,19 @@ return require('packer').startup({
 			end,
 		}
 
+		-- AI
+		use({
+			"jackMort/ChatGPT.nvim",
+			config = function()
+				require("chatgpt").setup()
+			end,
+			requires = {
+				"MunifTanjim/nui.nvim",
+				"nvim-lua/plenary.nvim",
+				"nvim-telescope/telescope.nvim"
+			}
+		})
+
 		-- Just for Fun :)
 		use 'eandrju/cellular-automaton.nvim' -- make it rain!
 

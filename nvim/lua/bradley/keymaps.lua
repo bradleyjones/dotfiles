@@ -90,4 +90,6 @@ vim.keymap.set('n', '<leader>dc', function() require('dap').continue() end, { de
 vim.keymap.set('n', '<leader>do', function() require('dap').step_over() end, { desc = 'Step over' })
 vim.keymap.set('n', '<leader>di', function() require('dap').step_into() end, { desc = 'Step into' })
 vim.keymap.set('n', '<leader>dO', function() require('dap').step_out() end, { desc = 'Step out' })
-
+--
+-- Chat GPT
+vim.keymap.set('n', '<C-c>', '<cmd>ChatGPT<CR>', { desc = 'ChatGPT' })
