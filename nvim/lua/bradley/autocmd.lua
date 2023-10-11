@@ -32,7 +32,7 @@ function Startup()
 		return
 	end
 	vim.cmd("set nornu nonu")
-	vim.cmd("Neotree toggle")
+	vim.cmd("Neotree show")
 	vim.cmd("Trouble workspace_diagnostics")
 end
 
