@@ -354,6 +354,9 @@ return require('packer').startup({
 			}
 		})
 
+		-- Tagbar
+		use "preservim/tagbar"
+
 		-- Just for Fun :)
 		use 'eandrju/cellular-automaton.nvim' -- make it rain!
 

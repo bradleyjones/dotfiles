@@ -93,3 +93,6 @@ vim.keymap.set('n', '<leader>dO', function() require('dap').step_out() end, { de
 --
 -- Chat GPT
 vim.keymap.set('n', '<C-c>', '<cmd>ChatGPT<CR>', { desc = 'ChatGPT' })
+--
+-- Tagbar
+vim.keymap.set('n', '<leader>tb', '<cmd>Neotree close<cr><cmd>TagbarToggle<cr><cmd>Neotree toggle<cr>', { desc = 'Toggle tagbar' })

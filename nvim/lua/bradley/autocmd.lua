@@ -32,6 +32,7 @@ function Startup()
 		return
 	end
 	vim.cmd("set nornu nonu")
+	vim.cmd("TagbarToggle")
 	vim.cmd("Neotree show")
 	vim.cmd("Trouble workspace_diagnostics")
 end
