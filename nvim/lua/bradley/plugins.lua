@@ -311,6 +311,14 @@ return require('packer').startup({
 			end
 		}
 
+		-- Highlight word under cursor
+		use {
+			'RRethy/vim-illuminate',
+			config = function()
+				vim.g.Illuminate_delay = 1000
+			end
+		}
+
 		-- No-Neck-Pain - center buffer on screen
 		use {
 			"shortcuts/no-neck-pain.nvim",
