@@ -32,12 +32,12 @@ function Startup()
 		return
 	end
 	vim.cmd("set nornu nonu")
+	vim.cmd("Trouble workspace_diagnostics")
 	vim.cmd("TagbarToggle")
 	vim.cmd("wincmd w") -- Select tagbar
 	vim.cmd("set winhighlight=Normal:TroubleNormal")
 	vim.cmd("wincmd h") -- Refocus main window
 	vim.cmd("Neotree show")
-	vim.cmd("Trouble workspace_diagnostics")
 end
 
 -- Show neotree & neotest on startup
