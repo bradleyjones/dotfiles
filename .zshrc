@@ -104,3 +104,6 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
+
+# p10k instant prompt
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
