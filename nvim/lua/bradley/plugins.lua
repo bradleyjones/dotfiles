@@ -65,8 +65,12 @@ return require('packer').startup({
 								".golangci.yaml",
 								".goreleaser.yaml"
 							}
+						},
+						follow_current_file = {
+							enabled = true,
+							leave_dirs_open = true
 						}
-					}
+					},
 				}
 			end,
 		}
