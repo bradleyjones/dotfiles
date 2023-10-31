@@ -369,6 +369,9 @@ return require('packer').startup({
 		-- Tagbar
 		use "preservim/tagbar"
 
+		-- Minimap
+		use "wfxr/minimap.vim"
+
 		-- Just for Fun :)
 		use 'eandrju/cellular-automaton.nvim' -- make it rain!
 

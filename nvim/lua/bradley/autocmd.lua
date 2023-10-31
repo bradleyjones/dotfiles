@@ -37,14 +37,23 @@ function Startup()
 	vim.cmd("wincmd w") -- Select tagbar
 	vim.cmd("set winhighlight=Normal:TroubleNormal")
 	vim.cmd("wincmd h") -- Refocus main window
+	vim.cmd("Minimap")
+	vim.cmd("wincmd w") -- Select tagbar
+	vim.cmd("wincmd w") -- Select Minimap
+	vim.cmd("wincmd w") -- Select Minimap
+	vim.cmd("set winhighlight=Normal:TroubleNormal")
+	vim.cmd("wincmd h") -- Refocus tagbar
+	vim.cmd("wincmd h") -- Refocus main window
 	vim.cmd("Neotree show")
+	vim.opt.number = true
+	vim.opt.relativenumber = true
+	vim.opt.signcolumn = "yes"
 end
 
 -- Show neotree & neotest on startup
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = Startup,
 })
-vim.api.nvim_create_autocmd("BufEnter", {
-    command = "set rnu nu",
-})
-
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--     command = "set rnu nu",
+-- })

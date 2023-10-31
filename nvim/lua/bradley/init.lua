@@ -11,7 +11,7 @@ require('bradley.autocmd')
 vim.opt.termguicolors = true
 
 -- Line Number Column
-vim.opt.nu = true
+vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 
@@ -48,3 +48,6 @@ vim.cmd([[
 	autocmd ColorScheme * hi clear OctoEditable
 	augroup END
 ]])
+
+-- Minimap
+vim.g.minimap_git_colors = 1
