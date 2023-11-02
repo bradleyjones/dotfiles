@@ -83,8 +83,8 @@ vim.keymap.set('n', '<C-d>p', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { desc 
 --
 -- Go Debugging
 vim.keymap.set('n', '<leader>db', '<cmd>GoBreakToggle<CR>', { desc = 'Toggle breakpoint' })
-vim.keymap.set('n', '<leader>ds', '<cmd>GoDebug<CR>', { desc = 'Start debugging' })
-vim.keymap.set('n', '<leader>dS', '<cmd>GoDebug -s<CR>', { desc = 'Stop debugging' })
+vim.keymap.set('n', '<leader>ds', '<cmd>GoDebug<CR><cmd>Neotree close<CR><cmd>TroubleClose<CR><cmd>TagbarClose<CR><cmd>MinimapClose<CR>', { desc = 'Start debugging' })
+vim.keymap.set('n', '<leader>dS', '<cmd>GoDebug -s<CR><cmd>Trouble<CR><cmd>Tagbar<CR><cmd>Neotree show<CR><cmd>wincmd k<CR><cmd>Minimap<CR>', { desc = 'Stop debugging' })
 vim.keymap.set('n', '<leader>dr', function() require('dap.ext.vscode').load_launchjs() end, { desc = 'Start Remote Debugging' })
 vim.keymap.set('n', '<leader>dc', function() require('dap').continue() end, { desc = 'Continue' })
 vim.keymap.set('n', '<leader>do', function() require('dap').step_over() end, { desc = 'Step over' })
