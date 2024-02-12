@@ -37,13 +37,6 @@ function Startup()
 	vim.cmd("wincmd w") -- Select tagbar
 	vim.cmd("set winhighlight=Normal:TroubleNormal")
 	vim.cmd("wincmd h") -- Refocus main window
-	vim.cmd("Minimap")
-	vim.cmd("wincmd w") -- Select tagbar
-	vim.cmd("wincmd w") -- Select Minimap
-	vim.cmd("wincmd w") -- Select Minimap
-	vim.cmd("set winhighlight=Normal:TroubleNormal")
-	vim.cmd("wincmd h") -- Refocus tagbar
-	vim.cmd("wincmd h") -- Refocus main window
 	vim.cmd("Neotree show")
 	vim.opt.number = true
 	vim.opt.relativenumber = true
