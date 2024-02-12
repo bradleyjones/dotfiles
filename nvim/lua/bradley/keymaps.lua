@@ -97,3 +97,6 @@ vim.keymap.set('n', '<C-c>', '<cmd>ChatGPT<CR>', { desc = 'ChatGPT' })
 --
 -- Tagbar
 vim.keymap.set('n', '<leader>tb', '<cmd>TagbarToggle<cr>', { desc = 'Toggle tagbar' })
+--
+-- Minimap
+vim.keymap.set('n', '<leader>m', '<cmd>MinimapToggle<cr>', { desc = 'Toggle minimap' })
