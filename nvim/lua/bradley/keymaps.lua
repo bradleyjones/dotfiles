@@ -10,7 +10,8 @@ vim.keymap.set('n', '<C-b>', telescope.buffers, {})
 vim.keymap.set('n', '<leader>?', telescope.help_tags, {})
 --
 -- NeoTree
-vim.keymap.set('n', '<leader>e', ':Neotree position=left toggle<CR>', {})
+vim.keymap.set('n', '<leader>e', ':Neotree position=float toggle<CR>', {})
+vim.keymap.set('n', '<leader>E', ':Neotree position=left toggle<CR>', {})
 --
 -- Cellular Automation
 vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<CR>', { desc = 'Make It RAIN!'})
@@ -95,4 +96,4 @@ vim.keymap.set('n', '<leader>dO', function() require('dap').step_out() end, { de
 vim.keymap.set('n', '<C-c>', '<cmd>ChatGPT<CR>', { desc = 'ChatGPT' })
 --
 -- Tagbar
-vim.keymap.set('n', '<leader>tb', '<cmd>Neotree close<cr><cmd>TagbarToggle<cr><cmd>Neotree show<cr>', { desc = 'Toggle tagbar' })
+vim.keymap.set('n', '<leader>tb', '<cmd>TagbarToggle<cr>', { desc = 'Toggle tagbar' })

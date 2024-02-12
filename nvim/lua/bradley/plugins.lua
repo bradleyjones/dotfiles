@@ -51,7 +51,7 @@ return require('packer').startup({
 			config = function()
 				require('neo-tree').setup {
 					window = {
-						position = "left",
+						position = "float",
 						width = 30,
 						mappings = {
 							["P"] = { "toggle_preview", config = { use_float = true } },
