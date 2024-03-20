@@ -26,6 +26,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	group = format_sync_grp,
 })
 
+-- Java
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "java",
+	callback = function()
+		vim.bo.tabstop = 2
+		vim.bo.shiftwidth = 2
+		vim.bo.softtabstop = 2
+		vim.bo.expandtab = true
+		vim.bo.smartindent = true
+	end,
+})
+
 function Startup()
 	-- skip if is a git commit message
 	if vim.bo.filetype == "gitcommit" then
