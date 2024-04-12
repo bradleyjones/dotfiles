@@ -250,6 +250,7 @@ return require('packer').startup({
 				'antoinemadec/FixCursorHold.nvim',
 				'nvim-neotest/neotest-go',
 				'nvim-neotest/neotest-python',
+				'nvim-neotest/nvim-nio',
 			},
 			config = function() require('bradley.plugin-configs.neotest') end
 		}
