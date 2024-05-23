@@ -312,7 +312,11 @@ return require('packer').startup({
 				'kyazdani42/nvim-web-devicons',
 			},
 			config = function()
-				require "octo".setup()
+				require "octo".setup({
+				  suppress_missing_scope = {
+					projects_v2 = true,
+				  }
+				})
 			end
 		}
 
