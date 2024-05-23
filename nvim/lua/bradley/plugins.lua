@@ -208,6 +208,7 @@ return require('packer').startup({
 		-- Fix list
 		use {
 			'folke/trouble.nvim',
+			branch = 'dev',
 			requires = 'nvim-tree/nvim-web-devicons',
 			config = function()
 				require('trouble').setup {

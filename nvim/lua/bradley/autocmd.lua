@@ -44,7 +44,7 @@ function Startup()
 		return
 	end
 	vim.cmd("set nornu nonu")
-	vim.cmd("Trouble workspace_diagnostics")
+	vim.cmd("Trouble diagnostics")
 	-- vim.cmd("TagbarToggle")
 	-- vim.cmd("wincmd w") -- Select tagbar
 	-- vim.cmd("set winhighlight=Normal:TroubleNormal")
