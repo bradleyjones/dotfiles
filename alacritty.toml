@@ -62,3 +62,10 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 dynamic_padding = true
 startup_mode = "Windowed"
 decorations = "Buttonless"
+
+[[hints.enabled]]
+command = "open"
+mouse.enabled = true
+hyperlinks = true
+binding = { key = "U", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
