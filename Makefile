@@ -12,7 +12,11 @@ macos: /opt/homebrew/bin/brew
 /opt/homebrew/bin/brew:
 	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-cli: shell tmux neovim git
+cli: shell tmux neovim git alacritty
+
+alacritty:
+	mkdir -p $(HOME)/.config/alacritty
+	ln -sf $(CURDIR)/alacritty.toml $(HOME)/.config/alacritty/alacritty.toml
 
 ~/.oh-my-zsh:
 	which wget || ( echo 'wget is required, please install it' && exit 1 )

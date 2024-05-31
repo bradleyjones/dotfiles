@@ -40,7 +40,7 @@ export GPG_TTY=$(tty)
 setopt no_share_history
 export HISTCONTROL=ignoreboth
 # Fix tmux on remote server using termite
-export TERM=xterm-256color
+# export TERM=xterm-256color
 # Allow go get to accept input
 export GIT_TERMINAL_PROMPT=1
 
