@@ -38,12 +38,10 @@ vim.keymap.set('i', '<C-k>', '<C-o>k')
 vim.keymap.set('i', '<C-l>', '<C-o>l')
 --
 -- Trouble
-vim.keymap.set('n', 'gr', '<cmd>Trouble lsp_references<cr>', { silent = true, noremap = true })
-vim.keymap.set('n', '<leader>tt', '<cmd>TroubleToggle<cr>', { silent = true, noremap = true })
-vim.keymap.set('n', '<leader>tw', '<cmd>Trouble workspace_diagnostics<cr>', { silent = true, noremap = true })
-vim.keymap.set('n', '<leader>td', '<cmd>Trouble document_diagnostics<cr>', { silent = true, noremap = true })
-vim.keymap.set('n', '<leader>tl', '<cmd>Trouble loclist<cr>', { silent = true, noremap = true })
-vim.keymap.set('n', '<leader>tq', '<cmd>Trouble quickfix<cr>', { silent = true, noremap = true })
+vim.keymap.set('n', 'gr', '<cmd>Trouble lsp toggle<cr>', { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>tt', '<cmd>Trouble diagnostics toggle<cr>', { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>tl', '<cmd>Trouble loclist toggle<cr>', { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>tq', '<cmd>Trouble quickfix toggle<cr>', { silent = true, noremap = true })
 --
 -- NeoTest
 local neotest = require('neotest')

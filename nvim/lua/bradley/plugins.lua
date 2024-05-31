@@ -208,12 +208,55 @@ return require('packer').startup({
 		-- Fix list
 		use {
 			'folke/trouble.nvim',
-			branch = 'dev',
+			branch = 'main',
 			requires = 'nvim-tree/nvim-web-devicons',
 			config = function()
 				require('trouble').setup {
 					auto_close = false,
 					auto_open = false,
+					open_no_results = true,
+                    modes = {
+                      diagnostics = {
+                        mode = "diagnostics",
+                        preview = {
+						  type = "float",
+						  relative = "editor",
+						  border = "rounded",
+						  title = "Preview",
+						  title_pos = "center",
+						  position = { 1, -2 },
+						  size = { width = 0.4, height = 0.4 },
+						  zindex = 200,
+                        },
+						win = {
+						  type = "split",
+						  position = "bottom",
+						  size = 10,
+						  relative = "win",
+						},
+					  },
+                      lsp = {
+                        mode = "lsp",
+						focus = true,
+						auto_refresh = false,
+                        preview = {
+						  type = "float",
+						  relative = "editor",
+						  border = "rounded",
+						  title = "Preview",
+						  title_pos = "center",
+						  position = { 0, -2 },
+						  size = { width = 0.4, height = 0.4 },
+						  zindex = 200,
+                        },
+						win = {
+						  type = "split",
+						  position = "top",
+						  size = 10,
+						  relative = "win",
+						},
+					  },
+					},
 				}
 			end
 		}
