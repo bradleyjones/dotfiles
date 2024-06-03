@@ -98,3 +98,6 @@ vim.keymap.set('n', '<leader>tb', '<cmd>TagbarToggle<cr>', { desc = 'Toggle tagb
 --
 -- Minimap
 vim.keymap.set('n', '<leader>m', '<cmd>MinimapToggle<cr>', { desc = 'Toggle minimap' })
+--
+-- Octo Github
+vim.keymap.set('n', '<leader>pr', '<cmd>Octo search review-requested:@me is:pr is:open<cr>', { desc = 'List PRs For review' })
