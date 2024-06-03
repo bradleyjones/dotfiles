@@ -100,7 +100,7 @@ vim.keymap.set('n', '<leader>tb', '<cmd>TagbarToggle<cr>', { desc = 'Toggle tagb
 vim.keymap.set('n', '<leader>m', '<cmd>MinimapToggle<cr>', { desc = 'Toggle minimap' })
 --
 -- Octo Github
-vim.keymap.set('n', '<leader>pr', '<cmd>Octo search review-requested:@me is:pr is:open<cr>', { desc = 'List PRs for review' })
+vim.keymap.set('n', '<leader>pr', '<cmd>Octo search review-requested:@me is:pr is:open archived:false<cr>', { desc = 'List PRs for review' })
 vim.keymap.set('n', '<leader>pl', '<cmd>Octo pr list<cr>', { desc = 'List PRs for this repo' })
 vim.keymap.set('n', '<leader>ps', '<cmd>Octo review start<cr>', { desc = 'Start a review' })
 vim.keymap.set('n', '<leader>pm', '<cmd>Octo pr merge<cr>', { desc = 'Merge PR' })
