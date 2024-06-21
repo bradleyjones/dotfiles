@@ -421,6 +421,26 @@ return require('packer').startup({
 		-- Minimap
 		use "wfxr/minimap.vim"
 
+		-- Obsidian
+		use({
+		  "epwalsh/obsidian.nvim",
+		  tag = "*",  -- recommended, use latest release instead of latest commit
+		  requires = {
+			-- Required.
+			"nvim-lua/plenary.nvim",
+		  },
+		  config = function()
+			require("obsidian").setup({
+			  workspaces = {
+				{
+				  name = "mind 2.0",
+				  path = "~/Documents/Obsidian Vault",
+				},
+			  },
+			})
+		  end,
+		})
+
 		-- Just for Fun :)
 		use 'eandrju/cellular-automaton.nvim' -- make it rain!
 
