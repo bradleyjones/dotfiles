@@ -48,14 +48,14 @@ vimrc-nvim-config:
 vim-coc:
 	pip3 install --user jedi
 
-vim: vim-coc vimrc-nvim-config
+vim: vimrc-nvim-config
 	which curl || ( echo 'curl is required, please install it' && exit 1 )
 	which pip3 || ( echo 'pip3 is required, please install it' && exit 1 )
 	mkdir -p $(HOME)/.vim/autoload
 	ln -sf $(CURDIR)/.vimrc $(HOME)/.vimrc
 	GOPATH=$(HOME) GOBIN=$(HOME)/bin vim +PlugInstall +qall
-	sudo pip3 install --upgrade neovim # Required for deoplete
-	python3 -m pip install --user --upgrade pynvim
+	#sudo pip3 install --upgrade neovim # Required for deoplete
+	#python3 -m pip install --user --upgrade pynvim
 
 git:
 	ln -sf $(CURDIR)/.gitconfig ~/.gitconfig
@@ -133,9 +133,10 @@ install-ubuntu:
 		git \
 		htop \
 		exuberant-ctags \
-		python-dev \
 		python3-dev \
 		python3-pip \
+		python3-jedi \
+		python3-neovim \
 		ca-certificates \
 		software-properties-common \
 		docker-ce \
