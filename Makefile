@@ -122,7 +122,7 @@ docker-dns:
 install-ubuntu:
 	# sudo sed -e 's/$/ universe/' -i /etc/apt/sources.list
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu noble stable"
 	apt update
 	apt install \
 		tmux \
