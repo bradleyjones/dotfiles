@@ -23,7 +23,6 @@ plugins=(
 	poetry
 	pyenv
 	pylint
-	ripgrep
 	vi-mode
  	zsh-autosuggestions
 )
