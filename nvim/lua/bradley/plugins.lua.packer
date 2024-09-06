@@ -1,41 +1,52 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out,                            "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
+-- Ensure that packer is installed when nvim is started if not present
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+		vim.cmd [[packadd packer.nvim]]
+		return true
 	end
+	return false
 end
 
-vim.opt.rtp:prepend(lazypath)
+local packer_bootstrap = ensure_packer()
 
-vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+-- Auto compile Packer when this file changes
+vim.cmd([[
+	augroup packer_user_config
+		autocmd!
+		autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+	augroup end
+]])
 
--- Setup lazy.nvim
-require("lazy").setup({
-	spec = {
+return require('packer').startup({
+	function(use)
+		-- Packer can manage itself
+		use 'wbthomason/packer.nvim'
+
 		-- Fuzzy Finder
-		{
+		use {
 			'nvim-telescope/telescope.nvim', branch = '0.1.x',
-			dependencies = { 'nvim-lua/plenary.nvim' },
-		},
+			requires = { { 'nvim-lua/plenary.nvim' } },
+			config = function()
+				require('telescope').setup({
+					defaults = {
+						borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
+					}
+				})
+			end
+		}
 
-		-- Neo Tree Sidebar
-		{
+		-- NeoTree - Sidebar tree file explorer
+		vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+		use {
 			"nvim-neo-tree/neo-tree.nvim",
-			branch = "v3.x",
-			dependencies = {
-			  "nvim-lua/plenary.nvim",
-			  "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			  "MunifTanjim/nui.nvim",
-			  "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+			branch = "v2.x",
+			requires = {
+				"nvim-lua/plenary.nvim",
+				"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+				"MunifTanjim/nui.nvim",
 			},
 			config = function()
 				require('neo-tree').setup {
@@ -62,21 +73,19 @@ require("lazy").setup({
 					},
 				}
 			end,
-		},
-		{
+		}
+		use {
 			's1n7ax/nvim-window-picker',
-			name = 'window-picker',
-			event = 'VeryLazy',
-			version = '2.*',
+			tag = 'v1.*',
 			config = function()
-				require'window-picker'.setup()
+				require 'window-picker'.setup()
 			end,
-		},
+		}
 
 		-- Theme/Colorscheme
-		{
+		use({
 			'rose-pine/neovim',
-			name = 'rose-pine',
+			as = 'rose-pine',
 			config = function()
 				require('rose-pine').setup({
 					dark_variant = 'moon',
@@ -84,8 +93,8 @@ require("lazy").setup({
 					disable_italics = true
 				})
 			end
-		},
-		{
+		})
+		use {
 			"bradleyjones/monokai-pro.nvim",
 			config = function()
 				require("monokai-pro").setup({
@@ -93,17 +102,17 @@ require("lazy").setup({
 				})
 				vim.cmd('colorscheme monokai-pro')
 			end
-		},
+		}
 
 		-- Treesitter
-		{
+		use({
 			'nvim-treesitter/nvim-treesitter',
-			build = ':TSUpdate',
+			run = ':TSUpdate',
 			config = function() require('bradley.plugin-configs.treesitter') end
-		},
+		})
 
 		-- Preserve last place when opening a file
-		{
+		use({
 			'ethanholz/nvim-lastplace',
 			config = function()
 				require('nvim-lastplace').setup({
@@ -112,153 +121,148 @@ require("lazy").setup({
 					lastplace_open_folds = true
 				})
 			end
-		},
+		})
 
 		-- LSP
-		{
+		use({
 			'VonHeikemen/lsp-zero.nvim',
-			branch = 'v4.x',
-			dependencies = {
+			branch = 'v1.x',
+			requires = {
 				-- LSP Support
-				'neovim/nvim-lspconfig', -- Required
-				'williamboman/mason.nvim', -- Optional
-				'williamboman/mason-lspconfig.nvim', -- Optional
+				{ 'neovim/nvim-lspconfig' }, -- Required
+				{ 'williamboman/mason.nvim' }, -- Optional
+				{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
 				-- Autocompletion
-				'hrsh7th/nvim-cmp', -- Required
-				'hrsh7th/cmp-nvim-lsp', -- Required
-				'hrsh7th/cmp-buffer', -- Optional
-				'hrsh7th/cmp-path', -- Optional
-				'saadparwaiz1/cmp_luasnip', -- Optional
-				'hrsh7th/cmp-nvim-lua', -- Optional
+				{ 'hrsh7th/nvim-cmp' }, -- Required
+				{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
+				{ 'hrsh7th/cmp-buffer' }, -- Optional
+				{ 'hrsh7th/cmp-path' }, -- Optional
+				{ 'saadparwaiz1/cmp_luasnip' }, -- Optional
+				{ 'hrsh7th/cmp-nvim-lua' }, -- Optional
 
 				-- Snippets
-				'L3MON4D3/LuaSnip', -- Required
-				'rafamadriz/friendly-snippets', -- Optional
+				{ 'L3MON4D3/LuaSnip' }, -- Required
+				{ 'rafamadriz/friendly-snippets' }, -- Optional
 			},
 			config = function() require('bradley.plugin-configs.lsp') end
-		},
+		})
 		-- use 'hrsh7th/cmp-nvim-lsp-signature-help' -- Show function signature while typing
-		{
-			"ray-x/lsp_signature.nvim",
-			config = function() require('lsp_signature').setup() end },
-		{
+		use { "ray-x/lsp_signature.nvim", config = function() require('lsp_signature').setup() end }
+		use({
 			-- Multiline diagnostics
 			'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
 			config = function()
 				require('lsp_lines').setup()
 			end,
-		},
+		})
 
 		-- Git setup
-		{
+		use {
 			'lewis6991/gitsigns.nvim',
 			config = function()
 				require('gitsigns').setup()
 			end
-		},
-		'tpope/vim-fugitive',
+		}
+		use 'tpope/vim-fugitive'
 
 		-- Surround - quotes,tags,brackets,etc.
-		{
+		use({
 			'kylechui/nvim-surround',
 			config = function()
 				require('nvim-surround').setup()
 			end
-		},
+		})
 
 		-- Auto pair brackets, quotes, etc.
-		{
+		use {
 			'windwp/nvim-autopairs',
 			config = function() require('nvim-autopairs').setup {} end
-		},
-
+		}
 
 		-- Buffer line
-		{
+		use {
 			'akinsho/bufferline.nvim',
-			version = '*',
-			dependencies = {'nvim-tree/nvim-web-devicons'},
-			config = function()
-				require('bufferline').setup {
-					options = {
-						separator_style = 'slant',
-						offsets = {
-							{
-								filetype = "neo-tree",
-								text = "File Explorer",
-								text_align = "center",
-							}
+			tag = 'v4.*',
+			requires = 'nvim-tree/nvim-web-devicons',
+			config = function() require('bufferline').setup {
+				options = {
+					separator_style = 'slant',
+					offsets = {
+						{
+							filetype = "neo-tree",
+							text = "File Explorer",
+							text_align = "center",
 						}
 					}
 				}
-			end
-		},
+			} end
+		}
 
 		-- Show floating filename on window
-		{
+		use {
 			"b0o/incline.nvim",
 			config = function() require('incline').setup() end
-		},
+		}
 
 		-- Fix list
-		{
+		use {
 			'folke/trouble.nvim',
 			branch = 'main',
-			dependencies = {'nvim-tree/nvim-web-devicons'},
+			requires = 'nvim-tree/nvim-web-devicons',
 			config = function()
 				require('trouble').setup {
 					auto_close = false,
 					auto_open = false,
 					open_no_results = true,
-					modes = {
-						diagnostics = {
-							mode = "diagnostics",
-							preview = {
-								type = "float",
-								relative = "editor",
-								border = "rounded",
-								title = "Preview",
-								title_pos = "center",
-								position = { 1, -2 },
-								size = { width = 0.4, height = 0.4 },
-								zindex = 200,
-							},
-							win = {
-								type = "split",
-								position = "bottom",
-								size = 10,
-								relative = "win",
-							},
+                    modes = {
+                      diagnostics = {
+                        mode = "diagnostics",
+                        preview = {
+						  type = "float",
+						  relative = "editor",
+						  border = "rounded",
+						  title = "Preview",
+						  title_pos = "center",
+						  position = { 1, -2 },
+						  size = { width = 0.4, height = 0.4 },
+						  zindex = 200,
+                        },
+						win = {
+						  type = "split",
+						  position = "bottom",
+						  size = 10,
+						  relative = "win",
 						},
-						lsp = {
-							mode = "lsp",
-							focus = true,
-							auto_refresh = false,
-							preview = {
-								type = "float",
-								relative = "editor",
-								border = "rounded",
-								title = "Preview",
-								title_pos = "center",
-								position = { 0, -2 },
-								size = { width = 0.4, height = 0.4 },
-								zindex = 200,
-							},
-							win = {
-								type = "split",
-								position = "top",
-								size = 10,
-								relative = "win",
-							},
+					  },
+                      lsp = {
+                        mode = "lsp",
+						focus = true,
+						auto_refresh = false,
+                        preview = {
+						  type = "float",
+						  relative = "editor",
+						  border = "rounded",
+						  title = "Preview",
+						  title_pos = "center",
+						  position = { 0, -2 },
+						  size = { width = 0.4, height = 0.4 },
+						  zindex = 200,
+                        },
+						win = {
+						  type = "split",
+						  position = "top",
+						  size = 10,
+						  relative = "win",
 						},
+					  },
 					},
 				}
 			end
-		},
+		}
 
 		-- Copilot
-		{
+		use {
 			"zbirenbaum/copilot.lua",
 			cmd = "Copilot",
 			event = "InsertEnter",
@@ -279,12 +283,12 @@ require("lazy").setup({
 					panel = { enabled = false },
 				})
 			end,
-		},
+		}
 
 		-- Neotest - test runner
-		{
+		use {
 			'nvim-neotest/neotest',
-			dependencies = {
+			requires = {
 				'nvim-lua/plenary.nvim',
 				'nvim-treesitter/nvim-treesitter',
 				'antoinemadec/FixCursorHold.nvim',
@@ -293,40 +297,40 @@ require("lazy").setup({
 				'nvim-neotest/nvim-nio',
 			},
 			config = function() require('bradley.plugin-configs.neotest') end
-		},
+		}
 
 		-- Statusline
-		{
+		use {
 			'nvim-lualine/lualine.nvim',
-			dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
+			requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 			config = function() require('lualine').setup({}) end
-		},
+		}
 
 		-- Tmux line sync with vim Theme
-		'edkolev/tmuxline.vim',
+		use 'edkolev/tmuxline.vim'
 
 		-- Auto comments
-		{
+		use {
 			'numToStr/Comment.nvim',
 			config = function()
 				require('Comment').setup()
 			end
-		},
+		}
 
 		-- Which key
-		{
+		use {
 			"folke/which-key.nvim",
 			config = function()
 				vim.o.timeout = true
 				vim.o.timeoutlen = 30
 				require("which-key").setup {}
 			end
-		},
+		}
 
 		-- Golang
-		{
+		use {
 			'ray-x/go.nvim',
-			dependencies = {
+			requires = {
 				-- Debugger support
 				'mfussenegger/nvim-dap',
 				'rcarriga/nvim-dap-ui',
@@ -340,36 +344,36 @@ require("lazy").setup({
 					virt_text_pos = 'eol'
 				}
 			end,
-		},
-		'ray-x/guihua.lua', -- recommended if need floating window support
+		}
+		use 'ray-x/guihua.lua' -- recommended if need floating window support
 
 		-- Github
-		{
+		use {
 			'pwntester/octo.nvim',
-			dependencies = {
+			requires = {
 				'nvim-lua/plenary.nvim',
 				'nvim-telescope/telescope.nvim',
 				'kyazdani42/nvim-web-devicons',
 			},
 			config = function()
 				require "octo".setup({
-					suppress_missing_scope = {
-						projects_v2 = true,
-					}
+				  suppress_missing_scope = {
+					projects_v2 = true,
+				  }
 				})
 			end
-		},
+		}
 
 		-- Highlight word under cursor
-		{
+		use {
 			'RRethy/vim-illuminate',
 			config = function()
 				vim.g.Illuminate_delay = 1000
 			end
-		},
+		}
 
 		-- No-Neck-Pain - center buffer on screen
-		{
+		use {
 			"shortcuts/no-neck-pain.nvim",
 			config = function()
 				require("no-neck-pain").setup({
@@ -396,44 +400,49 @@ require("lazy").setup({
 					}
 				})
 			end,
-		},
+		}
 
 		-- AI
-		{
+		use({
 			"jackMort/ChatGPT.nvim",
 			config = function()
 				require("chatgpt").setup()
 			end,
-			dependencies = {
+			requires = {
 				"MunifTanjim/nui.nvim",
 				"nvim-lua/plenary.nvim",
 				"nvim-telescope/telescope.nvim"
 			}
-		},
+		})
 
 		-- Tagbar
-		"preservim/tagbar",
+		use "preservim/tagbar"
 
 		-- Minimap
-		"wfxr/minimap.vim",
+		use "wfxr/minimap.vim"
 
+		-- Obsidian
+		use({
+		  "epwalsh/obsidian.nvim",
+		  tag = "*",  -- recommended, use latest release instead of latest commit
+		  requires = {
+			-- Required.
+			"nvim-lua/plenary.nvim",
+		  },
+		  config = function()
+			require("obsidian").setup({
+			  workspaces = {
+				{
+				  name = "mind 2.0",
+				  path = "~/Documents/Obsidian Vault",
+				},
+			  },
+			})
+		  end,
+		})
 
 		-- Just for Fun :)
-		'eandrju/cellular-automaton.nvim', -- make it rain!
-	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "habamax" } },
-	-- automatically check for plugin updates
-	checker = { enabled = true },
-})
-
---[=[
-return require('packer').startup({
-	function(use)
-
-
-
+		use 'eandrju/cellular-automaton.nvim' -- make it rain!
 
 		-- Automatically set up your configuration after cloning packer.nvim
 		-- Put this at the end after all plugins
@@ -447,4 +456,3 @@ return require('packer').startup({
 		}
 	}
 })
---]=]
