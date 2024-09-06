@@ -414,10 +414,6 @@ require("lazy").setup({
 		-- Tagbar
 		"preservim/tagbar",
 
-		-- Minimap
-		"wfxr/minimap.vim",
-
-
 		-- Just for Fun :)
 		'eandrju/cellular-automaton.nvim', -- make it rain!
 	},
