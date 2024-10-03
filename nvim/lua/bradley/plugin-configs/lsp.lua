@@ -37,7 +37,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
-  ensure_installed = {'lua_ls', 'gopls', 'pylsp'},
+  ensure_installed = {'lua_ls', 'gopls', 'ruff', 'pyright'},
   handlers = {
     function(server_name)
       require('lspconfig')[server_name].setup({})
@@ -55,30 +55,32 @@ lsp.configure('lua_ls', {
 		}
 	}
 })
-
-lsp.configure('pylsp', {
-	settings = {
-		pylsp = {
-			plugins = {
-				flake8 = {
-					enabled = true,
-					maxLineLength = 88,
-					ignore = { 'E722', 'W503' },
-				},
-				pydocstyle = { enabled = false },
-				pylint = { enabled = true },
-				pycodestyle = {
-					enabled = false,
-					maxLineLength = 88,
-				},
-				pyflakes = { enabled = true },
-			}
-		}
-	}
-})
+--
+-- lsp.configure('pylsp', {
+-- 	settings = {
+-- 		pylsp = {
+-- 			plugins = {
+-- 				flake8 = {
+-- 					enabled = true,
+-- 					maxLineLength = 88,
+-- 					ignore = { 'E722', 'W503' },
+-- 				},
+-- 				pydocstyle = { enabled = false },
+-- 				pylint = { enabled = true },
+-- 				pycodestyle = {
+-- 					enabled = false,
+-- 					maxLineLength = 88,
+-- 				},
+-- 				pyflakes = { enabled = true },
+-- 			}
+-- 		}
+-- 	}
+-- })
 
 -- Golang LSP
 local lspconfig = require 'lspconfig'
+lspconfig.ruff.setup{}
+
 local configs = require 'lspconfig/configs'
 
 if not configs.golangcilsp then
