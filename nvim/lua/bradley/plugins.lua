@@ -414,6 +414,9 @@ require("lazy").setup({
 		-- Tagbar
 		"preservim/tagbar",
 
+
+		-- Zen Mode
+		"folke/zen-mode.nvim",
 		-- Just for Fun :)
 		'eandrju/cellular-automaton.nvim', -- make it rain!
 	},
