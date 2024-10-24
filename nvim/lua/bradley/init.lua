@@ -51,3 +51,10 @@ vim.cmd([[
 
 -- Minimap
 vim.g.minimap_git_colors = 1
+
+-- Custom filemapping for tcss (Textual CSS)
+vim.filetype.add({
+	pattern = {
+		['.*.tcss'] = 'css',
+	},
+})

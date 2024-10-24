@@ -28,7 +28,7 @@ foreground = "#ebdbb2"
 TERM = "alacritty"
 
 [font]
-size = 9.0
+size = 12.0
 
 [font.bold]
 family = "Hack Nerd Font"
