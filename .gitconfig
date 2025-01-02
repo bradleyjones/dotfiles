@@ -7,7 +7,7 @@
 [alias]
 	c = commit -s -S
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 [rerere]
   enabled = true
 [credential]
