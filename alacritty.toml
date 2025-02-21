@@ -65,7 +65,7 @@ startup_mode = "Windowed"
 decorations = "Buttonless"
 
 [[hints.enabled]]
-command = "open"
+command = "xdg-open"
 mouse.enabled = true
 hyperlinks = true
 binding = { key = "U", mods = "Control|Shift" }
