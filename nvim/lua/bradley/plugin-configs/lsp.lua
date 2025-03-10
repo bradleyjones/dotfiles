@@ -28,21 +28,21 @@ end
 
 
 lsp.extend_lspconfig({
-  sign_text = true,
-  lsp_attach = lsp_attach,
-  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+	sign_text = true,
+	lsp_attach = lsp_attach,
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
 })
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  -- Replace the language servers listed here
-  -- with the ones you want to install
-  ensure_installed = {'lua_ls', 'gopls', 'ruff', 'pyright'},
-  handlers = {
-    function(server_name)
-      require('lspconfig')[server_name].setup({})
-    end,
-  }
+	-- Replace the language servers listed here
+	-- with the ones you want to install
+	ensure_installed = { 'lua_ls', 'ruff' },
+	handlers = {
+		function(server_name)
+			require('lspconfig')[server_name].setup({})
+		end,
+	}
 })
 
 -- Fix Undefined global 'vim'
@@ -79,23 +79,23 @@ lsp.configure('lua_ls', {
 
 -- Golang LSP
 local lspconfig = require 'lspconfig'
-lspconfig.ruff.setup{}
+lspconfig.ruff.setup {}
 
 local configs = require 'lspconfig/configs'
 
 if not configs.golangcilsp then
- 	configs.golangcilsp = {
+	configs.golangcilsp = {
 		default_config = {
-			cmd = {'golangci-lint-langserver'},
+			cmd = { 'golangci-lint-langserver' },
 			root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
 			init_options = {
-					command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" };
+				command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" },
 			}
-		};
+		},
 	}
 end
 lspconfig.golangci_lint_ls.setup {
-	filetypes = {'go','gomod'}
+	filetypes = { 'go', 'gomod' }
 }
 
 
@@ -110,20 +110,20 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 local cmp = require('cmp')
 
 cmp.setup({
-  sources = {
-	{ name = 'path' },
-	{ name = 'nvim_lsp',               keyword_length = 1 },
-	{ name = 'buffer',                 keyword_length = 3 },
-	{ name = 'luasnip',                keyword_length = 2 },
-	{ name = 'nvim_lsp_signature_help' }
-  },
-  snippet = {
-    expand = function(args)
-      -- You need Neovim v0.10 to use vim.snippet
-      vim.snippet.expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({}),
+	sources = {
+		{ name = 'path' },
+		{ name = 'nvim_lsp',               keyword_length = 1 },
+		{ name = 'buffer',                 keyword_length = 3 },
+		{ name = 'luasnip',                keyword_length = 2 },
+		{ name = 'nvim_lsp_signature_help' }
+	},
+	snippet = {
+		expand = function(args)
+			-- You need Neovim v0.10 to use vim.snippet
+			vim.snippet.expand(args.body)
+		end,
+	},
+	mapping = cmp.mapping.preset.insert({}),
 })
 
 
