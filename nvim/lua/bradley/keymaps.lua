@@ -32,10 +32,10 @@ vim.keymap.set('n', '<C-k>', function() require('lsp_signature').toggle_float_wi
 vim.keymap.set('n', '<leader>L', '<cmd>set relativenumber!<CR>')
 --
 -- Insert Mode hjkl movements
-vim.keymap.set('i', '<C-h>', '<C-o>h')
-vim.keymap.set('i', '<C-j>', '<C-o>j')
-vim.keymap.set('i', '<C-k>', '<C-o>k')
-vim.keymap.set('i', '<C-l>', '<C-o>l')
+vim.keymap.set('i', '<C-h>', '<Left>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-j>', '<Down>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-k>', '<Up>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true })
 --
 -- Trouble
 vim.keymap.set('n', 'gr', '<cmd>Trouble lsp toggle<cr>', { silent = true, noremap = true })
@@ -56,7 +56,7 @@ vim.keymap.set('n', '<leader>Tf', function() neotest.run.run(vim.fn.expand("%"))
 --
 -- Buffer Control
 vim.keymap.set('n', '<C-l>', '<cmd>BufferLineCycleNext<CR>')
-vim.keymap.set('n', '<C-h>', '<cmd>BufferLineCyclePrev<CR>')
+-- vim.keymap.set('n', '<C-h>', '<cmd>BufferLineCyclePrev<CR>')
 vim.keymap.set('n', '<C-w>d', '<cmd>bd<CR>') -- Close window / delete buffer
 --
 -- Light/Dark Mode
