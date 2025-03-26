@@ -72,10 +72,6 @@ vim.keymap.set('x', '<leader>ci', function()
 	comment_api.toggle.linewise(vim.fn.visualmode())
 end)
 --
--- Copilot
-vim.g.copilot_no_tab_map = true
-vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
---
 -- Diagnostics
 vim.keymap.set('n', '<C-d>n', '<cmd>lua vim.diagnostic.goto_next()<CR>', { desc = 'Go to next diagnostic' })
 vim.keymap.set('n', '<C-d>p', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { desc = 'Go to previous diagnostic' })
