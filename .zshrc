@@ -75,6 +75,8 @@ case `uname` in
   Linux)
     # commands for Linux go here
     export PATH=$PATH:/usr/local/go/bin:$HOME/.local/bin
+	export GOPATH=$HOME/go
+	export GOBIN=$GOPATH/bin
   ;;
 esac
 

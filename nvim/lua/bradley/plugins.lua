@@ -267,7 +267,7 @@ require("lazy").setup({
 						enabled = true,
 						auto_trigger = true,
 						keymap = {
-							accept = "<C-y>",
+							accept = "<C-o>",
 							accept_word = false,
 							accept_line = "<C-]>",
 							next = "<C-n>",
