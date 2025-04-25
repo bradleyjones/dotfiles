@@ -58,3 +58,6 @@ vim.filetype.add({
 		['.*.tcss'] = 'css',
 	},
 })
+
+-- Conceal (for obsidian.nvim)
+vim.opt.conceallevel = 2
