@@ -117,3 +117,4 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 export TERM="xterm-256color"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"

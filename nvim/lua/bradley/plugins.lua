@@ -499,37 +499,37 @@ require("lazy").setup({
 		"preservim/tagbar",
 
 		-- Obsidian
-		{
-			"obsidian-nvim/obsidian.nvim",
-			version = "*",  -- recommended, use latest release instead of latest commit
-			-- lazy = true,
-			ft = "markdown",
-			-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-			-- event = {
-			--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-			--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
-			--   -- refer to `:h file-pattern` for more examples
-			--   "BufReadPre /home/bradley/mind2.0/*.md",
-			--   "BufNewFile /home/bradley/mind2.0/*.md",
-			-- },
-			dependencies = {
-			  -- Required.
-			  "nvim-lua/plenary.nvim",
-			  -- Optional
-			  "hrsh7th/nvim-cmp",
-			  "nvim-telescope/telescope.nvim",
-			  "nvim-treesitter/nvim-treesitter",
-			  "MeanderingProgrammer/render-markdown.nvim",
-			},
-			opts = {
-			  workspaces = {
-				{
-				name = "mind2.0",
-				path = "/home/bradley/mind2.0",
-				},
-			  },
-			},
-		},
+		-- {
+		-- 	"obsidian-nvim/obsidian.nvim",
+		-- 	version = "*",  -- recommended, use latest release instead of latest commit
+		-- 	-- lazy = true,
+		-- 	ft = "markdown",
+		-- 	-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+		-- 	-- event = {
+		-- 	--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+		-- 	--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
+		-- 	--   -- refer to `:h file-pattern` for more examples
+		-- 	--   "BufReadPre /home/bradley/mind2.0/*.md",
+		-- 	--   "BufNewFile /home/bradley/mind2.0/*.md",
+		-- 	-- },
+		-- 	dependencies = {
+		-- 	  -- Required.
+		-- 	  "nvim-lua/plenary.nvim",
+		-- 	  -- Optional
+		-- 	  "hrsh7th/nvim-cmp",
+		-- 	  "nvim-telescope/telescope.nvim",
+		-- 	  "nvim-treesitter/nvim-treesitter",
+		-- 	  "MeanderingProgrammer/render-markdown.nvim",
+		-- 	},
+		-- 	opts = {
+		-- 	  workspaces = {
+		-- 		{
+		-- 		name = "mind2.0",
+		-- 		path = "/home/bradley/mind2.0",
+		-- 		},
+		-- 	  },
+		-- 	},
+		-- },
 
 		-- Zen Mode
 		"folke/zen-mode.nvim",
