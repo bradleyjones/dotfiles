@@ -38,23 +38,18 @@ require('mason-lspconfig').setup({
 	-- Replace the language servers listed here
 	-- with the ones you want to install
 	ensure_installed = { 'lua_ls', 'ruff' },
-	handlers = {
-		function(server_name)
-			require('lspconfig')[server_name].setup({})
-		end,
-	}
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('lua_ls', {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { 'vim' }
-			}
-		}
-	}
-})
+-- lsp.configure('lua_ls', {
+-- 	settings = {
+-- 		Lua = {
+-- 			diagnostics = {
+-- 				globals = { 'vim' }
+-- 			}
+-- 		}
+-- 	}
+-- })
 --
 -- lsp.configure('pylsp', {
 -- 	settings = {
@@ -78,25 +73,25 @@ lsp.configure('lua_ls', {
 -- })
 
 -- Golang LSP
-local lspconfig = require 'lspconfig'
-lspconfig.ruff.setup {}
-
-local configs = require 'lspconfig/configs'
-
-if not configs.golangcilsp then
-	configs.golangcilsp = {
-		default_config = {
-			cmd = { 'golangci-lint-langserver' },
-			root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
-			init_options = {
-				command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" },
-			}
-		},
-	}
-end
-lspconfig.golangci_lint_ls.setup {
-	filetypes = { 'go', 'gomod' }
-}
+-- local lspconfig = vim.lsp.config()
+-- lspconfig.ruff.setup {}
+--
+-- local configs = require 'lspconfig/configs'
+--
+-- if not configs.golangcilsp then
+-- 	configs.golangcilsp = {
+-- 		default_config = {
+-- 			cmd = { 'golangci-lint-langserver' },
+-- 			root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
+-- 			init_options = {
+-- 				command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" },
+-- 			}
+-- 		},
+-- 	}
+-- end
+-- lspconfig.golangci_lint_ls.setup {
+-- 	filetypes = { 'go', 'gomod' }
+-- }
 
 
 -- Finalise LSP Setup
