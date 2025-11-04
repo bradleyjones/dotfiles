@@ -23,7 +23,8 @@ require("lazy").setup({
 	spec = {
 		-- Fuzzy Finder
 		{
-			'nvim-telescope/telescope.nvim', branch = '0.1.x',
+			'nvim-telescope/telescope.nvim',
+			branch = '0.1.x',
 			dependencies = { 'nvim-lua/plenary.nvim' },
 		},
 
@@ -32,9 +33,9 @@ require("lazy").setup({
 			"nvim-neo-tree/neo-tree.nvim",
 			branch = "v3.x",
 			dependencies = {
-			  "nvim-lua/plenary.nvim",
-			  "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			  "MunifTanjim/nui.nvim",
+				"nvim-lua/plenary.nvim",
+				"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+				"MunifTanjim/nui.nvim",
 			},
 			config = function()
 				require('neo-tree').setup {
@@ -68,7 +69,7 @@ require("lazy").setup({
 			event = 'VeryLazy',
 			version = '2.*',
 			config = function()
-				require'window-picker'.setup()
+				require 'window-picker'.setup()
 			end,
 		},
 
@@ -140,7 +141,8 @@ require("lazy").setup({
 		-- use 'hrsh7th/cmp-nvim-lsp-signature-help' -- Show function signature while typing
 		{
 			"ray-x/lsp_signature.nvim",
-			config = function() require('lsp_signature').setup() end },
+			config = function() require('lsp_signature').setup() end
+		},
 		{
 			-- Multiline diagnostics
 			'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
@@ -177,7 +179,7 @@ require("lazy").setup({
 		{
 			'akinsho/bufferline.nvim',
 			version = '*',
-			dependencies = {'nvim-tree/nvim-web-devicons'},
+			dependencies = { 'nvim-tree/nvim-web-devicons' },
 			config = function()
 				require('bufferline').setup {
 					options = {
@@ -204,7 +206,7 @@ require("lazy").setup({
 		{
 			'folke/trouble.nvim',
 			branch = 'main',
-			dependencies = {'nvim-tree/nvim-web-devicons'},
+			dependencies = { 'nvim-tree/nvim-web-devicons' },
 			config = function()
 				require('trouble').setup {
 					auto_close = false,
@@ -420,79 +422,79 @@ require("lazy").setup({
 			}
 		},
 		{
-		  "yetone/avante.nvim",
-		  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-		  -- ⚠️ must add this setting! ! !
-		  build = vim.fn.has("win32") ~= 0
-			  and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-			  or "make",
-		  event = "VeryLazy",
-		  version = false, -- Never set this value to "*"! Never!
-		  ---@module 'avante'
-		  ---@type avante.Config
-		  opts = {
-			-- add any opts here
-			-- for example
-			provider = "copilot",
-			providers = {
-			  claude = {
-				endpoint = "https://api.anthropic.com",
-				model = "claude-sonnet-4-20250514",
-				timeout = 30000, -- Timeout in milliseconds
-				  extra_request_body = {
-					temperature = 0.75,
-					max_tokens = 20480,
-				  },
-			  },
-			  moonshot = {
-				endpoint = "https://api.moonshot.ai/v1",
-				model = "kimi-k2-0711-preview",
-				timeout = 30000, -- Timeout in milliseconds
-				extra_request_body = {
-				  temperature = 0.75,
-				  max_tokens = 32768,
+			"yetone/avante.nvim",
+			-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+			-- ⚠️ must add this setting! ! !
+			build = vim.fn.has("win32") ~= 0
+				and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+				or "make",
+			event = "VeryLazy",
+			version = false, -- Never set this value to "*"! Never!
+			---@module 'avante'
+			---@type avante.Config
+			opts = {
+				-- add any opts here
+				-- for example
+				provider = "copilot",
+				providers = {
+					claude = {
+						endpoint = "https://api.anthropic.com",
+						model = "claude-sonnet-4-20250514",
+						timeout = 30000, -- Timeout in milliseconds
+						extra_request_body = {
+							temperature = 0.75,
+							max_tokens = 20480,
+						},
+					},
+					moonshot = {
+						endpoint = "https://api.moonshot.ai/v1",
+						model = "kimi-k2-0711-preview",
+						timeout = 30000, -- Timeout in milliseconds
+						extra_request_body = {
+							temperature = 0.75,
+							max_tokens = 32768,
+						},
+					},
 				},
-			  },
 			},
-		  },
-		  dependencies = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			--- The below dependencies are optional,
-			"echasnovski/mini.pick", -- for file_selector provider mini.pick
-			"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-			"ibhagwan/fzf-lua", -- for file_selector provider fzf
-			"stevearc/dressing.nvim", -- for input provider dressing
-			"folke/snacks.nvim", -- for input provider snacks
-			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-			"zbirenbaum/copilot.lua", -- for providers='copilot'
-			{
-			  -- support for image pasting
-			  "HakonHarnes/img-clip.nvim",
-			  event = "VeryLazy",
-			  opts = {
-				-- recommended settings
-				default = {
-				  embed_image_as_base64 = false,
-				  prompt_for_file_name = false,
-				  drag_and_drop = {
-					insert_mode = true,
-				  },
-				  -- required for Windows users
-				  use_absolute_path = true,
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"MunifTanjim/nui.nvim",
+				--- The below dependencies are optional,
+				"echasnovski/mini.pick", -- for file_selector provider mini.pick
+				"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+				"hrsh7th/nvim-cmp",  -- autocompletion for avante commands and mentions
+				"ibhagwan/fzf-lua",  -- for file_selector provider fzf
+				"stevearc/dressing.nvim", -- for input provider dressing
+				"folke/snacks.nvim", -- for input provider snacks
+				"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+				"zbirenbaum/copilot.lua", -- for providers='copilot'
+				{
+					-- support for image pasting
+					"HakonHarnes/img-clip.nvim",
+					event = "VeryLazy",
+					opts = {
+						-- recommended settings
+						default = {
+							embed_image_as_base64 = false,
+							prompt_for_file_name = false,
+							drag_and_drop = {
+								insert_mode = true,
+							},
+							-- required for Windows users
+							use_absolute_path = true,
+						},
+					},
 				},
-			  },
+				{
+					-- Make sure to set this up properly if you have lazy=true
+					'MeanderingProgrammer/render-markdown.nvim',
+					opts = {
+						file_types = { "markdown", "Avante" },
+					},
+					ft = { "markdown", "Avante" },
+				},
 			},
-			{
-			  -- Make sure to set this up properly if you have lazy=true
-			  'MeanderingProgrammer/render-markdown.nvim',
-			  opts = {
-				file_types = { "markdown", "Avante" },
-			  },
-			  ft = { "markdown", "Avante" },
-			},
-		  },
 		},
 
 		-- Tagbar
@@ -530,6 +532,20 @@ require("lazy").setup({
 		-- 	  },
 		-- 	},
 		-- },
+		--
+		{
+			"NeogitOrg/neogit",
+			dependencies = {
+				"nvim-lua/plenary.nvim", -- required
+				"sindrets/diffview.nvim", -- optional - Diff integration
+
+				-- Only one of these is needed.
+				"nvim-telescope/telescope.nvim", -- optional
+				"ibhagwan/fzf-lua",  -- optional
+				"nvim-mini/mini.pick", -- optional
+				"folke/snacks.nvim", -- optional
+			},
+		},
 
 		-- Zen Mode
 		"folke/zen-mode.nvim",
